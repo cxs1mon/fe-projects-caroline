@@ -290,10 +290,10 @@
     width: 102px;
     height: 124px;
     top: 194px;
-    left: 185px;
+    left: 187px;
     rotate: 35deg;
     border-radius: 0% 20% 0% 70%;
-    border-width: 2px;
+    border-width: 2px 2px 0 0;
     border-style: solid;
     background-color: var(--mouth-color);
     opacity: 0.3;
@@ -307,7 +307,7 @@
     rotate: -20deg;
     border-radius: 35% 40% 10% 40%;
     opacity: 0.3;
-    border-width: 2px;
+    border-width: 2px 0 0 2px;
     border-style: solid;
     background-color: var(--mouth-color);
 }
@@ -315,12 +315,12 @@
 .mouth__inner {
     width: 80px;
     height: 65px;
-    top: 190px;
-    left: 185px;
-    rotate: 75deg;
+    top: 192px;
+    left: 176px;
+    rotate: 84deg;
     border-radius: 00% 10% 40% 50%;
     opacity: 0.3;
-    border-width: 2px;
+    border-width: 0 2px 2px 0;
     border-style: solid;
     background-color: black;
 }
@@ -329,7 +329,7 @@
     width: 30px;
     height: 25px;
     top: 241px;
-    left: 200px;
+    left: 190px;
     rotate: -10deg;
     border-radius: 00% 100% 20% 100%;
     opacity: 0.5;
@@ -346,27 +346,28 @@
     rotate: 35deg;
     border-radius: 40% 0% 0% 0%;
     opacity: 0.5;
-    border-width: 2px;
+    border-width: 0px 0 0 2px;
     border-style: solid;
 }
 
 .mouth__topL {
     width: 75px;
     height: 45px;
-    top: 190px;
-    left: 185px;
+    top: 194px;
+    left: 190px;
     rotate: 55deg;
     border-radius: 20% 0% 100% 10%;
     border-width: 0 2px 2px 0;
     border-style: solid;
     background-color: var(--mouth-color);
+    opacity: 0.3;
 }
 
 .mouth__topR {
     width: 55px;
     height: 15px;
-    top: 195px;
-    left: 225px;
+    top: 200px;
+    left: 230px;
     rotate: 55deg;
     border-radius: 0% 0% 20% 50%;
     opacity: 0.3;
@@ -380,9 +381,9 @@
     width: 20px;
     height: 20px;
     top: 237px;
-    left: 239px;
-    rotate: -5deg;
-    border-radius: 0% 0% 20% 100%;
+    left: 235px;
+    rotate: -10deg;
+    border-radius: 0% 0% 10% 90%;
     opacity: 0.5;
     border-width: 0 0 2px 2px;
     border-style: solid;
@@ -391,11 +392,11 @@
 
 .mouth__sideLine {
     width: 20px;
-    height: 30px;
+    height: 20px;
     top: 255px;
-    left: 242px;
-    rotate: 20deg;
-    border-radius: 0% 20% 0% 0%;
+    left: 237px;
+    rotate: 30deg;
+    border-radius: 0% 10% 20% 0%;
     opacity: 0.5;
     border-width: 0px 2px 0px 0px;
     border-style: solid;
@@ -614,6 +615,7 @@
     border-radius: 70% 70% 30% 50%;
     border-width: 0 4px 0 4px;
     border-style: solid;
+    opacity: 0.3;
 }
 
 .clothing__big2 {
@@ -628,6 +630,7 @@
     border-style: solid;
 }
 
+
 .clothing__big3 {
     width: 40px;
     height: 20px;
@@ -636,7 +639,7 @@
     left: 240px;
     rotate: -10deg;
     border-radius: 0% 0% 0% 0%;
-    border-width: 4px;
+    border-width: 0 0px 0 0;
     border-style: solid;
 
     opacity: 0.6;
@@ -929,7 +932,7 @@
     left: 92px;
     rotate: 0deg;
     border-radius: 10% 30% 30% 90%;
-    border-width: 2px;
+    border-width: 0 2px 0px 2px;
     border-style: solid;
     background-color: var(--body-color);
     opacity: 0.4;
@@ -942,7 +945,7 @@
     left: 99px;
     rotate: 15deg;
     border-radius: 0% 100% 0% 0%;
-    border-width: 2px;
+    border-width: 2px 0 0 2px;
     border-style: solid;
     background-color: var(--body-color);
     opacity: 0.4;
@@ -955,12 +958,12 @@
     left: 115px;
     rotate: -35deg;
     border-radius: 0% 0% 0% 0%;
-    border-width: 2px;
+    border-width: 0 2px 0 0;
     border-style: solid;
     background-color: var(--body-color);
     opacity: 0.4;
 }
-
+/*
 .arm__topR1 {
     width: 20px;
     height: 40px;
@@ -968,20 +971,20 @@
     left: 147px;
     rotate: -40deg;
     border-radius: 0% 0% 0% 0%;
-    border-width: 2px;
+    border-width: 0 2px 0px 0;
     border-style: solid;
     background-color: var(--body-color);
     opacity: 0.4;
 }
-
+*/
 .arm__topR2 {
-    width: 13px;
+    width: 15px;
     height: 50px;
     top: 299px;
     left: 146px;
     rotate: -40deg;
     border-radius: 100% 0% 0% 0%;
-    border-width: 2px;
+    border-width: 2px 2px 2px 0;
     border-style: solid;
     background-color: var(--body-color);
     opacity: 0.4;
@@ -996,7 +999,7 @@
     left: 104px;
     rotate: 40deg;
     border-radius: 00% 40% 40% 00%;
-    border-width: 2px;
+    border-width: 0 2px;
     border-style: solid;
     background-color: var(--body-color);
     opacity: 0.4;
@@ -1004,25 +1007,25 @@
 
 .hand__finger1 {
     width: 10px;
-    height: 20px;
+    height: 17px;
     top: 500px;
     left: 146px;
     rotate: 0deg;
     border-radius: 00% 0% 40% 20%;
-    border-width: 2px;
+    border-width: 0 2px 2px 0;
     border-style: solid;
     background-color: var(--body-color);
     opacity: 0.4;
 }
 
 .hand__finger2 {
-    width: 25px;
+    width: 22px;
     height: 30px;
-    top: 496px;
+    top: 500px;
     left: 115px;
     rotate: 40deg;
-    border-radius: 00% 0% 40% 20%;
-    border-width: 2px;
+    border-radius: 10% 0% 40% 20%;
+    border-width: 0 2px 2px 2px;
     border-style: solid;
     background-color: var(--body-color);
     opacity: 0.4;
@@ -1030,12 +1033,12 @@
 
 .hand__finger3 {
     width: 25px;
-    height: 30px;
-    top: 487px;
-    left: 85px;
+    height: 26px;
+    top: 490px;
+    left: 87px;
     rotate: 0deg;
     border-radius: 30% 0% 40% 100%;
-    border-width: 2px;
+    border-width: 2px 0 2px 2px;
     border-style: solid;
     background-color: var(--body-color);
     opacity: 0.4;
@@ -1047,8 +1050,8 @@
     top: 460px;
     left: 86px;
     rotate: 0deg;
-    border-radius: 30% 100% 40% 60%;
-    border-width: 2px;
+    border-radius: 30% 100% 0% 60%;
+    border-width: 2px 0 2px 2px;
     border-style: solid;
     background-color: var(--body-color);
     opacity: 0.4;
