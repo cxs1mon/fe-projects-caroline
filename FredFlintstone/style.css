@@ -28,7 +28,7 @@
     top: 55px;
     left: 215px;
     rotate: -5deg;
-    border-radius: 0% 100% 0% 0%;
+    border-radius: 20% 100% 0% 0%;
     border-width: 2px;
     border-style: solid;
     border-color: var(--hair-color);
@@ -161,7 +161,6 @@
     left: 222px;
     rotate: 30deg;
     border-radius: 100% 100% 100% 100%;
-
     border-width: 2px;
     border-style: solid;
 
@@ -183,28 +182,26 @@
     width: 15px;
     height: 35px;
     background-color: rgb(255, 255, 255);
-
-
     top: 121px;
     left: 249px;
     rotate: 16deg;
     border-radius: 100% 120% 30% 100%;
     border-width: 2px;
     border-style: solid;
+    z-index: 5;
 }
 
 .eyes__pupil-right {
     width: 8px;
     height: 20px;
     background-color: rgb(0, 0, 0);
-
-
     top: 140px;
     left: 249px;
     rotate: 10deg;
     border-radius: 100% 120% 100% 100%;
     border-width: 2px;
     border-style: solid;
+    z-index: 5;
 }
 
 .eyes__bottomline {
@@ -270,6 +267,7 @@
     border-width: 2px;
     border-style: solid;
     background-color: var(--body-color);
+    z-index: 3;
 }
 
 .face__ear {
@@ -296,7 +294,7 @@
     border-width: 2px 2px 0 0;
     border-style: solid;
     background-color: var(--mouth-color);
-    opacity: 0.3;
+    z-index: 3;
 }
 
 .mouth__bg2 {
@@ -305,34 +303,33 @@
     top: 173px;
     left: 162px;
     rotate: -20deg;
-    border-radius: 35% 40% 10% 40%;
-    opacity: 0.3;
+    border-radius: 35% 40% 10% 30%;
     border-width: 2px 0 0 2px;
     border-style: solid;
     background-color: var(--mouth-color);
+    z-index: 3;
 }
 
 .mouth__inner {
     width: 80px;
-    height: 65px;
-    top: 192px;
+    height: 60px;
+    top: 191px;
     left: 176px;
-    rotate: 84deg;
-    border-radius: 00% 10% 40% 50%;
-    opacity: 0.3;
+    rotate: 80deg;
+    border-radius: 0% 10% 40% 70%;
     border-width: 0 2px 2px 0;
     border-style: solid;
     background-color: black;
+    z-index: 4;
 }
 
 .mouth__tongue {
     width: 30px;
     height: 25px;
-    top: 241px;
-    left: 190px;
-    rotate: -10deg;
+    top: 236px;
+    left: 192px;
+    rotate: -12deg;
     border-radius: 00% 100% 20% 100%;
-    opacity: 0.5;
     border-width: 2px;
     border-style: solid;
     background-color: #F6495D;
@@ -340,54 +337,54 @@
 
 .mouth__edgeL {
     width: 15px;
-    height: 20px;
+    height: 24px;
     top: 195px;
-    left: 186px;
+    left: 189px;
     rotate: 35deg;
     border-radius: 40% 0% 0% 0%;
-    opacity: 0.5;
     border-width: 0px 0 0 2px;
     border-style: solid;
+    z-index: 5;
 }
 
 .mouth__topL {
     width: 75px;
     height: 45px;
     top: 194px;
-    left: 190px;
+    left: 194px;
     rotate: 55deg;
     border-radius: 20% 0% 100% 10%;
     border-width: 0 2px 2px 0;
     border-style: solid;
     background-color: var(--mouth-color);
-    opacity: 0.3;
+    z-index: 5;
 }
 
 .mouth__topR {
     width: 55px;
     height: 15px;
     top: 200px;
-    left: 230px;
+    left: 234px;
     rotate: 55deg;
     border-radius: 0% 0% 20% 50%;
-    opacity: 0.3;
     border-width: 0px;
     border-bottom: 3px;
     border-style: solid;
     background-color: var(--mouth-color);
+    z-index: 6;
 }
 
 .mouth__bottom {
     width: 20px;
     height: 20px;
-    top: 237px;
+    top: 238px;
     left: 235px;
     rotate: -10deg;
-    border-radius: 0% 0% 10% 90%;
-    opacity: 0.5;
+    border-radius: 0% 0% 0% 90%;
     border-width: 0 0 2px 2px;
     border-style: solid;
-    background-color: transparent;
+    background-color: var(--mouth-color);
+    z-index: 4;
 }
 
 .mouth__sideLine {
@@ -397,7 +394,6 @@
     left: 237px;
     rotate: 30deg;
     border-radius: 0% 10% 20% 0%;
-    opacity: 0.5;
     border-width: 0px 2px 0px 0px;
     border-style: solid;
     background-color: transparent;
@@ -506,6 +502,7 @@
     border-radius: 10% 10% 10% 120%;
     border-width: 0 4px 4px 0;
     border-style: solid;
+    z-index: 1;
 }
 
 .clothing__spike2 {
@@ -518,6 +515,7 @@
     border-radius: 10% 10% 10% 80%;
     border-width: 0 4px 4px 0;
     border-style: solid;
+    z-index: 1;
 }
 
 .clothing__spike3 {
@@ -530,6 +528,7 @@
     border-radius: 10% 10% 10% 120%;
     border-width: 0 4px 4px 0;
     border-style: solid;
+    z-index: 1;
 }
 
 .clothing__spike4 {
@@ -542,6 +541,7 @@
     border-radius: 10% 10% 10% 120%;
     border-width: 0 4px 4px 0;
     border-style: solid;
+    z-index: 1;
 }
 
 .clothing__spike5 {
@@ -554,6 +554,7 @@
     border-radius: 10% 110% 10% 120%;
     border-width: 0 4px 4px 0;
     border-style: solid;
+    z-index: 1;
 }
 
 .clothing__spike6 {
@@ -566,6 +567,7 @@
     border-radius: 0% 0% 100% 10%;
     border-width: 0 0 0 4px;
     border-style: solid;
+    z-index: 1;
 }
 
 .clothing__spike7 {
@@ -578,6 +580,7 @@
     border-radius: 0% 0% 70% 20%;
     border-width: 0 0 0 4px;
     border-style: solid;
+    z-index: 1;
 }
 
 .clothing__spike8 {
@@ -590,6 +593,7 @@
     border-radius: 100% 0% 100% 20%;
     border-width: 0 0px 0px 4px;
     border-style: solid;
+    z-index: 1;
     
 }
 
@@ -603,6 +607,7 @@
     border-radius: 40% 0% 80% 20%;
     border-width: 0 0 0px 4px;
     border-style: solid;
+    z-index: 1;
 }
 
 .clothing__big1 {
@@ -615,7 +620,8 @@
     border-radius: 70% 70% 30% 50%;
     border-width: 0 4px 0 4px;
     border-style: solid;
-    opacity: 0.3;
+    opacity: 1;
+    z-index: 2;
 }
 
 .clothing__big2 {
@@ -628,6 +634,7 @@
     border-radius: 0% 0% 0% 30%;
     border-width: 0 0 0 4px;
     border-style: solid;
+    z-index: 3;
 }
 
 
@@ -929,13 +936,13 @@
     width: 80px;
     height: 160px;
     top: 320px;
-    left: 92px;
+    left: 93px;
     rotate: 0deg;
-    border-radius: 10% 30% 30% 90%;
+    border-radius: 6% 28% 20% 70%;
     border-width: 0 2px 0px 2px;
     border-style: solid;
     background-color: var(--body-color);
-    opacity: 0.4;
+    z-index: 5;
 }
 
 .arm__topL1 {
@@ -948,7 +955,7 @@
     border-width: 2px 0 0 2px;
     border-style: solid;
     background-color: var(--body-color);
-    opacity: 0.4;
+    z-index: 4;
 }
 
 .arm__topL2 {
@@ -956,38 +963,24 @@
     height: 40px;
     top: 290px;
     left: 115px;
-    rotate: -35deg;
+    rotate: -31deg;
     border-radius: 0% 0% 0% 0%;
     border-width: 0 2px 0 0;
     border-style: solid;
     background-color: var(--body-color);
-    opacity: 0.4;
+    z-index: 4;
 }
-/*
 .arm__topR1 {
-    width: 20px;
-    height: 40px;
-    top: 314px;
-    left: 147px;
-    rotate: -40deg;
-    border-radius: 0% 0% 0% 0%;
-    border-width: 0 2px 0px 0;
-    border-style: solid;
-    background-color: var(--body-color);
-    opacity: 0.4;
-}
-*/
-.arm__topR2 {
-    width: 15px;
+    width: 17px;
     height: 50px;
     top: 299px;
-    left: 146px;
+    left: 144px;
     rotate: -40deg;
     border-radius: 100% 0% 0% 0%;
     border-width: 2px 2px 2px 0;
     border-style: solid;
     background-color: var(--body-color);
-    opacity: 0.4;
+    z-index: 4;
 }
 
 
@@ -1002,7 +995,7 @@
     border-width: 0 2px;
     border-style: solid;
     background-color: var(--body-color);
-    opacity: 0.4;
+    z-index: 4;
 }
 
 .hand__finger1 {
@@ -1015,7 +1008,7 @@
     border-width: 0 2px 2px 0;
     border-style: solid;
     background-color: var(--body-color);
-    opacity: 0.4;
+    z-index: 3;
 }
 
 .hand__finger2 {
@@ -1028,33 +1021,33 @@
     border-width: 0 2px 2px 2px;
     border-style: solid;
     background-color: var(--body-color);
-    opacity: 0.4;
+    z-index: 4;
 }
 
 .hand__finger3 {
     width: 25px;
     height: 26px;
     top: 490px;
-    left: 87px;
+    left: 86px;
     rotate: 0deg;
-    border-radius: 30% 0% 40% 100%;
+    border-radius: 30% 0% 30% 100%;
     border-width: 2px 0 2px 2px;
     border-style: solid;
     background-color: var(--body-color);
-    opacity: 0.4;
+    z-index: 4;
 }
 
 .hand__finger4 {
     width: 20px;
     height: 30px;
-    top: 460px;
-    left: 86px;
-    rotate: 0deg;
-    border-radius: 30% 100% 0% 60%;
-    border-width: 2px 0 2px 2px;
+    top: 457px;
+    left: 83px;
+    rotate: -20deg;
+    border-radius: 30% 60% 0% 30%;
+    border-width: 2px 0 0px 2px;
     border-style: solid;
     background-color: var(--body-color);
-    opacity: 0.4;
+    z-index: 4;
 }
 
 
