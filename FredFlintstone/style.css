@@ -28,7 +28,7 @@
     top: 55px;
     left: 215px;
     rotate: -5deg;
-    border-radius: 0% 100% 0% 0%;
+    border-radius: 20% 100% 0% 0%;
     border-width: 2px;
     border-style: solid;
     border-color: var(--hair-color);
@@ -161,7 +161,6 @@
     left: 222px;
     rotate: 30deg;
     border-radius: 100% 100% 100% 100%;
-
     border-width: 2px;
     border-style: solid;
 
@@ -183,28 +182,26 @@
     width: 15px;
     height: 35px;
     background-color: rgb(255, 255, 255);
-
-
     top: 121px;
     left: 249px;
     rotate: 16deg;
     border-radius: 100% 120% 30% 100%;
     border-width: 2px;
     border-style: solid;
+    z-index: 5;
 }
 
 .eyes__pupil-right {
     width: 8px;
     height: 20px;
     background-color: rgb(0, 0, 0);
-
-
     top: 140px;
     left: 249px;
     rotate: 10deg;
     border-radius: 100% 120% 100% 100%;
     border-width: 2px;
     border-style: solid;
+    z-index: 5;
 }
 
 .eyes__bottomline {
@@ -270,6 +267,7 @@
     border-width: 2px;
     border-style: solid;
     background-color: var(--body-color);
+    z-index: 3;
 }
 
 .face__ear {
@@ -296,7 +294,7 @@
     border-width: 2px 2px 0 0;
     border-style: solid;
     background-color: var(--mouth-color);
-    opacity: 0.3;
+    z-index: 3;
 }
 
 .mouth__bg2 {
@@ -305,34 +303,33 @@
     top: 173px;
     left: 162px;
     rotate: -20deg;
-    border-radius: 35% 40% 10% 40%;
-    opacity: 0.3;
+    border-radius: 35% 40% 10% 30%;
     border-width: 2px 0 0 2px;
     border-style: solid;
     background-color: var(--mouth-color);
+    z-index: 3;
 }
 
 .mouth__inner {
     width: 80px;
-    height: 65px;
-    top: 192px;
+    height: 60px;
+    top: 191px;
     left: 176px;
-    rotate: 84deg;
-    border-radius: 00% 10% 40% 50%;
-    opacity: 0.3;
+    rotate: 80deg;
+    border-radius: 0% 10% 40% 70%;
     border-width: 0 2px 2px 0;
     border-style: solid;
     background-color: black;
+    z-index: 4;
 }
 
 .mouth__tongue {
     width: 30px;
     height: 25px;
-    top: 241px;
-    left: 190px;
-    rotate: -10deg;
+    top: 236px;
+    left: 192px;
+    rotate: -12deg;
     border-radius: 00% 100% 20% 100%;
-    opacity: 0.5;
     border-width: 2px;
     border-style: solid;
     background-color: #F6495D;
@@ -340,54 +337,54 @@
 
 .mouth__edgeL {
     width: 15px;
-    height: 20px;
+    height: 24px;
     top: 195px;
-    left: 186px;
+    left: 189px;
     rotate: 35deg;
     border-radius: 40% 0% 0% 0%;
-    opacity: 0.5;
     border-width: 0px 0 0 2px;
     border-style: solid;
+    z-index: 5;
 }
 
 .mouth__topL {
     width: 75px;
     height: 45px;
     top: 194px;
-    left: 190px;
+    left: 194px;
     rotate: 55deg;
     border-radius: 20% 0% 100% 10%;
     border-width: 0 2px 2px 0;
     border-style: solid;
     background-color: var(--mouth-color);
-    opacity: 0.3;
+    z-index: 5;
 }
 
 .mouth__topR {
     width: 55px;
     height: 15px;
     top: 200px;
-    left: 230px;
+    left: 234px;
     rotate: 55deg;
     border-radius: 0% 0% 20% 50%;
-    opacity: 0.3;
     border-width: 0px;
     border-bottom: 3px;
     border-style: solid;
     background-color: var(--mouth-color);
+    z-index: 6;
 }
 
 .mouth__bottom {
     width: 20px;
     height: 20px;
-    top: 237px;
+    top: 238px;
     left: 235px;
     rotate: -10deg;
-    border-radius: 0% 0% 10% 90%;
-    opacity: 0.5;
+    border-radius: 0% 0% 0% 90%;
     border-width: 0 0 2px 2px;
     border-style: solid;
-    background-color: transparent;
+    background-color: var(--mouth-color);
+    z-index: 4;
 }
 
 .mouth__sideLine {
@@ -397,7 +394,6 @@
     left: 237px;
     rotate: 30deg;
     border-radius: 0% 10% 20% 0%;
-    opacity: 0.5;
     border-width: 0px 2px 0px 0px;
     border-style: solid;
     background-color: transparent;
@@ -482,14 +478,15 @@
 
 .scarf__right {
     width: 20px;
-    height: 50px;
+    height: 60px;
     background-color: var(--scraf-color);
     top: 265px;
-    left: 275px;
+    left: 265px;
     rotate: 55deg;
     border-radius: 15% 90% 20% 0%;
     border-width: 4px;
     border-style: solid;
+    z-index: 2;
 }
 
 
@@ -506,6 +503,7 @@
     border-radius: 10% 10% 10% 120%;
     border-width: 0 4px 4px 0;
     border-style: solid;
+    z-index: 1;
 }
 
 .clothing__spike2 {
@@ -518,6 +516,7 @@
     border-radius: 10% 10% 10% 80%;
     border-width: 0 4px 4px 0;
     border-style: solid;
+    z-index: 1;
 }
 
 .clothing__spike3 {
@@ -530,6 +529,7 @@
     border-radius: 10% 10% 10% 120%;
     border-width: 0 4px 4px 0;
     border-style: solid;
+    z-index: 1;
 }
 
 .clothing__spike4 {
@@ -542,6 +542,7 @@
     border-radius: 10% 10% 10% 120%;
     border-width: 0 4px 4px 0;
     border-style: solid;
+    z-index: 1;
 }
 
 .clothing__spike5 {
@@ -554,6 +555,7 @@
     border-radius: 10% 110% 10% 120%;
     border-width: 0 4px 4px 0;
     border-style: solid;
+    z-index: 1;
 }
 
 .clothing__spike6 {
@@ -566,6 +568,7 @@
     border-radius: 0% 0% 100% 10%;
     border-width: 0 0 0 4px;
     border-style: solid;
+    z-index: 1;
 }
 
 .clothing__spike7 {
@@ -578,6 +581,7 @@
     border-radius: 0% 0% 70% 20%;
     border-width: 0 0 0 4px;
     border-style: solid;
+    z-index: 1;
 }
 
 .clothing__spike8 {
@@ -590,6 +594,7 @@
     border-radius: 100% 0% 100% 20%;
     border-width: 0 0px 0px 4px;
     border-style: solid;
+    z-index: 1;
     
 }
 
@@ -603,6 +608,7 @@
     border-radius: 40% 0% 80% 20%;
     border-width: 0 0 0px 4px;
     border-style: solid;
+    z-index: 1;
 }
 
 .clothing__big1 {
@@ -615,7 +621,8 @@
     border-radius: 70% 70% 30% 50%;
     border-width: 0 4px 0 4px;
     border-style: solid;
-    opacity: 0.3;
+    opacity: 1;
+    z-index: 2;
 }
 
 .clothing__big2 {
@@ -628,6 +635,7 @@
     border-radius: 0% 0% 0% 30%;
     border-width: 0 0 0 4px;
     border-style: solid;
+    z-index: 3;
 }
 
 
@@ -711,11 +719,11 @@
 
 .leg__left {
     width: 90px;
-    height: 200px;
+    height: 198px;
     top: 464px;
     left: 110px;
     rotate: 0deg;
-    border-radius: 0% 20% 00% 70%;
+    border-radius: 0% 20% 00% 69%;
     border-width: 0 2px 0 2px;
     border-style: solid;
     background-color: var(--body-color);
@@ -724,7 +732,7 @@
 
 .leg__right {
     width: 75px;
-    height: 200px;
+    height: 199px;
     background-color: var(--body-color);
     top: 464px;
     left: 200px;
@@ -755,10 +763,10 @@
 
 .foot__left-2 {
     width: 20px;
-    height: 50px;
-    top: 630px;
-    left:110px;
-    rotate: 60deg;
+    height: 47px;
+    top: 633px;
+    left:111px;
+    rotate: 62deg;
     border-radius: 0% 0% 0% 0%;
     border-width: 0px 0px 0 2px;
     border-style: solid;
@@ -809,12 +817,12 @@
 }
 
 .foot__left-nail {
-    width: 14px;
-    height: 8px;
-    top: 670px;
-    left: 100px;
-    rotate: 13deg;
-    border-radius: 0% 10% 40% 100%;
+    width: 10px;
+    height: 9px;
+    top: 668px;
+    left: 102px;
+    rotate: -13deg;
+    border-radius: 30% 10% 100% 40%;
     border-width: 2px;
     border-style: solid;
     background-color: var(--body-color);
@@ -917,8 +925,8 @@
     height: 7px;
     top: 660px;
     left: 283px;
-    rotate: 10deg;
-    border-radius: 20% 10% 100% 20%;
+    rotate: 4deg;
+    border-radius: 30% 0% 120% 10%;
     border-width: 2px;
     border-style: solid;
     background-color: var(--body-color);
@@ -929,13 +937,13 @@
     width: 80px;
     height: 160px;
     top: 320px;
-    left: 92px;
+    left: 93px;
     rotate: 0deg;
-    border-radius: 10% 30% 30% 90%;
+    border-radius: 5% 28% 20% 70%;
     border-width: 0 2px 0px 2px;
     border-style: solid;
     background-color: var(--body-color);
-    opacity: 0.4;
+    z-index: 5;
 }
 
 .arm__topL1 {
@@ -948,7 +956,7 @@
     border-width: 2px 0 0 2px;
     border-style: solid;
     background-color: var(--body-color);
-    opacity: 0.4;
+    z-index: 4;
 }
 
 .arm__topL2 {
@@ -956,38 +964,24 @@
     height: 40px;
     top: 290px;
     left: 115px;
-    rotate: -35deg;
-    border-radius: 0% 0% 0% 0%;
+    rotate: -31deg;
+    border-radius: 0% 10% 0% 0%;
     border-width: 0 2px 0 0;
     border-style: solid;
     background-color: var(--body-color);
-    opacity: 0.4;
+    z-index: 4;
 }
-/*
 .arm__topR1 {
-    width: 20px;
-    height: 40px;
-    top: 314px;
-    left: 147px;
-    rotate: -40deg;
-    border-radius: 0% 0% 0% 0%;
-    border-width: 0 2px 0px 0;
-    border-style: solid;
-    background-color: var(--body-color);
-    opacity: 0.4;
-}
-*/
-.arm__topR2 {
-    width: 15px;
-    height: 50px;
+    width: 17px;
+    height: 35px;
     top: 299px;
-    left: 146px;
+    left: 137px;
     rotate: -40deg;
     border-radius: 100% 0% 0% 0%;
     border-width: 2px 2px 2px 0;
     border-style: solid;
     background-color: var(--body-color);
-    opacity: 0.4;
+    z-index: 4;
 }
 
 
@@ -1002,20 +996,20 @@
     border-width: 0 2px;
     border-style: solid;
     background-color: var(--body-color);
-    opacity: 0.4;
+    z-index: 4;
 }
 
 .hand__finger1 {
     width: 10px;
     height: 17px;
     top: 500px;
-    left: 146px;
-    rotate: 0deg;
+    left: 144px;
+    rotate: 9deg;
     border-radius: 00% 0% 40% 20%;
     border-width: 0 2px 2px 0;
     border-style: solid;
     background-color: var(--body-color);
-    opacity: 0.4;
+    z-index: 3;
 }
 
 .hand__finger2 {
@@ -1023,40 +1017,137 @@
     height: 30px;
     top: 500px;
     left: 115px;
-    rotate: 40deg;
+    rotate: 41deg;
     border-radius: 10% 0% 40% 20%;
     border-width: 0 2px 2px 2px;
     border-style: solid;
     background-color: var(--body-color);
-    opacity: 0.4;
+    z-index: 6;
 }
 
 .hand__finger3 {
     width: 25px;
     height: 26px;
     top: 490px;
-    left: 87px;
+    left: 86px;
     rotate: 0deg;
-    border-radius: 30% 0% 40% 100%;
+    border-radius: 30% 0% 30% 100%;
     border-width: 2px 0 2px 2px;
     border-style: solid;
     background-color: var(--body-color);
-    opacity: 0.4;
+    z-index: 5;
 }
 
 .hand__finger4 {
     width: 20px;
     height: 30px;
-    top: 460px;
-    left: 86px;
-    rotate: 0deg;
-    border-radius: 30% 100% 0% 60%;
-    border-width: 2px 0 2px 2px;
+    top: 458px;
+    left: 83px;
+    rotate: -20deg;
+    border-radius: 30% 60% 0% 30%;
+    border-width: 2px 0 0px 2px;
     border-style: solid;
     background-color: var(--body-color);
-    opacity: 0.4;
+    z-index: 4;
 }
 
+/* Helper */
+.helper__mouthR{
+    width: 10px;
+    height: 12px;
+    top: 244px;
+    left: 250px;
+    rotate: 0deg;
+    background-color: var(--mouth-color);
+}
+.helper__mouthL{
+    width: 30px;
+    height: 10px;
+    top: 181px;
+    left: 191px;
+    rotate: -25deg;
+    background-color: var(--mouth-color);
+}
+.helper__armTopL{
+    width: 4px;
+    height: 4px;
+    top: 317px;
+    left: 96.5px;
+    rotate: 12deg;
+    background-color: var(--body-color);
+}
+.helper__armTopR{
+    width: 10px;
+    height: 10px;
+    top: 317px;
+    left: 148px;
+    rotate: -44deg;
+    background-color: var(--body-color);
+}
+.helper__clothingFold{
+    width: 38px;
+    height: 10px;
+    top: 328px;
+    left: 145px;
+    rotate: 49deg;
+    border: solid black;
+    border-width: 2px 1px 0px 0 ;
+    border-bottom-right-radius: 90%;
+    z-index: 3;
+    background-color: #000;
+}
+.helper__armBottom{
+    height: 25px;
+    width: 52px;
+    top: 458px;
+    left: 116px;
+    rotate: 20deg;
+    background-color: var(--body-color);
+}
+.helper__clothingL2{
+    height: 40px;
+    width: 6px;
+    top: 444px;
+    left: 73px;
+    rotate: -19deg;
+    background-color: var(--clothing-color);
+    border-top-right-radius: 80%;
+    border-bottom-left-radius: 80%;
+}
+.helper__clothingL1{
+    height: 40px;
+    width: 6px;
+    top: 444px;
+    left: 71px;
+    rotate: -14deg;
+    background-color: var(--clothing-color);
+    border-top-right-radius: 80%;
+    border-bottom-left-radius: 80%;
+}
+.helper__clothingR{
+    height: 10px;
+    width: 34px;
+    top: 499px;
+    left: 257px;
+    rotate: -35deg;
+    background-color: var(--clothing-color);
+}
+.helper__footR{
+    height: 10px;
+    width: 10px;
+    top: 629px;
+    left: 255px;
+    rotate: 30deg;
+    background-color: var(--body-color);
+}
+.helper__footL{
+    height: 10px;
+    width: 10px;
+    top: 637px;
+    left: 135px;
+    rotate: -30deg;
+    background-color: var(--body-color);
+}
 
 .uppermost{
     z-index: 100;
