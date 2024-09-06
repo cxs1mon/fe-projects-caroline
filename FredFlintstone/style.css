@@ -478,14 +478,15 @@
 
 .scarf__right {
     width: 20px;
-    height: 50px;
+    height: 60px;
     background-color: var(--scraf-color);
     top: 265px;
-    left: 275px;
+    left: 265px;
     rotate: 55deg;
     border-radius: 15% 90% 20% 0%;
     border-width: 4px;
     border-style: solid;
+    z-index: 2;
 }
 
 
