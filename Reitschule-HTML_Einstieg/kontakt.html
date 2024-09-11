@@ -3,17 +3,16 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Kontakt - Reitschule Schluchebärg</title>
-    <link href="./css/style.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Reitschule Schluchebärg - Angebote für Reitunterricht und Voltegieren">
+    <title>Kontakt - Reitschule Schluchebärg</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative&display=swap" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
 </head>
-
 <body class="page container-fluid">
     <header class="header row">
-        <h1 class="header__title"><a class="link header__link col" href="index.html">Reitschule Schluchebärg</a></h1>
+        <h1 class="header__title col"><a class="link header__link" href="index.html">Reitschule Schluchebärg</a></h1>
     </header>
     <main class="main row g-0">
         <div class="col col-lg-2">
@@ -28,97 +27,79 @@
             </nav>
         </div>
         <div class="col-sm-12 col-lg-10">
-            <article class="main__article ">
-                <section class="main__article">
-
-                    <h2 class="main__title">Kontakt</h2>
-
+            <section class="text-block">
+                <h2 class="text-block__title">Kontakt</h2>
+                <h3 class="text-block__subtitle">Addressen</h3>
+                <p class="text-block__contact-tag">Email: </p>
+                <a class="link link--underline" href="mailto:emilia.muster@reitschule.ch">emilia.muster@reitschule.ch</a>
+                <p class="text-block__contact-tag">Telefon: </p>
+                <a class="link link--underline" href="tel:0123456789">0123456789</a>
+                <h3 class="text-block__subtitle">Lage</h3>
+                <address class="address-block">
+                    64th Street and Fifth Avenue <br>
+                    New York, NY 10021 <br>
+                    Vereinigte Staaten
+                </address>
+                <section class="iframe-container">
+                    <iframe class="iframe-container__iframe"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13028.508160478501!2d-73.9742368517586!3d40.76954385157948!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c258f1fcd66869%3A0x65d72e84d91a3f14!2sCentral%20Park%20Zoo!5e0!3m2!1sde!2sch!4v1723108597732!5m2!1sde!2sch"
+                        width="80" height="100"></iframe>
                 </section>
-                <section class="section">
-                    <h3 class="section__title">Addressen</h3>
-                    <p class="section__contact-tag">Email: </p>
-                    <a class="link section__contact-info section__contact-email"
-                        href="mailto:emilia.muster@reitschule.ch">emilia.muster@reitschule.ch</a>
-                    <p class="section__contact-tag">Telefon: </p>
-                    <a class="link section__contact-info section__contact-phone" href="tel:0123456789">0123456789</a>
+                <h3 class="text-block__subtitle">Kontaktformular:</h3>
+            </section>
+            <form class="form">
+                <fieldset>
+                    <label class="form__label" for="form-input-name">Name Reitschülerin:</label>
+                    <input name="form-input-name" id="form-input-name" type="text">
 
-                </section>
+                    <label class="form__label" for="form-input-birthdate">Geburtsdatum:</label>
+                    <input name="form-input-birthdate" id="form-input-birthdate" type="date">
 
-                <section class="section">
-                    <h3 class="section__title">Lage</h3>
-                    <address class="section__address">
-                        64th Street and Fifth Avenue <br>
-                        New York, NY 10021 <br>
-                        Vereinigte Staaten
-                    </address>
-                    <section class="section iframecontainer">
-                        <iframe class="section__iframe"
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13028.508160478501!2d-73.9742368517586!3d40.76954385157948!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c258f1fcd66869%3A0x65d72e84d91a3f14!2sCentral%20Park%20Zoo!5e0!3m2!1sde!2sch!4v1723108597732!5m2!1sde!2sch"
-                            width="80" height="100"></iframe>
-                    </section>
-                </section>
+                    <label class="form__label" for="form-input-email">Email:</label>
+                    <input name="form-input-email" id="form-input-email" type="email">
 
-                <section class="section">
-                    <h3 class="section__title">Kontaktformular:</h3>
-                    <form class="form">
-                        <fieldset class="fieldstet">
-                            <label class="fieldset__label" for="fieldset__input-name">Name Reitschülerin:</label> <br>
-                            <input id="fieldset__input-name fieldset__input" type="text"><br>
+                    <label class="form__label" for="form-input-phone">Telefonnummer:</label>
+                    <input name="form-input-phone" id="form-input-phone" type="tel">
 
-                            <label class="fieldset__label" for="fieldset__input-birthdate">Geburtsdatum:</label><br>
-                            <input id="fieldset__input-birthdate fieldset__input" type="date"><br>
+                    <label class="form__label">Reiterfahrung:</label>
+                    <input class="form-input-radio1" value="anfaenger" type="radio">
+                    <label class="form__input-radio">Anf&#228;nger</label> 
+                    <input class="form-input-radio2 form__input" value="fortgeschritten" type="radio">
+                    <label class="form__input-radio">Fortgeschritten</label>
+                    
 
-                            <label class="fieldset__label" for="fieldset__input-email">Email:</label><br>
-                            <input id="fieldset__input-email fieldset__input" type="email"><br>
+                    <label class="form__label" for="form-input-topic">Anfrage bezüglich:</label> 
+                    <select id="form-input-topic" name="form-input-topic" class="form-input-topic">
+                        <option>Reitunterricht</option>
+                        <option>Voltegieren</option>
+                        <option>Sonstiges</option>
+                    </select>
 
-                            <label class="fieldset__label" for="fieldset__input-phone">Telefonnummer:</label><br>
-                            <input id="fieldset__input-phone fieldset__input" type="tel"><br>
-
-                            <label class="fieldset__label">Reiterfahrung:</label><br>
-
-                            <input id="fieldset__input-radio1 fieldset__input" name="reiterfahrung" value="anfaenger"
-                                type="radio">
-                            <label class="fieldset__input-radio" for="ieldset__input-radio1">Anf&#228;nger</label> <br>
-                            <input id="fieldset__input-radio2 fieldset__input" name="reiterfahrung"
-                                value="fortgeschritten" type="radio">
-                            <label class="fieldset__input-radio" for="fieldset__input-radio2">Fortgeschritten</label>
-                            <br>
-
-                            <label class="fieldset__label" for="fieldset__input-topic">Anfrage bezüglich:</label> <br>
-                            <select id="fieldset__input-topic fieldset__input">
-                                <option>Reitunterricht</option>
-                                <option>Voltegieren</option>
-                                <option>Sonstiges</option>
-                            </select><br>
-
-                            <label class="fieldset__label" for="fieldset__input-nachricht">Nachricht:</label><br>
-                            <textarea class="fieldset__input-nachricht fieldset__input" id="fieldset__input-nachricht"
-                                placeholder="z. B. Ich möchte mich für einen Schnupperkurs anmelden." cols="20"
-                                rows="10"></textarea><br>
-                            <button class=" button fieldset__submit" type="submit">Submit</button>
-                        </fieldset>
-
-
-                    </form>
-                </section>
-
-
-            </article>
+                    <label class="form__label" for="form-input-message">Nachricht:</label>
+                    <textarea id="form-input-message" name="form-input-message" class="form__textarea"
+                        placeholder="z. B. Ich möchte mich für einen Schnupperkurs anmelden." cols="20"
+                        rows="10"></textarea>
+                    <button class="button form__submit" type="submit">Submit</button>
+                </fieldset>
+            </form>
+        </div>
     </main>
+    
     <footer class="footer row">
         <figure class="footer__figure col">
-            <a class="link footer__link" href="https://facbook.com"><img class="footer__img" width="30"
-                    src="./img/facebook.png"></a>
+            <a class="link footer__link" href="https://facbook.com">
+                <img class="footer__img" width="30" alt="Facebook link" src="./img/facebook.png">
+            </a>
             <figcaption class="footer__text">Reitschule Schluchebärg</figcaption>
         </figure>
         <figure class="footer__figure col">
-            <a class="link footer__link" href="https://instagram.com"><img class="footer__img" width="30"
-                    src="./img/instagram.png"></a>
-
+            <a class="link footer__link" href="https://instagram.com">
+                <img class="footer__img" width="30" alt="Instagram link" src="./img/instagram.png">
+            </a>
             <figcaption class="footer__text">Reitschule Schluchebärg</figcaption>
         </figure>
         <figure class="footer__figure col">
-            <img class="footer__img" width="30" src="./img/sonne.png">
+            <img class="footer__img" width="30" src="./img/sonne.png" alt="Shining sun">
             <figcaption class="footer__text">Have a nice day!</figcaption>
         </figure>
     </footer>
