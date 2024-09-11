@@ -35,44 +35,57 @@
         background-color: var(--clothing-color);
     }
 
-    10% {
-        background-color: #F88B1C;
-    }
-
     20% {
-        background-color: #FAA044;
-    }
-
-    30% {
-        background-color: #F88B1C;
+        background-color: #B2864D;
     }
 
     40% {
-        background-color: var(--clothing-color);
-    }
-
-    50% {
-        background-color: #E17305;
+        background-color: #6D8C94;
     }
 
     60% {
-        background-color: #CD6905;
-    }
-
-    70% {
-        background-color: #B15906;
+        background-color: #A799FF;
     }
 
     80% {
-        background-color: #CD6905;
-    }
-
-    90% {
-        background-color: #E17305;
+        background-color: #CF8C82;
     }
 
     to {
         background-color: var(--clothing-color);
+    }
+}
+
+@keyframes nose-animation {
+
+    from {
+        width: 70px;
+        height: 52px;
+        background-color: var(--body-color);
+    }
+
+    25% {
+        width: 74px;
+        height: 56px;
+        background-color: rgb(255, 98, 0);
+    }
+
+    50% {
+        width: 78px;
+        height: 60px;
+        background-color: rgb(255, 51, 1);
+    }
+
+    75% {
+        width: 74px;
+        height: 56px;
+        background-color: rgb(255, 98, 0);
+    }
+
+    to {
+        width: 70px;
+        height: 52px;
+        background-color: var(--body-color);
     }
 }
 
@@ -295,12 +308,14 @@
     animation-name: relative_liftEyebrow;
     animation-duration: 2s;
     --top-value: 90px;
+    cursor: pointer;
 }
 
 .eyes__eyebrowR:hover {
     animation-name: relative_liftEyebrow;
     animation-duration: 2s;
     --top-value: 96px;
+    cursor: pointer;
 }
 
 .eyes__eyebrowR {
@@ -328,6 +343,12 @@
     border-width: 2px;
     border-style: solid;
     background-color: var(--body-color);
+}
+
+.face__nose:hover {
+    animation-name: nose-animation;
+    animation-duration: 1s;
+    cursor: pointer;
 }
 
 .face__top {
@@ -1229,7 +1250,8 @@
 
 .clothing:hover div {
     animation-name: clothing_color;
-    animation-duration: 5s;
+    animation-duration: 3s;
+    cursor: pointer;
 }
 
 .uppermost {
