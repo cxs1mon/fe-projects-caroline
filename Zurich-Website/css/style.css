@@ -1,0 +1,239 @@
+.row,
+body,
+.logo,
+.menuicon {
+    margin: 0;
+    padding: 0;
+}
+
+/* header */
+.menuicon {
+    text-align: right;
+}
+
+.header {
+    height: 68px;
+}
+
+.logo img {
+    padding: 24px 0 16px 15px;
+}
+
+.menuicon img {
+    padding: 30px 15px 16px 0px;
+}
+
+
+
+.main-content {
+    overflow: hidden;
+}
+
+/* typography */
+.link__text{
+    font-family: Helvetica, sans-serif;
+    font-weight: bolder;
+    color: #4066B3;
+    line-height: 18px;
+    font-size: 12px;
+    
+    @media screen and (min-width:768px) and (max-width: 991px) {
+    }
+
+    @media screen and (min-width:992px) {
+        line-height: 20px;
+        font-size: 14px;
+
+    }
+} 
+
+h1 {
+    color: #003399;
+    line-height: 26px;
+    font-size: 24px;
+    font-family: Helvetica, sans-serif;
+    font-weight: lighter;
+
+    @media screen and (min-width:768px) and (max-width: 991px) {
+        line-height: 36px;
+        font-size: 34px;
+    }
+
+    @media screen and (min-width:992px) {
+        line-height: 48px;
+        font-size: 45px;
+
+    }
+}
+
+h2 {
+    color: #8E8E8E;
+    line-height: 26px;
+    font-size: 24px;
+    font-family: Helvetica, sans-serif;
+    font-weight: lighter;
+
+    @media screen and (min-width:768px) and (max-width: 991px) {
+        line-height: 28px;
+
+    }
+
+    @media screen and (min-width:992px) {
+        line-height: 36px;
+        font-size: 30px;
+
+    }
+}
+
+/* headline 4 */
+h3 {
+    color: #8E8E8E;
+    line-height: 20px;
+    font-size: 16px;
+    font-family: Helvetica, sans-serif;
+    font-weight: lighter;
+
+    @media screen and (min-width:768px) and (max-width: 991px) {}
+
+    @media screen and (min-width:992px) {
+        line-height: 24px;
+        font-size: 18px;
+
+    }
+}
+
+.article__title--nav {
+    color: #8E8E8E;
+    line-height: 18px;
+    font-size: 12px;
+    font-family: Helvetica, sans-serif;
+    font-weight: normal;
+
+    @media screen and (min-width:768px) and (max-width: 991px) {}
+
+    @media screen and (min-width:992px) {
+        font-size: 14px;
+
+    }
+}
+
+
+.callToAction {
+    color: #003399;
+    line-height: 20px;
+    font-size: 16px;
+    font-family: Helvetica, sans-serif;
+    font-weight: bolder;
+
+    @media screen and (min-width:768px) and (max-width: 991px) {
+        line-height: 20px;
+        font-size: 16px;
+    }
+
+    @media screen and (min-width:992px) {
+        line-height: 24px;
+        font-size: 18px;
+
+    }
+}
+
+.quote {
+    font-family: "Crimson Text", serif;
+    font-weight: normal;
+    font-style: normal;
+    width: 110%;
+    margin-left: -15px;
+    color: white;
+    background-color: #009EE0;
+    line-height: 25px;
+    font-size: 20px;
+
+    @media screen and (min-width:768px) and (max-width: 991px) {
+        line-height: 32px;
+        font-size: 24px;
+    }
+
+    @media screen and (min-width:992px) {
+        line-height: 32px;
+        font-size: 24px;
+    }
+}
+
+.content__text {
+    color: #3E3E3E;
+    font-family: Helvetica, sans-serif;
+    font-weight: normal;
+    line-height: 18px;
+    font-size: 12px;
+    display: inline;
+
+    @media screen and (min-width:768px) and (max-width: 991px) {}
+
+    @media screen and (min-width:992px) {
+        line-height: 18px;
+        font-size: 14px;
+
+    }
+}
+
+.content__text--title {
+    display: inline;
+    color: #4066B3;
+    font-family: Helvetica, sans-serif;
+    font-weight: normal;
+    line-height: 18px;
+    font-size: 12px;
+
+    @media screen and (min-width:768px) and (max-width: 991px) {}
+
+    @media screen and (min-width:992px) {
+        line-height: 18px;
+        font-size: 14px;
+
+    }
+}
+
+.content__text--date {
+    display: block;
+}
+
+figure.video {
+    margin-left: -15px;
+}
+
+.video img {
+    width: 130%;
+}
+
+article.bicycle {
+    margin-left: -15px;
+    position: relative;
+}
+
+.bicycle__image {
+    width: 122%;
+    display: block;
+}
+
+.article__link {
+
+}
+
+.mask {
+    position: absolute;
+    bottom: 0;
+    left: -30px;
+    right: 0;
+    height: 50%;
+    width: 120%;
+    /* Adjust the height according to your needs */
+    backdrop-filter: blur(8px);
+    /* Adjust the blur intensity */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (min-width:768px) and (max-width: 991px) {}
+
+@media screen and (min-width:992px) {}
