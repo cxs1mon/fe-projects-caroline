@@ -30,22 +30,21 @@ body,
 }
 
 /* typography */
-.link__text{
+.link__text {
     font-family: Helvetica, sans-serif;
     font-weight: bolder;
     color: #4066B3;
     line-height: 18px;
     font-size: 12px;
-    
-    @media screen and (min-width:768px) and (max-width: 991px) {
-    }
+
+    @media screen and (min-width:768px) and (max-width: 991px) {}
 
     @media screen and (min-width:992px) {
         line-height: 20px;
         font-size: 14px;
 
     }
-} 
+}
 
 h1 {
     color: #003399;
@@ -53,6 +52,7 @@ h1 {
     font-size: 24px;
     font-family: Helvetica, sans-serif;
     font-weight: lighter;
+    margin: 16px 0 0 0;
 
     @media screen and (min-width:768px) and (max-width: 991px) {
         line-height: 36px;
@@ -193,46 +193,113 @@ h3 {
     }
 }
 
+form p {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 .content__text--date {
     display: block;
 }
 
-figure.video {
+form label {
+    margin-top: 10px;
+}
+
+figure.image {
     margin-left: -15px;
 }
 
-.video img {
+form select {
+    width: 85%;
+    border-radius: 10px;
+    border-color: #8E8E8E;
+}
+
+.image img {
     width: 130%;
 }
 
-article.bicycle {
-    margin-left: -15px;
+.article__content {
+    width: 100%;
+}
+
+article.bicycle,
+section.contact {
     position: relative;
 }
 
+select {
+    padding: 10px;
+    color: #4066B3;
+}
+
 .bicycle__image {
+    display: block;
+    margin-left: -35px;
+    overflow: hidden;
+    margin-top: -40px;
+    height: 130%;
+}
+
+.image .bicycle__image {
+    width: 170%;
+}
+
+.contact__image {
     width: 122%;
     display: block;
 }
 
-.article__link {
+.headingLink {
+    margin-top: 40px;
+}
 
+.article__link {
+    display: flex;
+    flex-direction: row;
+    height: 44px;
+    background-color: #e6e6e6;
+    align-items: center;
+    width: 110%;
+    margin: 32px -15px 40px -15px;
+}
+
+.article__link img {
+    margin-right: 8px;
+}
+
+.article__link a {
+    margin-right: 24px;
 }
 
 .mask {
     position: absolute;
     bottom: 0;
-    left: -30px;
+    left: -15px;
     right: 0;
-    height: 50%;
     width: 120%;
-    /* Adjust the height according to your needs */
-    backdrop-filter: blur(8px);
-    /* Adjust the blur intensity */
+    top: 44%;
+    height: 55%;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    backdrop-filter: blur(6px);
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    padding-left: 15px;
+
 }
+
+.overlaping {
+    position: absolute;
+    bottom: 0;
+    left: 0px;
+    right: 0;
+    width: 120%;
+    top: 50px;
+}
+
 
 @media screen and (min-width:768px) and (max-width: 991px) {}
 
