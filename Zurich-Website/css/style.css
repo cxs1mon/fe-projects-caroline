@@ -6,6 +6,21 @@ body,
     padding: 0;
 }
 
+:root{
+    /* colors */
+
+    --zurichBlue1: #003399;
+    --zurichBlue1-75: #4066B3;
+    --zurichBlue2: #000066;
+    --white: #FFFFFF;
+    --grey-10: #E6E6E6;
+    --grey-5: #F3F3F3;
+    --grey-45: #8E8E8E;
+    --black-75:#3E3E3E ;
+    --skyBlue: #009EE0;
+    --midBlue: #4F90c8;
+}
+
 /* header */
 .menuicon {
     text-align: right;
@@ -47,7 +62,7 @@ body,
 }
 
 h1 {
-    color: #003399;
+    color: var(--zurichBlue1);
     line-height: 26px;
     font-size: 24px;
     font-family: Helvetica, sans-serif;
@@ -119,11 +134,12 @@ h3 {
 
 
 .callToAction {
-    color: #003399;
+    color: var(--zurichBlue1);
     line-height: 20px;
     font-size: 16px;
     font-family: Helvetica, sans-serif;
     font-weight: bolder;
+    margin: 1px 0 0 8px;
 
     @media screen and (min-width:768px) and (max-width: 991px) {
         line-height: 20px;
@@ -135,6 +151,10 @@ h3 {
         font-size: 18px;
 
     }
+}
+.roundIcon img{
+    margin-top: 40px;
+    
 }
 
 .quote {
@@ -209,6 +229,7 @@ form label {
 
 figure.image {
     margin-left: -15px;
+    
 }
 
 form select {
@@ -223,6 +244,9 @@ form select {
 
 .article__content {
     width: 100%;
+}
+.bicycle figure.image{
+    margin: 0 0 0 -15px;
 }
 
 article.bicycle,
@@ -239,8 +263,7 @@ select {
     display: block;
     margin-left: -35px;
     overflow: hidden;
-    margin-top: -40px;
-    height: 130%;
+    height: 100%;
 }
 
 .image .bicycle__image {
@@ -252,9 +275,6 @@ select {
     display: block;
 }
 
-.headingLink {
-    margin-top: 40px;
-}
 
 .article__link {
     display: flex;
@@ -273,22 +293,20 @@ select {
 .article__link a {
     margin-right: 24px;
 }
+.headingLink{
+    position: absolute;
+    top: 107px;
+}
 
 .mask {
     position: absolute;
-    bottom: 0;
     left: -15px;
-    right: 0;
-    width: 120%;
-    top: 44%;
+    top: 40%;
     height: 55%;
-    display: flex;
     backdrop-filter: blur(6px);
     flex-direction: column;
-    flex-wrap: wrap;
-    align-content: flex-start;
     padding-left: 15px;
-
+    width: 170%;
 }
 
 .overlaping {
@@ -298,6 +316,17 @@ select {
     right: 0;
     width: 120%;
     top: 50px;
+}
+.interestIcons{
+    border-width:  1px 0;
+    border-color: var(--grey-45);
+    border-style: solid;
+
+    margin: 0 -15px;
+}
+.interestIcons img{
+    width: 100%;
+    height: auto;
 }
 
 
