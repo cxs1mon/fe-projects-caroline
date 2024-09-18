@@ -376,7 +376,35 @@ p {
 .link__noTopMargin{
     margin-top: 0;
 }
-
+.flood-image{
+    background-color: var(--grey-10);
+}
+.blue-bold{
+    color: var(--zurichBlue1-75);
+    font-weight: bold;
+}
+.article__title--blue{
+    color: var(--zurichBlue2);
+}
+.content__text--caption{
+    color: var(--white);
+    background-color: var(--skyBlue);
+    width: 112%;
+    display: block;
+    padding: 15px 15px;
+    margin-top: -5px;
+}
+.image--share img{
+    height: 40px;
+    width: 105%;
+}
+.contact-foot{
+    background-color: var(--grey-5);
+    width: 110%;
+    margin-left: -15px;
+    margin-top: -5px;
+    padding: 15px;
+}
 @media screen and (min-width:768px) and (max-width: 991px) {}
 
 @media screen and (min-width:992px) {}
