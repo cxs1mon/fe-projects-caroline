@@ -185,11 +185,13 @@ h3 {
         font-size: 24px;
     }
 }
-.quote--grey{
+
+.quote--grey {
     color: var(--skyBlue);
     background-color: var(--grey-5);
 }
-.quote--blue{
+
+.quote--blue {
     color: var(--white);
     background-color: var(--skyBlue);
 }
@@ -267,7 +269,7 @@ form select {
     height: 250px;
 }
 
-.article__content section{
+.article__content section {
     margin-bottom: 32px;
 }
 
@@ -373,20 +375,25 @@ select {
 p {
     margin: 0;
 }
-.link__noTopMargin{
+
+.link__noTopMargin {
     margin-top: 0;
 }
-.flood-image{
+
+.flood-image {
     background-color: var(--grey-10);
 }
-.blue-bold{
+
+.blue-bold {
     color: var(--zurichBlue1-75);
     font-weight: bold;
 }
-.article__title--blue{
+
+.article__title--blue {
     color: var(--zurichBlue2);
 }
-.content__text--caption{
+
+.content__text--caption {
     color: var(--white);
     background-color: var(--skyBlue);
     width: 112%;
@@ -394,17 +401,81 @@ p {
     padding: 15px 15px;
     margin-top: -5px;
 }
-.image--share img{
+
+.image--share img {
     height: 40px;
     width: 105%;
 }
-.contact-foot{
+
+.contact-foot {
     background-color: var(--grey-5);
     width: 110%;
     margin-left: -15px;
     margin-top: -5px;
     padding: 15px;
 }
+
+footer .footer {
+    background-color: var(--grey-10);
+    width: 112%;
+    padding-left: 15px;
+}
+.footer p{
+    color: var(--grey-45);
+
+}
+.footer__sitemap {
+    width: 100%;
+    display: flex;
+    margin-top: 40px;
+    justify-content: center;
+}
+
+.sitemap__element {
+    width: 30%;
+    height: 40px;
+    background-color: var(--grey-10);
+    border-radius: 10px 10px 0 0;
+    color: var(--grey-45);
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    border-bottom: var(--grey-45) solid 0.1mm;
+    font-weight: bold;
+}
+.footer__socials figure{
+    width: 100%;
+    height: auto;
+}
+.footer__socials img{
+    width: 100%;
+    height: auto;
+    padding-left: 20px ;
+    margin-top: 15px;
+}
+.footer__socials{
+    padding: 25px 0 25px 15px;
+    margin-left: -15px;
+    border-bottom: var(--grey-45) solid 0.1mm;
+}
+.footer__links p{
+    font-weight: bold;
+}
+.footer__links{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 25px 15px 25px 15px;
+    margin-left: -15px;
+    border-bottom: var(--grey-45) solid 0.1mm;
+}
+.footer__copyrightNotice{
+    padding: 25px 0;
+}
+
+
+
 @media screen and (min-width:768px) and (max-width: 991px) {}
 
 @media screen and (min-width:992px) {}
