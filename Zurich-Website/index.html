@@ -23,12 +23,12 @@
 
     <main class="row main-content ">
         <div class="col-12 column-gap-0">
-            <article class="row headImg">
-                <figure class="image">
-                    <img src="./images/bike.png" alt="bicycle" class="bicycle__image">
+            <article class="row img-block">
+                <figure class=".img-block__figure">
+                    <img src="./images/bike.png" alt="bicycle" class="img-block__figure--ratio-portrait">
                 </figure>
-                <section class="row mask article__content">
-                    <h1 class="article__title">Zurich Insurance. <br> For those who truly love.</h1>
+                <section class="row img-block__overlay">
+                    <h1 class="article__title main__title">Zurich Insurance. <br> For those who truly love.</h1>
                     <section class="roundIcon">
                         <img src="./images/round_greater-than.png" alt="greater than sign" width="20" height="20">
                         <a class="callToAction headingLink">Watch the TV spots</a>
@@ -93,14 +93,15 @@
             <article class="row">
                 <h2 class="article__title">Latest Videos</h2>
 
-                <section class="article__content">
+                <section class="article__content img-block">
 
-                    <figure class="image">
-                        <img src="./images/bw_bicycle.jpg" alt="Video thumbnail" width="800" class="videoimg">
+                    <figure class="image img-block__figure">
+                        <img src="./images/bw_bicycle.jpg" alt="Video thumbnail" class="img-block__figure--ratio-2-3">
+                        <figcaption class="content__text">
+                            Zurich announces the successful sale of its stake in New China ...
+                        </figcaption>
                     </figure>
-                    <figcaption class="content__text">
-                        Zurich announces the successful sale of its stake in New China ...
-                    </figcaption>
+                    
                 </section>
 
                 <section class="article__link container-fluid">
@@ -136,7 +137,6 @@
                                 <option>general information</option>
                                 <option>an offer</option>
                             </select>
-
                         </p>
                     </form>
                 </section>
@@ -161,9 +161,9 @@
             <article class="row ">
 
 
-                <section class="article__content contact">
-                    <figure class="image">
-                        <img src="./images/office.jpg" alt="Office picture" width="700" class="contactPicture">
+                <section class="article__content contact img-block">
+                    <figure class="image img-block__figure">
+                        <img src="./images/office.jpg" alt="Office picture" class="img-block__figure--ratio-2-3">
                     </figure>
                     <section class=" row overlaping">
                         <h3 class="article__title container-fluid">Contact us</h3>
@@ -195,10 +195,10 @@
                 <p class="content__text">Legal</p>
                 <p class="content__text">Privacy Policy</p>
             </section>
-            <section class="footer__socials">
+            <section class="img-block--socials">
                 <p class="content__text">Follow us</p>
-                <figure class="image">
-                    <img src="./images/socialIcons.png" alt="icons to the social media accounts">
+                <figure class=" img-block__figure--socials">
+                    <img src="./images/socialIcons.png" alt="icons to the social media accounts" class="img-block__figure--ratio-wide">
                 </figure>
             </section>
             <section class="footer__copyrightNotice">

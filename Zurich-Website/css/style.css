@@ -1,5 +1,6 @@
-.row,
+/* resets */
 body,
+.row,
 .logo,
 .menuicon {
     margin: 0;
@@ -20,6 +21,9 @@ body,
     --black-75: #3E3E3E;
     --skyBlue: #009EE0;
     --midBlue: #4F90c8;
+
+    --color-prominent: var(--black);
+    --color-secondary: var(--skyBlue);
 }
 
 /* header */
@@ -161,9 +165,9 @@ h3 {
     }
 }
 
-.roundIcon img {
-    margin-top: 40px;
-
+section.roundIcon,
+.headingLink {
+    margin-bottom: 16px;
 }
 
 .quote {
@@ -171,7 +175,7 @@ h3 {
     font-weight: normal;
     font-style: normal;
     width: 110%;
-    margin-left: -15px;
+    margin: 0 -15px;
     line-height: 25px;
     font-size: 20px;
 
@@ -187,11 +191,13 @@ h3 {
 }
 
 .quote--grey {
+    /* neutral secondary */
     color: var(--skyBlue);
     background-color: var(--grey-5);
 }
 
 .quote--blue {
+    /* prominent primary */
     color: var(--white);
     background-color: var(--skyBlue);
 }
@@ -245,35 +251,24 @@ form label {
     margin-top: 10px;
 }
 
-figure.image {
-    margin: 0 0 0 -15px;
-}
-
 form select {
     width: 85%;
     border-radius: 10px;
     border-color: var(--grey-45);
 }
 
-.image img {
-    height: 170px;
-}
 
 .article__content {
     width: 100%;
 }
 
-.headImg figure.image {
-    margin: 0 0 0 -15px;
-    width: 100%;
-    height: 250px;
-}
+
 
 .article__content section {
     margin-bottom: 32px;
 }
 
-article.headImg,
+
 section.contact {
     position: relative;
 }
@@ -283,38 +278,65 @@ select {
     color: var(--zurichBlue1-75);
 }
 
-.bicycle__image {
+/* on article or section */
+.img-block {
+    position: relative;
+    width: 120%;
+    height: auto;
     display: block;
-    margin-left: -35px;
-    overflow: hidden;
-    height: 100%;
+    margin-left: -15px;
+}
+.img-block--socials {
+    padding: 25px 0 25px 15px;
+    margin-left: -15px;
+    border-bottom: var(--grey-45) solid 0.1mm;
+}
+
+/* figure */
+.img-block__figure {
+    margin: 0 0 0 0;
+    width: 120%;
+    height: auto;
+}
+
+.img-block__figure--socials{
+    margin: 0;
+    }
+
+/* on img element */
+    /* standard */
+.img-block__figure--ratio-2-3 {
     width: 100%;
 }
-
-.image .bicycle__image {
-    width: 150%;
+    /* homepage */
+.img-block__figure--ratio-portrait {
+    margin: 0 0 0 -150px;
     height: auto;
-
+    width: 240%;
 }
-
-.worldMap__image {
-    display: block;
-    margin-left: -35px;
-    overflow: hidden;
-    height: 100%;
-    width: 100%;
-}
-
-.image .worldMap__image {
-    width: 127%;
+    /* socials */
+.img-block__figure--ratio-wide {
+    width: 90%;
     height: auto;
-
+    margin-top: 15px;
+    margin-left: 10px;
+    overflow: auto;
 }
 
-.contact__image {
-    width: 122%;
-    display: block;
+/* on blured mask */
+.img-block__overlay {
+    position: absolute;
+    left: 0px;
+    bottom: 5%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    backdrop-filter: blur(6px);
+    padding-left: 15px;
+    width: 120%;
+    height: 50%;
 }
+
 
 .article__link {
     display: flex;
@@ -326,9 +348,6 @@ select {
     margin: 32px -15px 0px -15px;
 }
 
-.videoimg {
-    margin-bottom: 24px;
-}
 
 .article__link img {
     margin-right: 8px;
@@ -343,16 +362,6 @@ select {
     top: 115px;
 }
 
-.mask {
-    position: absolute;
-    left: -15px;
-    top: 40%;
-    backdrop-filter: blur(6px);
-    flex-direction: column;
-    padding-left: 15px;
-    width: 112%;
-    height: 60%;
-}
 
 .overlaping {
     position: absolute;
@@ -420,10 +429,12 @@ footer .footer {
     width: 112%;
     padding-left: 15px;
 }
-.footer p{
+
+.footer p {
     color: var(--grey-45);
 
 }
+
 .footer__sitemap {
     width: 100%;
     display: flex;
@@ -444,25 +455,13 @@ footer .footer {
     border-bottom: var(--grey-45) solid 0.1mm;
     font-weight: bold;
 }
-.footer__socials figure{
-    width: 100%;
-    height: auto;
-}
-.footer__socials img{
-    width: 100%;
-    height: auto;
-    padding-left: 20px ;
-    margin-top: 15px;
-}
-.footer__socials{
-    padding: 25px 0 25px 15px;
-    margin-left: -15px;
-    border-bottom: var(--grey-45) solid 0.1mm;
-}
-.footer__links p{
+
+
+.footer__links p {
     font-weight: bold;
 }
-.footer__links{
+
+.footer__links {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -470,7 +469,8 @@ footer .footer {
     margin-left: -15px;
     border-bottom: var(--grey-45) solid 0.1mm;
 }
-.footer__copyrightNotice{
+
+.footer__copyrightNotice {
     padding: 25px 0;
 }
 
