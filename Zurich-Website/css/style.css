@@ -39,6 +39,10 @@ body,
     height: 68px;
 }
 
+.header.bottom-border {
+    border-bottom: var(--grey-45) solid 1px;
+}
+
 .logo img {
     padding: 24px 0 16px 15px;
 }
@@ -114,7 +118,7 @@ body,
 
 /* figure */
 .img-block__figure {
-    margin: 0 0 0 0;
+    margin: 0 0 0px 0;
     width: 120%;
     height: auto;
 }
@@ -130,7 +134,7 @@ body,
 /* on img element */
 /* standard */
 .img-block__figure--ratio-2-3 {
-    width: 90%;
+    width: 100%;
 }
 
 /* homepage */
@@ -170,12 +174,23 @@ body,
     height: 50%;
 }
 
+.img-block__overlay--secondary {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
 .img-block__title--secondary {
     color: var(--zurichBlue1);
 }
 
 .left-margin {
     margin-left: 15px;
+}
+
+figcaption.left-margin,
+.content__text.left-margin,
+.link__text.left-margin {
+    display: block;
+    width: 90vw;
 }
 
 .round-icon {
@@ -216,7 +231,7 @@ form select {
     font-size: 20px;
     margin-left: -15px;
     margin-right: -15px;
-    width: 110%;
+    width: 100%;
 
     @media screen and (min-width:768px) and (max-width: 991px) {
         line-height: 32px;
@@ -228,6 +243,11 @@ form select {
         font-size: 24px;
     }
 }
+
+.quote.content--more-width {
+    width: 110%;
+}
+
 
 blockquote {
     margin: 0;
@@ -251,6 +271,8 @@ h2 {
     font-size: 24px;
     font-family: Helvetica, sans-serif;
     font-weight: lighter;
+    padding-left: 0;
+    margin: 40px 0 24px 0;
 
     @media screen and (min-width:768px) and (max-width: 991px) {
         line-height: 28px;
@@ -284,16 +306,12 @@ h3 {
 }
 
 .article__title {
-    padding-left: 0;
-    margin: 40px 0 24px 0;
-}
-
-.article__title--nav {
     color: var(--grey-45);
     line-height: 18px;
     font-size: 12px;
     font-family: Helvetica, sans-serif;
     font-weight: normal;
+    margin;
 
     @media screen and (min-width:768px) and (max-width: 991px) {}
 
@@ -301,6 +319,14 @@ h3 {
         font-size: 14px;
 
     }
+}
+
+.article__title--nav {
+    margin: 20px 0 24px 0;
+}
+
+.article__title--header {
+    margin: 40px 0 -20px 0;
 }
 
 
@@ -431,8 +457,8 @@ p {
     margin: 0;
 }
 
-.link__no-top-margin {
-    margin-top: 0;
+.link__less-top-margin {
+    margin-top: -5px;
 }
 
 .flood-image {
