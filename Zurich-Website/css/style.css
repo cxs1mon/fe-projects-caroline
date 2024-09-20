@@ -108,12 +108,17 @@ body,
     height: auto;
     display: block;
     margin-left: -15px;
+    @media screen and (min-width: 768px){
+        width: 100%;
+        margin-left: 0px;
+    }
 }
 
 .img-block--socials {
     padding: 25px 0 25px 15px;
     margin-left: -15px;
     border-bottom: var(--grey-45) solid 0.1mm;
+
 }
 
 /* figure */
@@ -121,6 +126,9 @@ body,
     margin: 0 0 0px 0;
     width: 120%;
     height: auto;
+    @media screen and (min-width: 768px){
+        width: 100%;
+    }
 }
 
 .img-block__figure--socials {
@@ -129,6 +137,7 @@ body,
     margin-left: -15px;
     margin-right: -15px;
     width: 100%;
+
 }
 
 /* on img element */
@@ -142,6 +151,10 @@ body,
     margin: 0 0 0 -150px;
     height: auto;
     width: 220%;
+    @media screen and (min-width: 768px){
+        width: 80%;
+        margin: 0 0 0 -80px;
+    }
 }
 
 /* socials */
@@ -184,6 +197,7 @@ body,
 
 .left-margin {
     margin-left: 15px;
+
 }
 
 figcaption.left-margin,
@@ -191,11 +205,14 @@ figcaption.left-margin,
 .link__text.left-margin {
     display: block;
     width: 90vw;
+    @media screen and (min-width:768px){
+        width: 20vw;
+    }
 }
 
 .round-icon {
     position: absolute;
-    bottom: 20px;
+    bottom: 40px;
 }
 
 .image--share img {
@@ -233,19 +250,21 @@ form select {
     margin-right: -15px;
     width: 100%;
 
-    @media screen and (min-width:768px) and (max-width: 991px) {
+    @media screen and (min-width:768px) {
         line-height: 32px;
         font-size: 24px;
-    }
+        margin-left: 0px;
+        margin-right: 0px;
 
-    @media screen and (min-width:992px) {
-        line-height: 32px;
-        font-size: 24px;
     }
 }
 
 .quote.content--more-width {
     width: 110%;
+
+    @media screen and (min-width:768px) {
+        width: 100%;
+    }
 }
 
 
@@ -301,7 +320,8 @@ h3 {
     @media screen and (min-width:992px) {
         line-height: 24px;
         font-size: 18px;
-
+        margin-top: 0px;
+        margin-bottom: 24px;
     }
 }
 
@@ -311,7 +331,6 @@ h3 {
     font-size: 12px;
     font-family: Helvetica, sans-serif;
     font-weight: normal;
-    margin;
 
     @media screen and (min-width:768px) and (max-width: 991px) {}
 
@@ -423,7 +442,13 @@ select {
     background-color: var(--grey-10);
     align-items: center;
     width: 110%;
-    margin: 32px -15px 0px -15px;
+    margin: 32px 0px 0px -15px;
+
+    @media screen and (min-width: 768px){
+        margin: 0px;
+        width: 100%;
+    }
+
 }
 
 
@@ -441,7 +466,7 @@ select {
     left: 0px;
     right: 0;
     width: 120%;
-    top: 0px;
+    top: 80px;
 }
 
 .interest-icons {
@@ -459,6 +484,9 @@ p {
 
 .link__less-top-margin {
     margin-top: -5px;
+    @media screen and (min-width:768px){
+        margin-top: 0px;
+    }
 }
 
 .flood-image {
@@ -545,6 +573,13 @@ footer .footer {
 
 
 
-@media screen and (min-width:768px) and (max-width: 991px) {}
+@media screen and (min-width:768px) {
+    .flex-container{
+        display: flex;
+        flex-direction: row;
+    }
 
-@media screen and (min-width:992px) {}
+    .d-flex{
+        justify-content: space-evenly;
+    }
+}
