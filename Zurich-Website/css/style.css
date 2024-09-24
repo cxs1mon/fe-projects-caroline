@@ -101,6 +101,9 @@ a {
     font-weight: lighter;
     margin: 25px 0 0 0;
 
+    @media screen and (min-width:768px) {
+       width: 80%;
+    }
     @media screen and (min-width:768px) and (max-width: 991px) {
         line-height: 36px;
         font-size: 34px;
@@ -169,8 +172,9 @@ a {
     width: 220%;
 
     @media screen and (min-width: 768px) {
-        width: 80%;
-        margin: 0 0 0 -80px;
+        width: 120%;
+        margin: 0 0 0 -5%;
+        height: auto;
     }
 }
 
@@ -202,6 +206,18 @@ a {
     padding-left: 15px;
     width: 112%;
     height: 50%;
+    @media screen and (min-width:768px) {
+        left: 62%;
+        padding-right: 20px;
+        bottom: 5%;
+        width: 45%;
+        height: 85%; 
+    }
+}
+.img-block--main{
+    @media screen and (min-width:768px){
+        margin-bottom: -3.6%;
+    }
 }
 
 .img-block__overlay--secondary {
@@ -367,7 +383,7 @@ h3 {
 }
 
 .article__title--nav {
-    margin: 20px 0 24px 0;
+    margin: 25px 0 24px 0;
 
     @media screen and (min-width:768px) {
         display: inline;
