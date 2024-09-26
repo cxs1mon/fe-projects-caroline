@@ -40,6 +40,21 @@ a {
 .menu-icon {
     text-align: right;
 }
+.menu-icon__image{
+    width: 35px;
+    @media screen and (min-width:768px){
+        width: 50px;
+    }
+}
+.logo__image{
+    width: 138px;
+    @media screen and (min-width:768px){
+        width: 200px;
+    }
+}
+.logo{
+    z-index: 1;
+}
 
 .header {
     height: 68px;
