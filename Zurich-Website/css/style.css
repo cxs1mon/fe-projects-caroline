@@ -136,6 +136,14 @@ a {
     padding: 25px 0 25px 15px;
     margin-left: -15px;
     border-bottom: var(--grey-45) solid 0.1mm;
+    @media screen and (min-width: 768px) {
+        display: flex;
+        flex-direction: row;
+        border-bottom: 0;
+        width: 60vw;
+        justify-content: flex-end;
+        padding-right: 20px;
+    }
 
 }
 
@@ -156,6 +164,9 @@ a {
     margin-left: -15px;
     margin-right: -15px;
     width: 100%;
+    @media screen and (min-width: 768px) {
+        width: 40%;
+    }
 
 }
 
@@ -172,8 +183,8 @@ a {
     width: 220%;
 
     @media screen and (min-width: 768px) {
-        width: 120%;
-        margin: 0 0 0 -5%;
+        width: 110%;
+        margin: 0 0 0 -4.5%;
         height: auto;
     }
 }
@@ -211,7 +222,8 @@ a {
         padding-right: 20px;
         bottom: 5%;
         width: 45%;
-        height: 85%; 
+        height: 85%;
+        backdrop-filter: blur(12px);
     }
 }
 .img-block--main{
@@ -583,6 +595,12 @@ p {
         height: 55vh;
         width: 105%;
     }
+    @media screen and (min-width:992px){
+        height: 50vh;
+    }
+    @media screen and (min-width:1440px){
+        height: 60vh;
+    }
 }
 
 
@@ -600,11 +618,19 @@ footer .footer {
     background-color: var(--grey-10);
     width: 112%;
     padding-left: 15px;
+    @media screen and (min-width:768px){
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
 }
 
 .footer p {
     color: var(--grey-45);
-
+    @media screen and (min-width:768px){
+    padding: 20px 0;
+}
 }
 
 .footer__sitemap {
@@ -612,6 +638,9 @@ footer .footer {
     display: flex;
     margin-top: 40px;
     justify-content: center;
+    @media screen and (min-width:768px){
+        margin-top: 20vh;
+    }
 }
 
 .sitemap__element {
@@ -626,6 +655,9 @@ footer .footer {
     flex-wrap: wrap;
     border-bottom: var(--grey-45) solid 0.1mm;
     font-weight: bold;
+    @media screen and (min-width:768px){
+        display: none;
+    }
 }
 
 
@@ -640,10 +672,17 @@ footer .footer {
     padding: 25px 15px 25px 15px;
     margin-left: -15px;
     border-bottom: var(--grey-45) solid 0.1mm;
+    @media screen and (min-width:768px){
+        width: 40vw;
+        border-bottom: 0;
+    }
 }
 
 .footer__copyright-notice {
     padding: 25px 0;
+    @media screen and (min-width:768px){
+        width: 50%;
+    }
 }
 
 
