@@ -12,151 +12,276 @@
 
 
 <body>
-    <header class="row header bottom-border">
+    <header class="row header">
         <div class="logo col-10">
-            <img src="./images/zurichlogo.jpeg" width="138" alt="Zurich Insurance logo">
+            <img src="./images/zurichlogo.jpeg" class="logo__image" alt="Zurich Insurance logo">
         </div>
         <div class="menu-icon col-2">
-            <img src="./images/blueMenu.png" width="35" alt="menu icon">
+            <img src="./images/blueMenu.png" class="menu-icon__image" alt="menu icon">
         </div>
     </header>
 
     <main class="row main-content ">
         <div class="col-12 column-gap-0">
+            <div class="row d-flex website-articles ">
+                <div class="col-md-12">
+                    <article class="subtitle-area subtitle-area--title">
+                        <p class="article__title article__title--header">Flood resilience</p>
+                        <section>
+                            <h2>Practical action in Bangladesh</h2>
+                        </section>
+                    </article>
+                </div>
 
-            <article class="row">
-                <p class="article__title article__title--header">Flood resilience</p>
-                <section>
-                    <h2>Practical action in Bangladesh</h2>
-                </section>
-            </article>
+                <div class="row subtitle-area flood__block">
+                    <div class="col-md-9">
+                        <article class=" img-block">
+                            <figure class=" img-block__figure">
+                                <img src="./images/flood.png" alt="picture of a cow in a flood, standing on dirt"
+                                    class="img-block__figure--ratio-2-3">
+                            </figure>
+                        </article>
+                    </div>
+                    <div class="col-md-3 flood__figure">
+                        <article>
+                            <p class="content__text left-margin">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas commodo elit sit ex
+                                convallis volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
+                                commodo elit sit ex
+                                convallis olutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
+                                commodo elit sit ex
+                                convallis volutpat.
+                            </p>
+                            <p class="content__text left-margin grey-text">
+                                Photo: Lorem impsum
+                            </p>
+                        </article>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <article>
+                        <h3 class="subtitle-area--title">
+                            Vivamus tincidunt viverra dignissim. Sed dignissim ipsum ac ex
+                            vehicula, id aliquam purus semper. Morbi egestas risus eget justo placerat dapibus.
+                            <span class="blue-bold">Sed massa dolor, porta sed dignissim eu, aliquet quis orci.</span>
+                            Fusce et nibh vestibulum, mollis elit ac, cursus odio. Vestibulum ut sodales elit, ut
+                            ullamcorper
+                            diam. Suspendisse mi metus.
+                        </h3>
+                    </article>
 
-            <article class="row img-block">
-                <figure class=" img-block__figure">
-                    <img src="./images/flood.png" alt="picture of a cow in a flood, standing on dirt"
-                        class="img-block__figure--ratio-2-3">
-                    <figcaption class="content__text left-margin">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas commodo elit sit ex convallis
-                        volutpat.
-                        <br>
-                        Photo: Lorem impsum
-                    </figcaption>
-                </figure>
-            </article>
-            <article class="row">
-                <h3>
-                    Vivamus tincidunt viverra dignissim. Sed dignissim ipsum ac ex
-                    vehicula, id aliquam purus semper. Morbi egestas risus eget justo placerat dapibus.
-                    <span class="blue-bold">Sed massa dolor, porta sed dignissim eu, aliquet quis orci.</span>
-                    Fusce et nibh vestibulum, mollis elit ac, cursus odio. Vestibulum ut sodales elit, ut ullamcorper
-                    diam. Suspendisse mi metus.
-                </h3>
-                <section class="img-block">
-                    <figure class="img-block__figure">
-                        <img src="./images/ducks.png" alt="woman near the water feeding some ducks"
-                            class="img-block__figure--ratio-2-3">
-                    </figure>
-                </section>
-            </article>
-            <article class="row">
-                <h2 class="article__title">Project facts</h2>
-                <p class="content__text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis odio velit, luctus a fermentum a,
-                    aliquet vel augue. Cras vitae elit commodo nisl condimentum lobortis vitae a eros. Quisque id erat
-                    quis nisl venenatis faucibus. Nulla tincidunt posuere arcu. Vivamus ante metus, ultrices ut dictum
-                    quis, malesuada ut elit. Nulla facilisi. In et nisl venenatis, bibendum dui sit amet, vehicula.</p>
-                <section class="img-block">
-                    <h3 class="left-margin img-block__title--secondary">300 houses + 250 area of cropa</h3>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <article>
+                            <section class="img-block">
+                                <figure class="img-block__figure">
+                                    <img src="./images/ducks.png" alt="woman near the water feeding some ducks"
+                                        class="img-block__figure--ratio-2-3">
+                                </figure>
+                            </section>
+                        </article>
+                    </div>
 
-                    <figure class="img-block__figure">
-                        <img src="./images/house-and-corn-blue.png" alt="image with house and corn icons and a subtitle"
-                            class="img-block__figure--ratio-2-3">
-                    </figure>
-                </section>
+                    <div class="col-md-8">
+                        <article>
+                            <h2 class="article__title--large">Project facts</h2>
+                            <p class="content__text">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis odio velit, luctus a
+                                fermentum
+                                a,
+                                aliquet vel augue. Cras vitae elit commodo nisl condimentum lobortis vitae a eros.
+                                Quisque
+                                id
+                                erat
+                                quis nisl venenatis faucibus. Nulla tincidunt posuere arcu. Vivamus ante metus, ultrices
+                                ut
+                                dictum
+                                quis, malesuada ut elit. Nulla facilisi. In et nisl venenatis, bibendum dui sit amet,
+                                vehicula.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis odio velit, luctus a
+                                fermentum
+                                a,
+                                aliquet vel augue. Cras vitae elit commodo nisl condimentum lobortis vitae a eros.
+                                Quisque
+                                id
+                                erat
+                                quis nisl venenatis faucibus. Nulla tincidunt posuere arcu. Vivamus ante metus, ultrices
+                                ut
+                                dictum
+                                quis, malesuada ut elit. Nulla facilisi. In et nisl venenatis, bibendum dui sit amet,
+                                vehicula.
 
-                <section class="img-block">
-                    <h3 class="left-margin img-block__title--secondary">95% of people</h3>
+                            </p>
+                        </article>
+                    </div>
+                </div>
+                <div class="row saved-graphics">
+                    <div class="col-md-8">
+                        <section class="img-block img-block--corn">
+                            <h3 class="left-margin img-block__title--secondary">300 houses + 250 ares of crops</h3>
 
-                    <figure class="img-block__figure">
-                        <img src="./images/people-blue.png" alt="image with people icons and a subtitle"
-                            class="img-block__figure--ratio-2-3">
-                    </figure>
-                </section>
+                            <figure class="img-block__figure">
+                                <img src="./images/house-and-corn-blue.png"
+                                    alt="image with house and corn icons and a subtitle"
+                                    class="img-block__figure--ratio-2-3">
+                            </figure>
+                        </section>
+                    </div>
+                    <div class="col-md-4">
+                        <section class="img-block img-block--human">
+                            <h3 class="left-margin img-block__title--secondary">95% of people</h3>
 
-            </article>
-            <article class="row">
-                <h2 class="article__title">Project facts</h2>
-                <p class="content__text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis odio velit, luctus a fermentum a,
-                    aliquet vel augue. Cras vitae elit commodo nisl condimentum lobortis vitae a eros. Quisque id erat
-                    quis nisl venenatis faucibus. Nulla tincidunt posuere arcu. Vivamus ante metus, ultrices ut dictum
-                    quis, malesuada ut elit. Nulla facilisi. In et nisl venenatis, bibendum dui sit amet, vehicula.
-                </p>
-                <section class="quote--grey content--more-width quote">
+                            <figure class="img-block__figure">
+                                <img src="./images/people-blue.png" alt="image with people icons and a subtitle"
+                                    class="img-block__figure--ratio-2-3">
+                            </figure>
+                        </section>
+                    </div>
+                </div>
 
-                    <blockquote>
-                        Zurich is a leading multiline insurance provider with a global network of subsidiaries and
-                        offices.
-                        With about 60,000 employees, we deliver a wide range of products in more tha 170 countries.
-                    </blockquote>
-                </section>
-            </article>
-            <article class="row img-block">
-                <h2 class="img-block__title left-margin">Nasima's story</h2>
-                <figure class="img-block__figure">
-                    <img src="./images/womanWater.png" alt="Woman sitting near the water"
-                        class="img-block__figure--ratio-2-3">
-                    <figcaption class="content__text content__text--caption">
-                        Caption lorem ipsum dolor sit amet bla bla bla.
-                    </figcaption>
-                </figure>
-                <p class=" content__text left-margin">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis odio velit, luctus a fermentum a,
-                    aliquet vel augue. Cras vitae elit commodo nisl condimentum lobortis vitae a eros. Quisque id erat
-                    quis nisl venenatis faucibus. Nulla tincidunt posuere arcu. Vivamus ante metus, ultrices ut dictum
-                    quis, malesuada ut elit. Nulla facilisi. In et nisl venenatis, bibendum dui sit amet, vehicula.
-                </p>
-                <section class=" quote quote--grey container-fluid">
-                    <blockquote >
-                        <img src="./images/quoteIconGrey.jpg" alt="quote icon" width="35">
+                <div class="col-md-7">
+                    <article>
+                        <h2 class="article__title--large">Project facts</h2>
+                        <p class="content__text">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis odio velit, luctus a
+                            fermentum
+                            a,
+                            aliquet vel augue. Cras vitae elit commodo nisl condimentum lobortis vitae a eros.
+                            Quisque
+                            id
+                            erat
+                            quis nisl venenatis faucibus. Nulla tincidunt posuere arcu. Vivamus ante metus, ultrices
+                            ut
+                            dictum
+                            quis, malesuada ut elit. Nulla facilisi. In et nisl venenatis, bibendum dui sit amet,
+                            vehicula.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis odio velit, luctus a
+                            fermentum
+                            a,
+                            aliquet vel augue. Cras vitae elit commodo nisl condimentum lobortis vitae a eros.
+                            Quisque
+                            id
+                            erat
+                            quis nisl venenatis faucibus. Nulla tincidunt posuere arcu. Vivamus ante metus, ultrices
+                            ut
+                            dictum
+                            quis, malesuada ut elit. Nulla facilisi. In et nisl venenatis, bibendum dui sit amet,
+                            vehicula.
 
-                        Zurich is a leading multiline insurance provider with a global network of subsidiaries and
-                        offices.
-                        With about 60,000 employees, we deliver a wide range of products in more tha 170 countries.
-                    </blockquote>
-                    <p class="content__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis odio velit,
+                        </p>
+                    </article>
+                </div>
+                <div class="col-md-5 ">
+                    <section class="quote--grey content--more-width quote">
+                        <blockquote>
+                            Zurich is a leading multiline insurance provider with a global network of
+                            subsidiaries
+                            and
+                            offices.
+                            With about 60,000 employees, we deliver a wide range of products in more tha 170
+                            countries.
+                        </blockquote>
+                    </section>
+                    </article>
+                </div>
+
+                <div class="row articles-with-background">
+                    <article class="col-md-6 py-md-4">
+                        <h2 class="img-block__title">Nasima's story</h2>
+                        <section class="img-block">
+                            <figure class="img-block__figure">
+                                <img src="./images/womanWater.png" alt="Woman sitting near the water"
+                                    class="img-block__figure--ratio-2-3">
+                                <figcaption class="content__text content__text--caption">
+                                    Caption lorem ipsum dolor sit amet bla bla bla.
+                                </figcaption>
+                            </figure>
+                        </section>
+                    </article>
+                    <article class="col-md-6">
+                        <section class="articles-with-background--right">
+                            <p class=" content__text left-margin">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis odio velit, luctus a
+                                fermentum
+                                a,
+                                aliquet vel augue. Cras vitae elit commodo nisl condimentum lobortis vitae a eros.
+                                Quisque
+                                id
+                                erat
+                                quis nisl venenatis faucibus. Nulla tincidunt posuere arcu. Vivamus ante metus, ultrices
+                                ut
+                                dictum
+                                quis, malesuada ut elit. Nulla facilisi. In et nisl venenatis, bibendum dui sit amet,
+                                vehicula.
+                            </p>
+                            <section class=" quote quote--grey container-fluid">
+                                <blockquote>
+                                    <img src="./images/quoteIconGrey.jpg" alt="quote icon" width="35">
+                                    Zurich is a leading multiline insurance provider with a global network of
+                                    subsidiaries
+                                    and
+                                    offices.
+                                    With about 60,000 employees, we deliver a wide range of products in more tha 170
+                                    countries.
+                                </blockquote>
+                            </section>
+                                <p class="content__text grey-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
+                                    odio
+                                    velit,
+                                    luctus a fermentum a,
+                                    aliquet vel augue.</p>
+                            
+                        </section>
+                    </article>
+                </div>
+
+                <div class="col-md-12">
+                    <article>
+                        <h2 class="article__title--large">Organizations have recieved official recognition</h2>
+                        <p class="content__text">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis odio
+                        velit,
                         luctus a fermentum a,
-                        aliquet vel augue.</p>
-                </section>
-            </article>
-            <article class="row">
-                <h2>Organizations have recieved official recognition</h2>
-                <p class="content__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis odio velit,
-                    luctus a fermentum a,
-                    aliquet vel augue. Cras vitae elit commodo nisl condimentum lobortis vitae a eros. Quisque id erat
-                    quis nisl venenatis faucibus. Nulla tincidunt posuere arcu. Vivamus ante metus, ultrices ut dictum
-                    quis, malesuada ut elit. Nulla facilisi. In et nisl venenatis, bibendum dui sit amet, vehicula.</p>
-            </article>
-            <article class="row img-block--socials">
-                <figure class="img-block__figure--socials img-block__figure--share">
-                    <img src="./images/shareSocials.png" alt="image with icons to share the website"
-                        class="img-block__figure--ratio-wide ">
-                </figure>
-            </article>
-            <article class="row contact-foot container-fluid">
-                <h2>Contact</h2>
-                <p class="content__text">For more information about corporate responsibility at Zurich, please email us
-                    at:</p>
-                <!--emial with icon-->
-                <h2>Download further information</h2>
-                <p class="content__text">Download Zurich's study on how to improve flood resilience in Eurpe</p>
-                <!--download icon with text-->
-                <!--download icon with text-->
-            </article>
-        </div>
+                        aliquet vel augue. Cras vitae elit commodo nisl condimentum lobortis vitae a eros.
+                        Quisque
+                        id
+                        erat
+                        quis nisl venenatis faucibus. Nulla tincidunt posuere arcu. Vivamus ante metus, ultrices
+                        ut
+                        dictum
+                        quis, malesuada ut elit. Nulla facilisi. In et nisl venenatis, bibendum dui sit amet,
+                        vehicula.
+                        </p>
+                    </article>
+                </div>
+
+                <article class="row img-block--socials">
+                    <figure class="img-block__figure--socials img-block__figure--share">
+                        <img src="./images/shareSocials.png" alt="image with icons to share the website"
+                            class="img-block__figure--ratio-wide ">
+                    </figure>
+                </article>
+
+                <div class="col-md-12 contact-foot">
+                    <article class="row contact-foot__article container-fluid">
+                        <div>
+                            <h2>Contact</h2>
+                            <p class="content__text">For more information about corporate responsibility at Zurich,
+                                please
+                                email
+                                us at:</p>
+                            <p class="content__text email">insurance-info@zurich.com</p>
+                        </div>
+                        <div>
+                            <h2>Download further information</h2>
+                            <p class="content__text">Download Zurich's study on how to improve flood resilience in Europe.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+            </div>
     </main>
-
-
     <footer class="row container-fluid ">
         <article class="footer__sitemap">
             <p class="sitemap__element content__text">Sitemap &#x2304;</p>
@@ -183,3 +308,5 @@
         </article>
     </footer>
 </body>
+
+</html>
