@@ -9,7 +9,6 @@ body,
 
 a {
     text-decoration: none;
-
 }
 
 .main-content {
@@ -19,7 +18,6 @@ a {
 
 :root {
     /* colors */
-
     --zurichBlue1: #003399;
     --zurichBlue1-75: #4066B3;
     --zurichBlue2: #000066;
@@ -31,9 +29,10 @@ a {
     --black-75: #3E3E3E;
     --skyBlue: #009EE0;
     --midBlue: #4F90c8;
-
     --color-prominent: var(--black);
     --color-secondary: var(--skyBlue);
+
+    /* fonts */
 }
 
 /* header */
@@ -169,6 +168,31 @@ a {
 
 }
 
+.img-block--corn {
+    @media screen and (min-width: 768px) {
+        width: 100%;
+        height: fit-content;
+    }
+}
+
+.img-block--human {
+    @media screen and (min-width: 768px) {
+        width: 113%;
+        height: fit-content;
+
+    }
+
+}
+
+.img-block--human img {
+    margin: 0 2%;
+    width: 100vw;
+
+    @media screen and (min-width:768px) {
+        margin: 0;
+    }
+}
+
 /* figure */
 .img-block__figure {
     margin: 0 0 0px 0;
@@ -196,13 +220,13 @@ a {
 /* on img element */
 /* standard */
 .img-block__figure--ratio-2-3 {
-    margin: 0 0 0 -150px;
+    margin: 20px 0 20px -40px;
     height: auto;
-    width: 150%;
+    width: 100%;
 
     @media screen and (min-width: 768px) {
         width: 100%;
-        margin: 0 0 0 0%;
+        margin: 0 0 0 0;
         height: auto;
     }
 }
@@ -311,10 +335,10 @@ figcaption {
 
 .round-icon {
     position: absolute;
-    bottom: 80px;
+    bottom: 15%;
 
     @media screen and (min-width:768px) {
-        bottom: 80px;
+        bottom: 15%;
     }
 }
 
@@ -356,6 +380,7 @@ form select {
     margin-left: -15px;
     margin-right: -15px;
     width: 115%;
+    margin-top: 10px;
 
     @media screen and (min-width:768px) {
         line-height: 32px;
@@ -363,11 +388,12 @@ form select {
         margin-left: 0px;
         margin-right: 0px;
 
+
     }
 }
 
 .quote.content--more-width {
-    width: 115%;
+    width: 118%;
 
     @media screen and (min-width:768px) {
         width: 105%;
@@ -382,7 +408,7 @@ blockquote {
 .quote--grey {
     /* neutral secondary */
     color: var(--skyBlue);
-    background-color: var(--grey-5);
+    background-color: var(--grey-10);
 
     @media screen and (min-width:768px) {}
 }
@@ -391,6 +417,22 @@ blockquote {
     /* prominent primary */
     color: var(--white);
     background-color: var(--skyBlue);
+}
+
+.articles-with-background .quote {
+    width: 100%;
+    padding-left: 30px;
+    background-color: transparent;
+
+    @media screen and (min-width:768px) {}
+}
+
+.articles-with-background .grey-text {
+    color: var(--grey-45);
+    margin: 0px 0px 20px 15px;
+    display: block;
+
+    @media screen and (min-width:768px) {}
 }
 
 h2 {
@@ -404,7 +446,7 @@ h2 {
 
     @media screen and (min-width:768px) and (max-width: 991px) {
         line-height: 28px;
-
+        margin: 00px 0 0px 0;
     }
 
     @media screen and (min-width:992px) {
@@ -564,8 +606,6 @@ select {
     }
 }
 
-
-
 .subtitle-area {
     @media screen and (min-width:768px) {
         margin: 0 -30px 0 0;
@@ -584,7 +624,7 @@ select {
 
 .subtitle-area--title {
     @media screen and (min-width:768px) {
-        padding: 20px 40px;
+        padding: 00px 40px;
     }
 }
 
@@ -693,8 +733,43 @@ p {
     width: 112%;
     display: block;
     padding: 15px 15px;
-    margin-top: -5px;
+    margin-top: -25px;
+
+    @media screen and (min-width:768px) {
+        width: 100%;
+        position: relative;
+        z-index: 1;
+    }
 }
+
+.articles-with-background h2 {
+    @media screen and (min-width:768px) {
+        margin-bottom: 10px;
+    }
+}
+
+.articles-with-background {
+
+    background-color: var(--grey-5);
+
+    @media screen and (min-width:768px) {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-content: flex-start;
+        justify-content: space-around;
+        width: 110%;
+        margin-right: -2%;
+    }
+}
+
+.articles-with-background--right {
+    @media screen and (min-width:768px) {
+        padding-top: 30px;
+
+    }
+}
+
 
 
 .website-articles article {
@@ -780,10 +855,11 @@ p {
 
 /* bangladesh */
 .flood__block {
+    background-color: var(--grey-10);
+    width: 106%;
+    margin-left: -1%;
+
     @media screen and (min-width:768px) {
-        background-color: var(--grey-10);
-        width: 105%;
-        margin-left: -1%;
         padding: 0px 40px;
     }
 }
@@ -803,11 +879,11 @@ p {
     }
 }
 
-.flood__figure .copyright {
-    @media screen and (min-width:768px) {
-        color: var(--grey-45);
-        margin-top: 20px;
-    }
+.flood__figure .grey-text {
+    color: var(--grey-45);
+    margin-top: 20px;
+    margin-bottom: 20px;
+
 }
 
 .saved-graphics div {
@@ -820,19 +896,29 @@ p {
 .saved-graphics {
     @media screen and (min-width:768px) {
         width: 100%;
-        padding-top: 40px;
+        padding: 1% 0;
+        height: fit-content;
     }
 }
 
 .saved-graphics .img-block__figure {
     height: 300px;
     width: auto;
+
+    @media screen and (min-width:768px) {
+        height: fit-content
+    }
 }
 
 .saved-graphics img {
     height: 100%;
     width: auto;
     overflow: hidden;
+
+    @media screen and (min-width:768px) {
+        width: 100%;
+        height: auto;
+    }
 }
 
 .saved-graphics h3 {
@@ -851,24 +937,28 @@ main .img-block__figure--socials {
 .contact-foot .contact-foot__article {
 
     background-color: var(--grey-5);
-    width: 110%;
+    width: 115%;
     margin-left: -15px;
     margin-top: -5px;
     padding: 15px;
 
     @media screen and (min-width:768px) {
-
-
         display: flex;
         flex-direction: row;
         align-content: flex-start;
         justify-content: space-around;
         width: 110%;
-        margin-left: -1%;
+        margin-left: -2%;
         margin-right: -2%;
-        padding: 0px 40px;
+        padding: 0px 0px 0 10px;
 
         height: 200px;
+    }
+}
+
+.contact-foot__article {
+    @media screen and (min-width:768px) {
+        width: 110%;
     }
 }
 
@@ -877,6 +967,7 @@ main .img-block__figure--socials {
         width: 40%;
     }
 }
+
 .contact-foot__article .email {
     @media screen and (min-width:768px) {
         display: block;
