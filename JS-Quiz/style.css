@@ -1,0 +1,9 @@
+body {
+    padding-top: 3rem;
+    width: 60%;
+    max-width: 600px;
+    margin: auto;
+}
+.answers {
+    text-align: left;
+}
