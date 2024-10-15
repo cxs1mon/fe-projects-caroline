@@ -94,7 +94,7 @@ function nextQuestion() {
     }
 }
 
-
+// loads end screen
 function endQuiz() {
     // lists the elemnts from the quiz
     const outdatedAnswers = document.getElementsByClassName("answers");
@@ -120,6 +120,14 @@ function endQuiz() {
     let s = document.createTextNode(`Your Score: ${correct} out of ${questions.length} correct`);
     scoreTextElemennt.appendChild(s);
     document.body.appendChild(scoreTextElemennt);
+
+    // restart quiz button
+    let restartElement = document.createElement("button");
+    let restartText = document.createTextNode("Restart Quiz");
+    restartElement.setAttribute("onClick", `location.reload();`);
+
+    restartElement.appendChild(restartText);
+    document.body.appendChild(restartElement);
 
     // stops the timer
     stopTimer();
