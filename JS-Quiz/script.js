@@ -15,9 +15,9 @@ let firstObjectKeys = Object.keys(answers[0]);
 // a counter for the score and the current question
 let correct = 0;
 let questionNr = 0;
- 
+
 // globale variable, to save the interval
-let interval; 
+let interval;
 
 function timer() {
 
@@ -28,7 +28,7 @@ function timer() {
 
     // sets the first frame of the interval because the interval thas a delay of 1second
     document.getElementById("timer").innerHTML = " 30 seconds remaining";
-  
+
     // starts a timer for 30 seconds
     let secondsLeft = 29;
     interval = setInterval(function () {
@@ -56,6 +56,16 @@ function mainSetup() {
     questionTextElement.appendChild(q);
     document.body.appendChild(questionTextElement);
 
+    // display question counter
+    let questionProgress = document.createElement("p");
+    let questionCounter = questionNr;
+
+    questionCounter++;
+    let qp = document.createTextNode(`Question Number: ${questionCounter}/5`);
+    questionProgress.setAttribute("id", "questionProgress");
+    questionProgress.appendChild(qp);
+    document.body.appendChild(questionProgress);
+
     // start the timer function
     timer();
 
@@ -75,22 +85,32 @@ function loadQuestion() {
         answerButton.appendChild(b);
         document.body.appendChild(answerButton);
     }
+
 }
 // loads the next question (text)
 function nextQuestion() {
+    let questionCounter = questionNr;
+    questionCounter++;
+    let questionProgressElement = document.getElementById("questionProgress");
+    questionProgressElement.innerHTML = (`Question Number: ${questionCounter}/5`);
+
     let elements = document.getElementsByClassName("question");
     for (let i = 0; i < elements.length; i++) {
         elements[i].innerHTML = questions[questionNr];
     }
 
+    // update qdisplayed question counter
+
+
     let answerElements = document.getElementsByClassName("answers");
+
 
     for (let j = 0; j < answerElements.length; j++) {
         let buttonText = answers[questionNr][firstObjectKeys[j]];
         // update the button text
-        answerElements[j].innerText = buttonText;  
+        answerElements[j].innerText = buttonText;
         // update the onClick attribute
-        answerElements[j].setAttribute("onClick", `check('${buttonText}');`);  
+        answerElements[j].setAttribute("onClick", `check('${buttonText}');`);
     }
 }
 
@@ -101,19 +121,22 @@ function endQuiz() {
     const outdatedQuestion = document.getElementsByClassName("question");
     const outdatedScore = document.getElementsByClassName("counter");
     const outdatedTimer = document.getElementById("timer");
+    const outdatedProgress = document.getElementById("questionProgress");
 
     // delets those elements
     Array.from(outdatedAnswers).forEach(answer => answer.remove());
     Array.from(outdatedQuestion).forEach(question => question.remove());
     Array.from(outdatedScore).forEach(score => score.remove());
     Array.from(outdatedTimer).forEach(timer => timer.remove());
+    Array.from(outdatedProgress).forEach(progress => progress.remove());
 
     // displays the "quiz complete" title
     let endTitleElement = document.createElement("h3");
-    let referenceTimerElement = document.getElementById("timer")
+    let referenceProgressElement = document.getElementById("questionProgress")
     let e = document.createTextNode("Quiz Complete!");
     endTitleElement.appendChild(e);
-    referenceTimerElement.parentNode.insertBefore(endTitleElement, referenceTimerElement); // insert title befor the existing timer
+    referenceProgressElement.parentNode.insertBefore(endTitleElement, referenceProgressElement); // insert title before the existing timer
+
 
     // displays the score
     let scoreTextElemennt = document.createElement("p");
@@ -151,13 +174,19 @@ function check(answerText) {
 
         // increas the question number
         questionNr += 1;
-        nextQuestion();
+
+        setTimeout(function () {
+            nextQuestion();
+        }, 1000);
     } else {
         if (answerText == correctAnswers[questionNr]) {
             correct++;
         };
         console.log("done");
         // ends the quiz
-        endQuiz();
+        setTimeout(function () {
+            endQuiz();
+        }, 1000);
+
     }
 }
