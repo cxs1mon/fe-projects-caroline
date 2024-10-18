@@ -5,6 +5,10 @@ let correct = 0;
 let interval;
 let quizContainer;
 
+let numberOfQuestions = 15;
+let timerTime = numberOfQuestions*10-1;
+let cooldownTime = 500;
+
 function shuffle(array) {
     let currentIndex = array.length;
 
@@ -28,15 +32,14 @@ async function timer() {
     document.body.appendChild(timerElement);
 
     // sets the first frame of the interval because the interval has a delay of 1 second
-    document.getElementById("timer").innerHTML = "20 seconds remaining";
+    document.getElementById("timer").innerHTML = `${timerTime + 1} seconds remaining`;
 
-    // starts a timer for 20 seconds
-    let secondsLeft = 19;
+    // starts a timer for x seconds
     interval = setInterval(function () {
-        document.getElementById("timer").innerHTML = secondsLeft + " seconds remaining";
-        secondsLeft--;
+        document.getElementById("timer").innerHTML = timerTime + " seconds remaining";
+        timerTime--;
 
-        if (secondsLeft < 0) {
+        if (timerTime < 0) {
             document.getElementById("timer").innerHTML = "Time's up!";
             endQuiz();
         }
@@ -44,11 +47,9 @@ async function timer() {
     return timerElement;
 }
 
-
-
 async function getData() {
     // URL to get questions from
-    const url = "https://opentdb.com/api.php?amount=10&type=multiple&category=20";
+    const url = `https://opentdb.com/api.php?amount=${numberOfQuestions}&category=22&difficulty=easy&type=multiple`;
 
     // try to fetch the questions
     try {
@@ -70,14 +71,13 @@ async function getData() {
 async function updateQuestion() {
     // code to execute if questions are not fetched yet
 
-
     if (questions == null) {
 
         // wait till the questions are loaded
         await getData();
 
-
         let questionProgress = document.createElement("p");
+        let scoreCounter = document.createElement("p");
         let questionCounter = questionNr;
 
         const outdatedButton = document.getElementById("startBtn");
@@ -96,6 +96,11 @@ async function updateQuestion() {
         questionProgress.appendChild(qp);
         quizContainer.appendChild(questionProgress);
 
+        let sc = document.createTextNode(`Correct: ${(correct/questions.results.length)*100}%`);
+        scoreCounter.setAttribute("id", "scoreCounter");
+        scoreCounter.appendChild(sc);
+        quizContainer.appendChild(scoreCounter);
+
         // create the question element
         const questionElement = document.createElement("p");
         questionElement.setAttribute("id", "question");
@@ -107,28 +112,24 @@ async function updateQuestion() {
         answers.push(questions.results[questionNr].correct_answer);
         randomizedAnswers = shuffle(answers);
 
-
-
         randomizedAnswers.forEach(answer => {
-            let timerElement = document.getElementById("timer");
-            // TODO create answer buttons
             const answerElement = document.createElement("button");
             answerElement.setAttribute("class", "answer");
             //document.body.appendChild(answerElement);
             quizContainer.after(answerElement);
             answerElement.innerHTML = answer;
             answerElement.setAttribute("onClick", `check('${answer}');`);
-
-
         });
 
-
         // code to execute if the questions are already fetched and the questionNr is smaller or equal to 9
-    } else if (questionNr <= 9) {
+    } else if (questionNr < numberOfQuestions) {
         let questionCounter = questionNr;
         questionCounter++;
         let questionProgressElement = document.getElementById("questionProgress");
         questionProgressElement.innerHTML = (`Question Number: ${questionCounter}/${questions.results.length}`);
+
+        let scoreElement = document.getElementById("scoreCounter");
+        scoreElement.innerHTML = (`Correct: ${(correct/questions.results.length)*100}%`);
 
         // get the answers and shufle them for the next question
         const answers = questions.results[questionNr].incorrect_answers;
@@ -162,9 +163,9 @@ function endQuiz() {
 
     // lists the elements from the quiz
     const outdatedQuestion = document.querySelectorAll("#question");
-    //const outdatedScore = document.getElementsByClassName("counter");
     const outdatedTimer = document.getElementById("timer");
     const outdatedProgress = document.getElementById("questionProgress");
+    const outdatedScore = document.getElementById("scoreCounter");
 
     // deletes those elements
     document.querySelectorAll(".answer").forEach(element => {
@@ -173,6 +174,7 @@ function endQuiz() {
     Array.from(outdatedQuestion).forEach(question => question.remove());
     outdatedTimer.remove();
     outdatedProgress.remove();
+    outdatedScore.remove();
 
     // displays the "quiz complete" title
     let endTitleElement = document.createElement("h3");
@@ -183,7 +185,7 @@ function endQuiz() {
 
     // displays the score
     let scoreTextElement = document.createElement("p");
-    let s = document.createTextNode(`Your Score: ${correct} out of ${questions.results.length} correct`);
+    let s = document.createTextNode(`Correct: ${(correct/questions.results.length)*100}%`);
     scoreTextElement.appendChild(s);
     document.body.appendChild(scoreTextElement);
 
@@ -194,35 +196,47 @@ function endQuiz() {
 
     restartElement.appendChild(restartText);
     document.body.appendChild(restartElement);
-
 }
 
 function check(answerText) {
+    // set buttons on disabled to avoid doubble clicking
+    (document.querySelectorAll(".answer")).forEach(answer => {
+        answer.disabled = true;
+    });
+    let answerButtons = document.querySelectorAll(".answer");
 
+
+    //color the buttons based on the given answer
+    for (let i = 0; i < answerButtons.length; i++) {
+        answerButtons.item(i).style.color = "white";
+        // if the given answer is equal to the correct answer of the current question
+        if (answerText == questions.results[questionNr].correct_answer) {
+            if (answerButtons.item(i).innerHTML == questions.results[questionNr].correct_answer) {
+                answerButtons.item(i).style.backgroundColor = "#03AC13";
+            };
+        // if the given answer is not the correct answer
+        } else {
+            if (answerButtons.item(i).innerHTML == questions.results[questionNr].correct_answer) {
+                // mark the right one green
+                answerButtons.item(i).style.backgroundColor = "#03AC13";
+            }
+        }
+    }
+    if (answerText == questions.results[questionNr].correct_answer) {
+        correct++;
+        document.getElementById("scoreCounter").innerHTML = (`Correct: ${(correct/questions.results.length)*100}%`)
+    };
     // if questions remain
     if (questionNr < (questions.results.length - 1)) {
-
-        // if the question is answered correctly
-        if (answerText == questions.results[questionNr].correct_answer) {
-            //increases the correct score
-            correct++;
-        };
-
         // increas the question number
         questionNr += 1;
-
         setTimeout(function () {
             updateQuestion();
-
-        }, 1000);
+        }, cooldownTime);
     } else {
-        if (answerText == questions.results[questionNr].correct_answer) {
-            correct++;
-        };
         // ends the quiz
         setTimeout(function () {
             endQuiz();
-        }, 1000);
-
-    }
-}
+        }, cooldownTime);
+    };
+};
