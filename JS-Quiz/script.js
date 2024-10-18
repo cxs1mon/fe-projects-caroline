@@ -3,6 +3,7 @@ let questions;
 let randomizedAnswers;
 let correct = 0;
 let interval;
+let quizContainer;
 
 function shuffle(array) {
     let currentIndex = array.length;
@@ -40,7 +41,7 @@ async function timer() {
             endQuiz();
         }
     }, 1000);
-
+    return timerElement;
 }
 
 
@@ -82,18 +83,23 @@ async function updateQuestion() {
         const outdatedButton = document.getElementById("startBtn");
         outdatedButton.remove();
 
+        quizContainer = document.createElement("div");
+        quizContainer.setAttribute("class", "quizContainer")
+        document.body.appendChild(quizContainer);
+
+        let timerElement = await timer();
+        quizContainer.appendChild(timerElement);
+
         questionCounter++;
         let qp = document.createTextNode(`Question Number: ${questionCounter}/${questions.results.length}`);
         questionProgress.setAttribute("id", "questionProgress");
         questionProgress.appendChild(qp);
-        document.body.appendChild(questionProgress);
- 
-        await timer();
+        quizContainer.appendChild(questionProgress);
 
         // create the question element
         const questionElement = document.createElement("p");
         questionElement.setAttribute("id", "question");
-        document.body.appendChild(questionElement);
+        quizContainer.appendChild(questionElement);
         // set the text to the first question
         questionElement.innerHTML = questions.results[questionNr].question;
 
@@ -109,7 +115,7 @@ async function updateQuestion() {
             const answerElement = document.createElement("button");
             answerElement.setAttribute("class", "answer");
             //document.body.appendChild(answerElement);
-            timerElement.after(answerElement);
+            quizContainer.after(answerElement);
             answerElement.innerHTML = answer;
             answerElement.setAttribute("onClick", `check('${answer}');`);
 
@@ -145,16 +151,8 @@ async function updateQuestion() {
         // replace the text with the next question
         document.getElementById("question").innerHTML = questions.results[questionNr].question;
 
-        // increase the questionNr to display the next question
-
     } else {
-        // remove the buttons 
-        let outdatedAnswers = document.querySelectorAll("#answer");
-        outdatedAnswers.forEach(answer => {
-            answer.remove();
-        });
         document.getElementById("question").innerHTML = ("All Questions asked");
-
     }
 
 }
@@ -173,7 +171,6 @@ function endQuiz() {
         element.remove();
     });
     Array.from(outdatedQuestion).forEach(question => question.remove());
-    //Array.from(outdatedScore).forEach(score => score.remove());
     outdatedTimer.remove();
     outdatedProgress.remove();
 
@@ -198,13 +195,8 @@ function endQuiz() {
     restartElement.appendChild(restartText);
     document.body.appendChild(restartElement);
 
-    // stops the timer
-
 }
 
-/*function stopTimer() {
-    clearInterval(interval);
-}*/
 function check(answerText) {
 
     // if questions remain
@@ -221,6 +213,7 @@ function check(answerText) {
 
         setTimeout(function () {
             updateQuestion();
+
         }, 1000);
     } else {
         if (answerText == questions.results[questionNr].correct_answer) {
