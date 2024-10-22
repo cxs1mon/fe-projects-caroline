@@ -11,6 +11,11 @@ body {
 button{
     height: 8vh;
 }
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
 
 #quizContainer {
     display: grid;
