@@ -84,7 +84,7 @@ async function updateQuestion() {
         outdatedButton.remove();
 
         quizContainer = document.createElement("div");
-        quizContainer.setAttribute("class", "quizContainer")
+        quizContainer.setAttribute("id", "quizContainer")
         document.body.appendChild(quizContainer);
 
         let timerElement = await timer();
@@ -166,6 +166,7 @@ function endQuiz() {
     const outdatedTimer = document.getElementById("timer");
     const outdatedProgress = document.getElementById("questionProgress");
     const outdatedScore = document.getElementById("scoreCounter");
+    const outdateQuizContainer= document.getElementById("quizContainer");
 
     // deletes those elements
     document.querySelectorAll(".answer").forEach(element => {
@@ -175,6 +176,7 @@ function endQuiz() {
     outdatedTimer.remove();
     outdatedProgress.remove();
     outdatedScore.remove();
+    outdateQuizContainer.remove();
 
     // displays the "quiz complete" title
     let endTitleElement = document.createElement("h3");

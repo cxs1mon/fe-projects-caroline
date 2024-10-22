@@ -3,21 +3,26 @@ body {
     width: 80%;
     max-width: 600px;
     margin: auto;
+    grid-template-rows: none;
+    height: 90vh;
+    align-content: center
 }
 
-.answers {
-    text-align: left;
+button{
+    height: 8vh;
 }
 
-.quizContainer {
+#quizContainer {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: 10vh 10vh 10vh;
     grid-template-areas:
         "progress timer"
-        "score ."
+        "score score"
         "question question"
     ;
+    height: fit-content;
+    margin-bottom: 25px;
 }
 
 #timer {
