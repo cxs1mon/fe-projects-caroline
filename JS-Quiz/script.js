@@ -8,7 +8,7 @@ let quizContainer;
 
 let numberOfQuestions;
 let timerTime;
-const cooldownTime = 500;
+const cooldownTime = 1000;
 
 function shuffle(array) {
     let currentIndex = array.length;
@@ -48,9 +48,9 @@ async function timer() {
     return timerElement;
 }
 
-async function getData(category) {
+async function getData(category,difficulty) {
     // URL to get questions from
-    const url = `https://opentdb.com/api.php?amount=${numberOfQuestions}&category=${category}&difficulty=easy&type=multiple`;
+    const url = `https://opentdb.com/api.php?amount=${numberOfQuestions}&category=${category}&difficulty=${difficulty}&type=multiple`;
 
     // try to fetch the questions
     try {
@@ -76,23 +76,31 @@ function startQuiz(event) {
     // gets and saves the chosen category
     let category = document.querySelector('#categorySelect');
     category = category.value;
+
+    // gets and saves the difficulty
+    let difficulty = document.querySelector('#inputDifficulty');
+    difficulty = difficulty.value;
+
+    // gets ans saves the chosen number of questions
     numberOfQuestions = document.getElementById("inputQuestionNr").value;
-    if (numberOfQuestions > 30 || numberOfQuestions < 2) {
-        console.log("number is out of range");
+    if (numberOfQuestions > 20 || numberOfQuestions < 2) {
+        alert("number of Questions must be between 2 & 20")
     } else {
+        //sets the timer according to the number of quesstions
         timerTime = numberOfQuestions * 8 - 1;
-        updateQuestion(category);
+        // triggers the updateQuestion function and transfers the category and the difficulty for the data fetch
+        updateQuestion(category,difficulty);
     }
 
 }
 
-async function updateQuestion(category) {
+async function updateQuestion(category, difficulty) {
     // code to execute if questions are not fetched yet
 
     if (questions == null) {
 
         // wait till the questions are loaded
-        await getData(category);
+        await getData(category, difficulty);
 
         let questionProgress = document.createElement("p");
         let scoreCounter = document.createElement("p");

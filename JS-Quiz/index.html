@@ -39,8 +39,14 @@
             <option value="31">Entertainment: Japanese Anime & Manga</option>
             <option value="32">Entertainment: Cartoon & Animations</option>
         </select>
-        <label for="inputQuestionNr">Select the number of questions</label>
-        <input id="inputQuestionNr" type="number" min="2" max="30">
+        <label for="inputQuestionNr">Select the number of questions:</label>
+        <input id="inputQuestionNr" type="number">
+        <label for="inputDifficulty">Choos your difficulty:</label>
+        <select id="inputDifficulty">
+            <option value="easy">Easy</option>
+            <option value="medium" selected="selected">Medium</option>
+            <option value="hard">Hard</option>
+        </select>
         <button type="submit" onclick="startQuiz(event)">Start Quiz</button>
     </form>
 
