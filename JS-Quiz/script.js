@@ -96,7 +96,9 @@ async function updateQuestion() {
         questionProgress.appendChild(qp);
         quizContainer.appendChild(questionProgress);
 
-        let sc = document.createTextNode(`Correct: ${(correct/questions.results.length)*100}%`);
+        let scoreNumber = (correct/questions.results.length)*100;
+        scoreNumber = scoreNumber.toFixed(1);
+        let sc = document.createTextNode(`Correct: ${scoreNumber}%`);
         scoreCounter.setAttribute("id", "scoreCounter");
         scoreCounter.appendChild(sc);
         quizContainer.appendChild(scoreCounter);
@@ -129,7 +131,9 @@ async function updateQuestion() {
         questionProgressElement.innerHTML = (`Question Number: ${questionCounter}/${questions.results.length}`);
 
         let scoreElement = document.getElementById("scoreCounter");
-        scoreElement.innerHTML = (`Correct: ${(correct/questions.results.length)*100}%`);
+        let scoreNumber = (correct/questions.results.length)*100;
+        scoreNumber = scoreNumber.toFixed(1);
+        scoreElement.innerHTML = (`Correct: ${scoreNumber}%`);
 
         // get the answers and shufle them for the next question
         const answers = questions.results[questionNr].incorrect_answers;
@@ -187,7 +191,9 @@ function endQuiz() {
 
     // displays the score
     let scoreTextElement = document.createElement("p");
-    let s = document.createTextNode(`Correct: ${(correct/questions.results.length)*100}%`);
+    let scoreNumber = (correct/questions.results.length)*100;
+    scoreNumber = scoreNumber.toFixed(1);
+    let s = document.createTextNode(`Correct: ${scoreNumber}%`);
     scoreTextElement.appendChild(s);
     document.body.appendChild(scoreTextElement);
 
@@ -226,7 +232,9 @@ function check(answerText) {
     }
     if (answerText == questions.results[questionNr].correct_answer) {
         correct++;
-        document.getElementById("scoreCounter").innerHTML = (`Correct: ${(correct/questions.results.length)*100}%`)
+        let scoreNumber = (correct/questions.results.length)*100;
+        scoreNumber = scoreNumber.toFixed(1);
+        document.getElementById("scoreCounter").innerHTML = (`Correct: ${scoreNumber}%`)
     };
     // if questions remain
     if (questionNr < (questions.results.length - 1)) {
