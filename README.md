@@ -18,4 +18,4 @@ Zurich-Website <br>
 # JavaScript Quiz
 JS-Quiz<br>
 A Quiz  with a simple HTML and a CSS template. It contains 5 questions and a timer as well as a score.
-![screenshot of the quiz](https://github.com/cxs1mon/fe-projects-caroline/tree/feature/JS-Quiz/JS-Quiz/quiz.png?raw=true)
+![screenshot of the quiz](/JS-Quiz//quiz.png)
