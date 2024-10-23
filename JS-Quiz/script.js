@@ -232,6 +232,8 @@ function endQuiz() {
 
     restartElement.appendChild(restartText);
     document.body.appendChild(restartElement);
+
+    questions = undefined;
 }
 
 function check(answerText) {
@@ -248,13 +250,13 @@ function check(answerText) {
         // if the given answer is equal to the correct answer of the current question
         if (answerText == questions.results[questionNr].correct_answer) {
             if (answerButtons.item(i).innerHTML == questions.results[questionNr].correct_answer) {
-                answerButtons.item(i).style.backgroundColor = "#03AC13";
+                answerButtons.item(i).style.backgroundColor = "#74a977";
             };
             // if the given answer is not the correct answer
         } else {
             if (answerButtons.item(i).innerHTML == questions.results[questionNr].correct_answer) {
                 // mark the right one green
-                answerButtons.item(i).style.backgroundColor = "#03AC13";
+                answerButtons.item(i).style.backgroundColor = "#74a977";
             }
         }
     }
