@@ -106,7 +106,7 @@ async function updateQuestion(category, difficulty) {
         let scoreCounter = document.createElement("p");
         let questionCounter = questionNr;
 
-        
+
         const outdatedStartElements = document.getElementById("startElements");
         outdatedStartElements.remove();
 
@@ -241,6 +241,44 @@ function check(answerText) {
     (document.querySelectorAll(".answer")).forEach(answer => {
         answer.disabled = true;
     });
+
+    let correct_answer = questions.results[questionNr].correct_answer;
+
+
+    answerText = answerText.replace('&auml;', 'ä');
+    answerText = answerText.replace('&ouml;', 'ö');
+    answerText = answerText.replace('&uuml;', 'ü');
+    answerText = answerText.replace('&aring;', 'å');
+    answerText = answerText.replace('&#039;', '\'');
+    answerText = answerText.replace('&oacute;', 'ó');
+    answerText = answerText.replace('&ograve;', 'ò');
+    answerText = answerText.replace('&ocirc;', 'ô');
+    answerText = answerText.replace('&otilde;', 'õ');
+    answerText = answerText.replace('&iacute;', 'í');
+    answerText = answerText.replace('&lt;', '<');
+    answerText = answerText.replace('&gt;', '>');
+    answerText = answerText.replace('&quot;', '"');
+    answerText = answerText.replace('&ntilde;', 'ñ');
+
+    correct_answer = correct_answer.replace('&auml;', 'ä');
+    correct_answer = correct_answer.replace('&ouml;', 'ö');
+    correct_answer = correct_answer.replace('&uuml;', 'ü');
+    correct_answer = correct_answer.replace('&aring;', 'å');
+    correct_answer = correct_answer.replace('&#039;', '\'');
+    correct_answer = correct_answer.replace('&oacute;', 'ó');
+    correct_answer = correct_answer.replace('&ograve;', 'ò');
+    correct_answer = correct_answer.replace('&ocirc;', 'ô');
+    correct_answer = correct_answer.replace('&otilde;', 'õ');
+    correct_answer = correct_answer.replace('&iacute;', 'í');
+    correct_answer = correct_answer.replace('&lt;', '<');
+    correct_answer = correct_answer.replace('&gt;', '>');
+    correct_answer = correct_answer.replace('&quot;', '"');
+    correct_answer = correct_answer.replace('&ntilde;', 'ñ');
+
+    console.log(`Gegebene Antwort: ${answerText}`);
+    console.log(`Korrekte Antwort: ${correct_answer}`);
+    console.log(`------------------------------------------`);
+
     let answerButtons = document.querySelectorAll(".answer");
 
 
@@ -248,19 +286,11 @@ function check(answerText) {
     for (let i = 0; i < answerButtons.length; i++) {
         answerButtons.item(i).style.color = "white";
         // if the given answer is equal to the correct answer of the current question
-        if (answerText == questions.results[questionNr].correct_answer) {
-            if (answerButtons.item(i).innerHTML == questions.results[questionNr].correct_answer) {
-                answerButtons.item(i).style.backgroundColor = "#74a977";
-            };
-            // if the given answer is not the correct answer
-        } else {
-            if (answerButtons.item(i).innerHTML == questions.results[questionNr].correct_answer) {
-                // mark the right one green
-                answerButtons.item(i).style.backgroundColor = "#74a977";
-            }
-        }
+        if (answerButtons.item(i).innerHTML == correct_answer) {
+            answerButtons.item(i).style.backgroundColor = "#74a977";
+        };
     }
-    if (answerText == questions.results[questionNr].correct_answer) {
+    if (answerText == correct_answer) {
         correct++;
         let scoreNumber = (correct / questions.results.length) * 100;
         scoreNumber = scoreNumber.toFixed(1);
