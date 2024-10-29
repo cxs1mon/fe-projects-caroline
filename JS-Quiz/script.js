@@ -121,7 +121,7 @@ async function updateQuestion(category, difficulty) {
         }
         
 
-        let questionProgress = document.createElement("p");
+        let questionProgress = document.createElement("div");
         let scoreCounter = document.createElement("p");
         let questionCounter = questionNr;
 
@@ -138,10 +138,13 @@ async function updateQuestion(category, difficulty) {
         quizContainer.appendChild(timerElement);
 
         questionCounter++;
-        let qp = document.createTextNode(`Question Number: ${questionCounter}/${questions.results.length}`);
+        // question progress
+        let questionProgressContainer = document.createElement("div");
+        questionProgressContainer.setAttribute("id", "questionProgressContainer")
         questionProgress.setAttribute("id", "questionProgress");
-        questionProgress.appendChild(qp);
-        quizContainer.appendChild(questionProgress);
+        questionProgressContainer.appendChild(questionProgress);
+        questionProgress.style.width = ((100/questions.results.length)*questionCounter + "%")
+        quizContainer.appendChild(questionProgressContainer);
 
         let scoreNumber = (correct / questions.results.length) * 100;
         scoreNumber = scoreNumber.toFixed(1);
@@ -164,7 +167,6 @@ async function updateQuestion(category, difficulty) {
         randomizedAnswers.forEach(answer => {
             const answerElement = document.createElement("button");
             answerElement.setAttribute("class", "answer");
-            //document.body.appendChild(answerElement);
             quizContainer.after(answerElement);
             answerElement.innerHTML = answer;
             answerElement.setAttribute("onClick", `check('${answer}');`);
@@ -175,7 +177,7 @@ async function updateQuestion(category, difficulty) {
         let questionCounter = questionNr;
         questionCounter++;
         let questionProgressElement = document.getElementById("questionProgress");
-        questionProgressElement.innerHTML = (`Question Number: ${questionCounter}/${questions.results.length}`);
+        questionProgressElement.style.width = ((100/questions.results.length)*questionCounter + "%");
 
         let scoreElement = document.getElementById("scoreCounter");
         let scoreNumber = (correct / questions.results.length) * 100;
@@ -302,7 +304,7 @@ function check(answerText) {
         answerButtons.item(i).style.color = "white";
         // if the given answer is equal to the correct answer of the current question
         if (answerButtons.item(i).innerHTML == correct_answer) {
-            answerButtons.item(i).style.backgroundColor = "#74a977";
+            answerButtons.item(i).style.backgroundColor = "#55A051";
         };
     }
     if (answerText == correct_answer) {

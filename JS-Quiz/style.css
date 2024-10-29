@@ -7,7 +7,7 @@ body {
     height: 100%;
     align-content: center;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-    background-color: #f8e1d7;
+    background-color: #f5dcc3;
 }
 
 button {
@@ -27,7 +27,7 @@ button:focus {
 }
 
 button:disabled {
-    background-color: #dacece;
+    background-color: #c9c8c5;
     border: 1px solid #4a5759;
 }
 
@@ -36,7 +36,7 @@ input, select {
     padding: 2%;
     border-radius: 5px;
     border: 1px solid;
-    background-color: #e7c2b2;
+    background-color: #f0d4b8;
 }
 
 form {
@@ -52,10 +52,10 @@ h1 {
 #quizContainer {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 10vh 10vh 5rem;
+    grid-template-rows: 5vh 10vh 5rem;
     grid-template-areas:
-        "progress timer"
-        "score score"
+        "progress progress"
+        "score timer"
         "question question"
     ;
     height: fit-content;
@@ -67,7 +67,21 @@ h1 {
 }
 
 #questionProgress {
+    background-color: #AF8F6F;
+    height: 20px;
+    border-radius: 5px;
+}
+
+#questionProgressContainer {
+    padding: 5px;
     grid-area: progress;
+    width: 100%;
+    border-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.1);
+    height: 30px;
+    border-radius: 5px;
+    border-width: 1px;
+    border-style: solid;
 }
 
 #question {
