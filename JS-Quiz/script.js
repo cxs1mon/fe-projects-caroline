@@ -48,27 +48,35 @@ async function timer() {
     return timerElement;
 }
 
-async function getData(category,difficulty) {
+async function getData(category, difficulty) {
     // URL to get questions from
     const url = `https://opentdb.com/api.php?amount=${numberOfQuestions}&category=${category}&difficulty=${difficulty}&type=multiple`;
 
-    // try to fetch the questions
+
     try {
         const response = await fetch(url);
-        // tf the response didn't load correctly throw error with message
-        if (!response.ok) {
-            throw new Error(`Response status: ${response.status}`);
+
+        if (response.ok) {
+            console.log("SUCCESSFULL");
+            const questionsJson = await response.json();
+            questions = questionsJson;
+            return { questions };
+
+        } else {
+            if (response.status = 429) {
+                alert("Too many requests, please wait a second");
+                return (429);
+            } else {
+                console.log(`Response status: ${response.status}`);
+            }
         }
 
-        const questionsJson = await response.json();
-        // set the questions ariable to the fetched JSON
-        questions = questionsJson;
-
     } catch (error) {
+        // if the fetch didn't work
         console.error(error.message);
-        return null; // return nothing in case of error
     }
 }
+
 function startQuiz(event) {
     // stops the page from reload, because thats the standard function when clicking the type submit button
     event.preventDefault();
@@ -89,7 +97,7 @@ function startQuiz(event) {
         //sets the timer according to the number of quesstions
         timerTime = numberOfQuestions * 8 - 1;
         // triggers the updateQuestion function and transfers the category and the difficulty for the data fetch
-        updateQuestion(category,difficulty);
+        updateQuestion(category, difficulty);
     }
 
 }
@@ -100,7 +108,10 @@ async function updateQuestion(category, difficulty) {
     if (questions == null) {
 
         // wait till the questions are loaded
-        await getData(category, difficulty);
+        let response = await getData(category, difficulty);
+        if (response == 429) {
+            location.reload();
+        }
 
         let questionProgress = document.createElement("p");
         let scoreCounter = document.createElement("p");
