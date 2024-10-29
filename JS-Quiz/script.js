@@ -119,6 +119,9 @@ async function updateQuestion(category, difficulty) {
                 console.log("succesfull fetch");
             }
         }
+
+        let headerTitle = document.body.querySelector("h1");
+        headerTitle.innerHTML = (`The "${questions.results[1].category}" Quiz!`);
         
 
         let questionProgress = document.createElement("div");
