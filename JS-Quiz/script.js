@@ -50,18 +50,16 @@ async function timer() {
 
 async function getData(category, difficulty) {
     // URL to get questions from
-    const url = `https://opentdb.com/api.php?amount=${numberOfQuestions}&category=${category}&difficulty=${difficulty}&type=multiple`;
+    const url = `https://opentdb.com/api.php?amount=${numberOfQuestions}&category=${category}&difficulty=${difficulty}`;
 
 
     try {
         const response = await fetch(url);
 
         if (response.ok) {
-            console.log("SUCCESSFULL");
             const questionsJson = await response.json();
             questions = questionsJson;
             return { questions };
-
         } else {
             if (response.status = 429) {
                 alert("Too many requests, please wait a second");
@@ -73,7 +71,8 @@ async function getData(category, difficulty) {
 
     } catch (error) {
         // if the fetch didn't work
-        console.error(error.message);
+        alert("Network error, please check your network and try again");
+        return("network-error");
     }
 }
 
@@ -91,15 +90,14 @@ function startQuiz(event) {
 
     // gets ans saves the chosen number of questions
     numberOfQuestions = document.getElementById("inputQuestionNr").value;
-    if (numberOfQuestions > 20 || numberOfQuestions < 2) {
-        alert("number of Questions must be between 2 & 20")
+    if (numberOfQuestions > 10 || numberOfQuestions < 2) {
+        alert("number of Questions must be between 2 & 10")
     } else {
         //sets the timer according to the number of quesstions
         timerTime = numberOfQuestions * 8 - 1;
         // triggers the updateQuestion function and transfers the category and the difficulty for the data fetch
         updateQuestion(category, difficulty);
     }
-
 }
 
 async function updateQuestion(category, difficulty) {
@@ -109,9 +107,19 @@ async function updateQuestion(category, difficulty) {
 
         // wait till the questions are loaded
         let response = await getData(category, difficulty);
-        if (response == 429) {
+
+        if (response == "network-error") {
+            // if the fetch threw an error due to a networ error
             location.reload();
+        } else{
+            if (response == 429) {
+                // if the response status from the fetch was 429, reload the page
+                location.reload();
+            } else {
+                console.log("succesfull fetch");
+            }
         }
+        
 
         let questionProgress = document.createElement("p");
         let scoreCounter = document.createElement("p");
@@ -285,10 +293,6 @@ function check(answerText) {
     correct_answer = correct_answer.replace('&gt;', '>');
     correct_answer = correct_answer.replace('&quot;', '"');
     correct_answer = correct_answer.replace('&ntilde;', 'ñ');
-
-    console.log(`Gegebene Antwort: ${answerText}`);
-    console.log(`Korrekte Antwort: ${correct_answer}`);
-    console.log(`------------------------------------------`);
 
     let answerButtons = document.querySelectorAll(".answer");
 
