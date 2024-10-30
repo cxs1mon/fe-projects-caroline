@@ -1,148 +1,253 @@
-// three arrays for the questions, the 3 possible answers and the correct answers
-let questions = ["What are the four official languages spoken in Switzerland?", "Which Swiss city is known as the headquarters of many international organizations, including the Red Cross?", "What is the name of the famous mountain located in the Swiss Alps, often associated with Switzerland's iconic imagery?", "How does the Swiss political system operate, particularly in terms of its federal structure and direct democracy?", "What are some traditional Swiss dishes that are well-known both within and outside the country?"];
-let answers = [
-    { answer1: "German, French, Italian, Romansh", answer2: "German, English, French, Italian", answer3: "German, French, Spanish, Italian" },
-    { answer1: "Zurich", answer2: "Geneva", answer3: "Bern" },
-    { answer1: "Matterhorn", answer2: "Mont Blanc", answer3: "Eiger" },
-    { answer1: "It is a unitary state with centralized power", answer2: "It is a federal state with cantonal autonomy and direct democracy", answer3: "It is a monarchy with a parliamentary system" },
-    { answer1: "Fondue, Rösti, Raclette", answer2: "Pizza, Pasta, Tiramisu", answer3: "Sushi, Tempura, Ramen" }
-];
-let correctAnswers = ["German, French, Italian, Romansh", "Geneva", "Matterhorn", "It is a federal state with cantonal autonomy and direct democracy", "Fondue, Rösti, Raclette"];
-
-// reads the key of the (first, second, ...) object in the answers array 
-let firstObjectKeys = Object.keys(answers[0]);
-
-// a counter for the score and the current question
-let correct = 0;
 let questionNr = 0;
-
-// globale variable, to save the interval
+let questions;
+let randomizedAnswers;
+let correct = 0;
 let interval;
+let quizContainer;
 
-function timer() {
 
+let numberOfQuestions;
+let timerTime;
+const cooldownTime = 1000;
+
+function shuffle(array) {
+    let currentIndex = array.length;
+
+    // While there remain elements to shuffle...
+    while (currentIndex != 0) {
+
+        // Pick a remaining element...
+        let randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+
+        // And swap it with the current element.
+        [array[currentIndex], array[randomIndex]] = [
+            array[randomIndex], array[currentIndex]];
+    }
+    return array;
+}
+async function timer() {
     // creates a <p> element
     let timerElement = document.createElement("p");
     timerElement.setAttribute("id", "timer");
     document.body.appendChild(timerElement);
 
-    // sets the first frame of the interval because the interval thas a delay of 1second
-    document.getElementById("timer").innerHTML = " 30 seconds remaining";
+    // sets the first frame of the interval because the interval has a delay of 1 second
+    document.getElementById("timer").innerHTML = `${timerTime + 1} seconds remaining`;
 
-    // starts a timer for 30 seconds
-    let secondsLeft = 29;
+    // starts a timer for x seconds
     interval = setInterval(function () {
-        document.getElementById("timer").innerHTML = secondsLeft + " seconds remaining";
-        secondsLeft--;
+        document.getElementById("timer").innerHTML = timerTime + " seconds remaining";
+        timerTime--;
 
-        if (secondsLeft < 0) {
-            endQuiz();
+        if (timerTime < 0) {
             document.getElementById("timer").innerHTML = "Time's up!";
+            endQuiz();
         }
     }, 1000);
+    return timerElement;
 }
 
-// does the first setup for the quiz
-function mainSetup() {
-
-    // remove start button
-    const outdatedButton = document.getElementById("startBtn");
-    outdatedButton.remove();
-
-    // load first question
-    let questionTextElement = document.createElement("p");
-    let q = document.createTextNode(questions[questionNr]);
-    questionTextElement.setAttribute("class", "question");
-    questionTextElement.appendChild(q);
-    document.body.appendChild(questionTextElement);
-
-    // display question counter
-    let questionProgress = document.createElement("p");
-    let questionCounter = questionNr;
-
-    questionCounter++;
-    let qp = document.createTextNode(`Question Number: ${questionCounter}/5`);
-    questionProgress.setAttribute("id", "questionProgress");
-    questionProgress.appendChild(qp);
-    document.body.appendChild(questionProgress);
-
-    // start the timer function
-    timer();
-
-    // loads the first question
-    loadQuestion();
-}
-
-// loads the first question
-function loadQuestion() {
-    for (let i = 0; i < firstObjectKeys.length; i++) {
-        let answerButton = document.createElement("button");
-        let buttonText = answers[questionNr][firstObjectKeys[i]];
-        let b = document.createTextNode(buttonText);
-        answerButton.setAttribute("onClick", `check('${buttonText}');`);
-        answerButton.setAttribute("class", "answers");
-        answerButton.setAttribute("id", `btn${i}`);
-        answerButton.appendChild(b);
-        document.body.appendChild(answerButton);
-    }
-
-}
-// loads the next question (text)
-function nextQuestion() {
-    let questionCounter = questionNr;
-    questionCounter++;
-    let questionProgressElement = document.getElementById("questionProgress");
-    questionProgressElement.innerHTML = (`Question Number: ${questionCounter}/5`);
-
-    let elements = document.getElementsByClassName("question");
-    for (let i = 0; i < elements.length; i++) {
-        elements[i].innerHTML = questions[questionNr];
-    }
-
-    // update qdisplayed question counter
+async function getData(category, difficulty) {
+    // URL to get questions from
+    const url = `https://opentdb.com/api.php?amount=${numberOfQuestions}&category=${category}&difficulty=${difficulty}`;
 
 
-    let answerElements = document.getElementsByClassName("answers");
+    try {
+        const response = await fetch(url);
 
+        if (response.ok) {
+            const questionsJson = await response.json();
+            questions = questionsJson;
+            return { questions };
+        } else {
+            if (response.status = 429) {
+                alert("Too many requests, please wait a second");
+                return (429);
+            } else {
+                console.log(`Response status: ${response.status}`);
+            }
+        }
 
-    for (let j = 0; j < answerElements.length; j++) {
-        let buttonText = answers[questionNr][firstObjectKeys[j]];
-        // update the button text
-        answerElements[j].innerText = buttonText;
-        // update the onClick attribute
-        answerElements[j].setAttribute("onClick", `check('${buttonText}');`);
+    } catch (error) {
+        // if the fetch didn't work
+        alert("Network error, please check your network and try again");
+        return("network-error");
     }
 }
 
-// loads end screen
+function startQuiz(event) {
+    // stops the page from reload, because thats the standard function when clicking the type submit button
+    event.preventDefault();
+
+    // gets and saves the chosen category
+    let category = document.querySelector('#categorySelect');
+    category = category.value;
+
+    // gets and saves the difficulty
+    let difficulty = document.querySelector('#inputDifficulty');
+    difficulty = difficulty.value;
+
+    // gets ans saves the chosen number of questions
+    numberOfQuestions = document.getElementById("inputQuestionNr").value;
+    if (numberOfQuestions > 10 || numberOfQuestions < 2) {
+        alert("number of Questions must be between 2 & 10")
+    } else {
+        //sets the timer according to the number of quesstions
+        timerTime = numberOfQuestions * 8 - 1;
+        // triggers the updateQuestion function and transfers the category and the difficulty for the data fetch
+        updateQuestion(category, difficulty);
+    }
+}
+
+async function updateQuestion(category, difficulty) {
+    // code to execute if questions are not fetched yet
+
+    if (questions == null) {
+
+        // wait till the questions are loaded
+        let response = await getData(category, difficulty);
+
+        if (response == "network-error") {
+            // if the fetch threw an error due to a networ error
+            location.reload();
+        } else{
+            if (response == 429) {
+                // if the response status from the fetch was 429, reload the page
+                location.reload();
+            } else {
+                console.log("succesfull fetch");
+            }
+        }
+
+        let headerTitle = document.body.querySelector("h1");
+        headerTitle.innerHTML = (`The "${questions.results[1].category}" Quiz!`);
+        
+
+        let questionProgress = document.createElement("div");
+        let scoreCounter = document.createElement("p");
+        let questionCounter = questionNr;
+
+
+        const outdatedStartElements = document.getElementById("startElements");
+        outdatedStartElements.remove();
+
+
+        quizContainer = document.createElement("div");
+        quizContainer.setAttribute("id", "quizContainer")
+        document.body.appendChild(quizContainer);
+
+        let timerElement = await timer();
+        quizContainer.appendChild(timerElement);
+
+        questionCounter++;
+        // question progress
+        let questionProgressContainer = document.createElement("div");
+        questionProgressContainer.setAttribute("id", "questionProgressContainer")
+        questionProgress.setAttribute("id", "questionProgress");
+        questionProgressContainer.appendChild(questionProgress);
+        questionProgress.style.width = ((100/questions.results.length)*questionCounter + "%")
+        quizContainer.appendChild(questionProgressContainer);
+
+        let scoreNumber = (correct / questions.results.length) * 100;
+        scoreNumber = scoreNumber.toFixed(1);
+        let sc = document.createTextNode(`Correct: ${scoreNumber}%`);
+        scoreCounter.setAttribute("id", "scoreCounter");
+        scoreCounter.appendChild(sc);
+        quizContainer.appendChild(scoreCounter);
+
+        // create the question element
+        const questionElement = document.createElement("p");
+        questionElement.setAttribute("id", "question");
+        quizContainer.appendChild(questionElement);
+        // set the text to the first question
+        questionElement.innerHTML = questions.results[questionNr].question;
+
+        const answers = questions.results[questionNr].incorrect_answers;
+        answers.push(questions.results[questionNr].correct_answer);
+        randomizedAnswers = shuffle(answers);
+
+        randomizedAnswers.forEach(answer => {
+            const answerElement = document.createElement("button");
+            answerElement.setAttribute("class", "answer");
+            quizContainer.after(answerElement);
+            answerElement.innerHTML = answer;
+            answerElement.setAttribute("onClick", `check('${answer}');`);
+        });
+
+        // code to execute if the questions are already fetched and the questionNr is smaller or equal to 9
+    } else if (questionNr < numberOfQuestions) {
+        let questionCounter = questionNr;
+        questionCounter++;
+        let questionProgressElement = document.getElementById("questionProgress");
+        questionProgressElement.style.width = ((100/questions.results.length)*questionCounter + "%");
+
+        let scoreElement = document.getElementById("scoreCounter");
+        let scoreNumber = (correct / questions.results.length) * 100;
+        scoreNumber = scoreNumber.toFixed(1);
+        scoreElement.innerHTML = (`Correct: ${scoreNumber}%`);
+
+        // get the answers and shufle them for the next question
+        const answers = questions.results[questionNr].incorrect_answers;
+        answers.push(questions.results[questionNr].correct_answer);
+        randomizedAnswers = shuffle(answers);
+
+        document.querySelectorAll(".answer").forEach(element => {
+            element.remove();
+        });
+
+        randomizedAnswers.forEach(answer => {
+            const answerElement = document.createElement("button");
+            answerElement.setAttribute("class", "answer");
+            document.body.appendChild(answerElement);
+            answerElement.innerHTML = answer;
+            answerElement.setAttribute("onClick", `check('${answer}');`);
+
+        });
+
+        // replace the text with the next question
+        document.getElementById("question").innerHTML = questions.results[questionNr].question;
+
+    } else {
+        document.getElementById("question").innerHTML = ("All Questions asked");
+    }
+
+}
+
 function endQuiz() {
-    // lists the elemnts from the quiz
-    const outdatedAnswers = document.getElementsByClassName("answers");
-    const outdatedQuestion = document.getElementsByClassName("question");
-    const outdatedScore = document.getElementsByClassName("counter");
+    clearInterval(interval);
+
+    // lists the elements from the quiz
+    const outdatedQuestion = document.querySelectorAll("#question");
     const outdatedTimer = document.getElementById("timer");
     const outdatedProgress = document.getElementById("questionProgress");
+    const outdatedScore = document.getElementById("scoreCounter");
+    const outdateQuizContainer = document.getElementById("quizContainer");
 
-    // delets those elements
-    Array.from(outdatedAnswers).forEach(answer => answer.remove());
+    // deletes those elements
+    document.querySelectorAll(".answer").forEach(element => {
+        element.remove();
+    });
     Array.from(outdatedQuestion).forEach(question => question.remove());
-    Array.from(outdatedScore).forEach(score => score.remove());
-    Array.from(outdatedTimer).forEach(timer => timer.remove());
-    Array.from(outdatedProgress).forEach(progress => progress.remove());
+    outdatedTimer.remove();
+    outdatedProgress.remove();
+    outdatedScore.remove();
+    outdateQuizContainer.remove();
 
     // displays the "quiz complete" title
     let endTitleElement = document.createElement("h3");
-    let referenceProgressElement = document.getElementById("questionProgress")
     let e = document.createTextNode("Quiz Complete!");
     endTitleElement.appendChild(e);
-    referenceProgressElement.parentNode.insertBefore(endTitleElement, referenceProgressElement); // insert title before the existing timer
 
+    document.body.appendChild(endTitleElement);
 
     // displays the score
-    let scoreTextElemennt = document.createElement("p");
-    let s = document.createTextNode(`Your Score: ${correct} out of ${questions.length} correct`);
-    scoreTextElemennt.appendChild(s);
-    document.body.appendChild(scoreTextElemennt);
+    let scoreTextElement = document.createElement("p");
+    let scoreNumber = (correct / questions.results.length) * 100;
+    scoreNumber = scoreNumber.toFixed(1);
+    let s = document.createTextNode(`Correct: ${scoreNumber}%`);
+    scoreTextElement.appendChild(s);
+    document.body.appendChild(scoreTextElement);
 
     // restart quiz button
     let restartElement = document.createElement("button");
@@ -152,41 +257,76 @@ function endQuiz() {
     restartElement.appendChild(restartText);
     document.body.appendChild(restartElement);
 
-    // stops the timer
-    stopTimer();
-}
-// stops the timer
-function stopTimer() {
-    clearInterval(interval);
+    questions = undefined;
 }
 
-// checks the answer after clicking on button
 function check(answerText) {
+    // set buttons on disabled to avoid doubble clicking
+    (document.querySelectorAll(".answer")).forEach(answer => {
+        answer.disabled = true;
+    });
 
-    // if questions remain
-    if (questionNr < (questions.length - 1)) {
+    let correct_answer = questions.results[questionNr].correct_answer;
 
-        // if the question is answered correctly
-        if (answerText == correctAnswers[questionNr]) {
-            //increases the correct score
-            correct++;
+
+    answerText = answerText.replace('&auml;', 'ä');
+    answerText = answerText.replace('&ouml;', 'ö');
+    answerText = answerText.replace('&uuml;', 'ü');
+    answerText = answerText.replace('&aring;', 'å');
+    answerText = answerText.replace('&#039;', '\'');
+    answerText = answerText.replace('&oacute;', 'ó');
+    answerText = answerText.replace('&ograve;', 'ò');
+    answerText = answerText.replace('&ocirc;', 'ô');
+    answerText = answerText.replace('&otilde;', 'õ');
+    answerText = answerText.replace('&iacute;', 'í');
+    answerText = answerText.replace('&lt;', '<');
+    answerText = answerText.replace('&gt;', '>');
+    answerText = answerText.replace('&quot;', '"');
+    answerText = answerText.replace('&ntilde;', 'ñ');
+
+    correct_answer = correct_answer.replace('&auml;', 'ä');
+    correct_answer = correct_answer.replace('&ouml;', 'ö');
+    correct_answer = correct_answer.replace('&uuml;', 'ü');
+    correct_answer = correct_answer.replace('&aring;', 'å');
+    correct_answer = correct_answer.replace('&#039;', '\'');
+    correct_answer = correct_answer.replace('&oacute;', 'ó');
+    correct_answer = correct_answer.replace('&ograve;', 'ò');
+    correct_answer = correct_answer.replace('&ocirc;', 'ô');
+    correct_answer = correct_answer.replace('&otilde;', 'õ');
+    correct_answer = correct_answer.replace('&iacute;', 'í');
+    correct_answer = correct_answer.replace('&lt;', '<');
+    correct_answer = correct_answer.replace('&gt;', '>');
+    correct_answer = correct_answer.replace('&quot;', '"');
+    correct_answer = correct_answer.replace('&ntilde;', 'ñ');
+
+    let answerButtons = document.querySelectorAll(".answer");
+
+
+    //color the buttons based on the given answer
+    for (let i = 0; i < answerButtons.length; i++) {
+        answerButtons.item(i).style.color = "white";
+        // if the given answer is equal to the correct answer of the current question
+        if (answerButtons.item(i).innerHTML == correct_answer) {
+            answerButtons.item(i).style.backgroundColor = "#55A051";
         };
-
+    }
+    if (answerText == correct_answer) {
+        correct++;
+        let scoreNumber = (correct / questions.results.length) * 100;
+        scoreNumber = scoreNumber.toFixed(1);
+        document.getElementById("scoreCounter").innerHTML = (`Correct: ${scoreNumber}%`)
+    };
+    // if questions remain
+    if (questionNr < (questions.results.length - 1)) {
         // increas the question number
         questionNr += 1;
-
         setTimeout(function () {
-            nextQuestion();
-        }, 1000);
+            updateQuestion();
+        }, cooldownTime);
     } else {
-        if (answerText == correctAnswers[questionNr]) {
-            correct++;
-        };
-        console.log("done");
         // ends the quiz
         setTimeout(function () {
             endQuiz();
-        }, 1000);
-
-    }
-}
+        }, cooldownTime);
+    };
+};
