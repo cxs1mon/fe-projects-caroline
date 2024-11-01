@@ -27,7 +27,8 @@ function shuffle(array) {
             array[randomIndex], array[currentIndex]];
     }
     return array;
-}
+};
+
 async function timer() {
     // creates a <p> element
     const timerElement = document.createElement("p");
@@ -49,7 +50,7 @@ async function timer() {
         }
     }, 1000);
     return timerElement;
-}
+};
 
 async function getData(category, difficulty) {
     // URL to get questions from
@@ -79,7 +80,63 @@ async function getData(category, difficulty) {
         console.error(error);
         return ("network-error");
     }
-}
+};
+
+async function createAnswers(randomizedAnswers) {
+    const answerContainer = document.createElement("div");
+    answerContainer.classList.add("answer-container")
+
+    randomizedAnswers.forEach(answer => {
+        const answerElement = document.createElement("button");
+        answerElement.setAttribute("class", "answer-container__item");
+        document.body.appendChild(answerElement);
+        answerElement.innerHTML = answer;
+        answerElement.addEventListener("click", () => check(answer));
+        answerContainer.after(answerElement);
+
+    });
+    return answerContainer;
+};
+
+async function decodeCorrectAnswer(correct_answer) {
+
+    correct_answer = correct_answer.replace('&auml;', 'ä');
+    correct_answer = correct_answer.replace('&ouml;', 'ö');
+    correct_answer = correct_answer.replace('&uuml;', 'ü');
+    correct_answer = correct_answer.replace('&aring;', 'å');
+    correct_answer = correct_answer.replace('&#039;', '\'');
+    correct_answer = correct_answer.replace('&oacute;', 'ó');
+    correct_answer = correct_answer.replace('&ograve;', 'ò');
+    correct_answer = correct_answer.replace('&ocirc;', 'ô');
+    correct_answer = correct_answer.replace('&otilde;', 'õ');
+    correct_answer = correct_answer.replace('&iacute;', 'í');
+    correct_answer = correct_answer.replace('&lt;', '<');
+    correct_answer = correct_answer.replace('&gt;', '>');
+    correct_answer = correct_answer.replace('&quot;', '"');
+    correct_answer = correct_answer.replace('&ntilde;', 'ñ');
+
+    return correct_answer;
+};
+
+async function decodeAnswerText(answerText) {
+
+    answerText = answerText.replace('&auml;', 'ä');
+    answerText = answerText.replace('&ouml;', 'ö');
+    answerText = answerText.replace('&uuml;', 'ü');
+    answerText = answerText.replace('&aring;', 'å');
+    answerText = answerText.replace('&#039;', '\'');
+    answerText = answerText.replace('&oacute;', 'ó');
+    answerText = answerText.replace('&ograve;', 'ò');
+    answerText = answerText.replace('&ocirc;', 'ô');
+    answerText = answerText.replace('&otilde;', 'õ');
+    answerText = answerText.replace('&iacute;', 'í');
+    answerText = answerText.replace('&lt;', '<');
+    answerText = answerText.replace('&gt;', '>');
+    answerText = answerText.replace('&quot;', '"');
+    answerText = answerText.replace('&ntilde;', 'ñ');
+
+    return answerText;
+};
 
 function startQuiz(event) {
     // stops the page from reload, because thats the standard function when clicking the type submit button
@@ -103,7 +160,7 @@ function startQuiz(event) {
         // triggers the updateQuestion function and transfers the category and the difficulty for the data fetch
         updateQuestion(category, difficulty);
     }
-}
+};
 
 async function updateQuestion(category, difficulty) {
     // code to execute if questions are not fetched yet
@@ -123,20 +180,17 @@ async function updateQuestion(category, difficulty) {
             } else {
                 console.log("succesfull fetch");
             }
-        }
+        };
 
         const headerTitle = document.body.querySelector("h1");
         headerTitle.innerHTML = `The "${questions.results[1].category}" Quiz!`;
-
 
         const questionProgress = document.createElement("div");
         const scoreCounter = document.createElement("p");
         let questionCounter = questionNr;
 
-
         const outdatedStartElements = document.getElementById("game-settings-form");
         outdatedStartElements.remove();
-
 
         const quizContainer = document.createElement("div");
         quizContainer.setAttribute("class", "quiz-stats-container")
@@ -176,13 +230,7 @@ async function updateQuestion(category, difficulty) {
         answers.push(questions.results[questionNr].correct_answer);
         const randomizedAnswers = shuffle(answers);
 
-        randomizedAnswers.forEach(answer => {
-            const answerElement = document.createElement("button");
-            answerElement.setAttribute("class", "quiz-answer");
-            quizContainer.after(answerElement);
-            answerElement.innerHTML = answer;
-            answerElement.addEventListener("click", () => check(answer));
-        });
+        await createAnswers(randomizedAnswers);
 
         // code to execute if the questions are already fetched and the questionNr is smaller or equal to 9
     } else if (questionNr < numberOfQuestions) {
@@ -201,46 +249,29 @@ async function updateQuestion(category, difficulty) {
         answers.push(questions.results[questionNr].correct_answer);
         randomizedAnswers = shuffle(answers);
 
-        document.querySelectorAll(".quiz-answer").forEach(element => {
+        document.querySelectorAll(".answer-container__item").forEach(element => {
             element.remove();
         });
 
-        randomizedAnswers.forEach(answer => {
-            const answerElement = document.createElement("button");
-            answerElement.setAttribute("class", "quiz-answer");
-            document.body.appendChild(answerElement);
-            answerElement.innerHTML = answer;
-            answerElement.addEventListener("click", () => check(answer));
-        });
+        await createAnswers(randomizedAnswers);
 
         // replace the text with the next question
         document.getElementById("question").innerHTML = questions.results[questionNr].question;
-
     } else {
         document.getElementById("question").innerHTML = "All Questions asked";
     }
-
-}
+};
 
 function endQuiz() {
     clearInterval(interval);
 
-    // lists the elements from the quiz
-    const outdatedQuestion = document.querySelectorAll("#question");
-    const outdatedTimer = document.getElementById("timer");
-    const outdatedProgress = document.getElementById("progress--inner");
-    const outdatedScore = document.getElementById("scoreCounter");
-    const outdateQuizContainer = document.querySelector(".quiz-stats-container");
+    // select all elements from the quiz
+    let outdatedElements = document.querySelectorAll("#question, #timer, #progress--inner, #scoreCounter, .quiz-stats-container, .answer-container__item")
 
-    // deletes those elements
-    document.querySelectorAll(".quiz-answer").forEach(element => {
-        element.remove();
+    // remove all those elemens
+    outdatedElements.forEach(outdatedElement => {
+        outdatedElement.remove();
     });
-    Array.from(outdatedQuestion).forEach(question => question.remove());
-    outdatedTimer.remove();
-    outdatedProgress.remove();
-    outdatedScore.remove();
-    outdateQuizContainer.remove();
 
     // displays the "quiz complete" title
     const endTitleElement = document.createElement("h3");
@@ -270,46 +301,19 @@ function endQuiz() {
     questions = undefined;
 };
 
-function check(answerText) {
+async function check(answerText) {
+
     // set buttons on disabled to avoid doubble clicking
-    (document.querySelectorAll(".quiz-answer")).forEach(answer => {
+    (document.querySelectorAll(".answer-container__item")).forEach(answer => {
         answer.disabled = true;
     });
 
     let correct_answer = questions.results[questionNr].correct_answer;
 
-    answerText = answerText.replace('&auml;', 'ä');
-    answerText = answerText.replace('&ouml;', 'ö');
-    answerText = answerText.replace('&uuml;', 'ü');
-    answerText = answerText.replace('&aring;', 'å');
-    answerText = answerText.replace('&#039;', '\'');
-    answerText = answerText.replace('&oacute;', 'ó');
-    answerText = answerText.replace('&ograve;', 'ò');
-    answerText = answerText.replace('&ocirc;', 'ô');
-    answerText = answerText.replace('&otilde;', 'õ');
-    answerText = answerText.replace('&iacute;', 'í');
-    answerText = answerText.replace('&lt;', '<');
-    answerText = answerText.replace('&gt;', '>');
-    answerText = answerText.replace('&quot;', '"');
-    answerText = answerText.replace('&ntilde;', 'ñ');
+    answerText = await decodeAnswerText(answerText);
+    correct_answer = await decodeCorrectAnswer(correct_answer);
 
-    correct_answer = correct_answer.replace('&auml;', 'ä');
-    correct_answer = correct_answer.replace('&ouml;', 'ö');
-    correct_answer = correct_answer.replace('&uuml;', 'ü');
-    correct_answer = correct_answer.replace('&aring;', 'å');
-    correct_answer = correct_answer.replace('&#039;', '\'');
-    correct_answer = correct_answer.replace('&oacute;', 'ó');
-    correct_answer = correct_answer.replace('&ograve;', 'ò');
-    correct_answer = correct_answer.replace('&ocirc;', 'ô');
-    correct_answer = correct_answer.replace('&otilde;', 'õ');
-    correct_answer = correct_answer.replace('&iacute;', 'í');
-    correct_answer = correct_answer.replace('&lt;', '<');
-    correct_answer = correct_answer.replace('&gt;', '>');
-    correct_answer = correct_answer.replace('&quot;', '"');
-    correct_answer = correct_answer.replace('&ntilde;', 'ñ');
-
-    let answerButtons = document.querySelectorAll(".quiz-answer");
-
+    let answerButtons = document.querySelectorAll(".answer-container__item");
 
     //color the buttons based on the given answer
     for (let i = 0; i < answerButtons.length; i++) {
