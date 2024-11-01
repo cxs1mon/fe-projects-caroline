@@ -1,19 +1,15 @@
 let questionNr = 0;
 let questions;
-let randomizedAnswers;
 let correct = 0;
 let interval;
-let quizContainer;
-
-
 let numberOfQuestions;
 let timerTime;
 const cooldownTime = 1000;
 
-window.onload = function() {
+window.onload = function () {
     (document.getElementById("startButton"))
-    .addEventListener("click", (e) =>
-        startQuiz(e))
+        .addEventListener("click", (e) =>
+            startQuiz(e))
 };
 
 function shuffle(array) {
@@ -34,7 +30,7 @@ function shuffle(array) {
 }
 async function timer() {
     // creates a <p> element
-    let timerElement = document.createElement("p");
+    const timerElement = document.createElement("p");
     timerElement.setAttribute("id", "timer");
     timerElement.classList.add("timer");
     document.body.appendChild(timerElement);
@@ -43,7 +39,7 @@ async function timer() {
     document.getElementById("timer").innerHTML = `${timerTime + 1} seconds remaining`;
 
     // starts a timer for x seconds
-    interval = setInterval(function () {
+    let interval = setInterval(function () {
         document.getElementById("timer").innerHTML = `${timerTime} seconds remaining`;
         timerTime--;
 
@@ -71,7 +67,7 @@ async function getData(category, difficulty) {
             if (response.status === 429) {
                 alert("Too many requests, please wait a second");
                 console.error(response.status);
-                return(429);
+                return (429);
             } else {
                 console.error(response.status);
             }
@@ -81,7 +77,7 @@ async function getData(category, difficulty) {
         // if the fetch didn't work
         alert("Network error, please check your network and try again");
         console.error(error);
-        return("network-error");
+        return ("network-error");
     }
 }
 
@@ -115,12 +111,12 @@ async function updateQuestion(category, difficulty) {
     if (questions == null) {
 
         // wait till the questions are loaded
-        let response = await getData(category, difficulty);
+        const response = await getData(category, difficulty);
 
         if (response === "network-error") {
             // if the fetch threw an error due to a networ error
             location.reload();
-        } else{
+        } else {
             if (response === 429) {
                 // if the response status from the fetch was 429, reload the page
                 location.reload();
@@ -129,12 +125,12 @@ async function updateQuestion(category, difficulty) {
             }
         }
 
-        let headerTitle = document.body.querySelector("h1");
+        const headerTitle = document.body.querySelector("h1");
         headerTitle.innerHTML = `The "${questions.results[1].category}" Quiz!`;
-        
 
-        let questionProgress = document.createElement("div");
-        let scoreCounter = document.createElement("p");
+
+        const questionProgress = document.createElement("div");
+        const scoreCounter = document.createElement("p");
         let questionCounter = questionNr;
 
 
@@ -142,16 +138,16 @@ async function updateQuestion(category, difficulty) {
         outdatedStartElements.remove();
 
 
-        quizContainer = document.createElement("div");
+        const quizContainer = document.createElement("div");
         quizContainer.setAttribute("class", "quizContainer")
         document.body.appendChild(quizContainer);
 
-        let timerElement = await timer();
+        const timerElement = await timer();
         quizContainer.appendChild(timerElement);
 
         questionCounter++;
         // question progress
-        let questionProgressContainer = document.createElement("div");
+        const questionProgressContainer = document.createElement("div");
         questionProgressContainer.setAttribute("id", "questionProgressContainer");
         questionProgressContainer.classList.add("questionProgressContainer");
         questionProgress.setAttribute("id", "questionProgress");
@@ -162,7 +158,7 @@ async function updateQuestion(category, difficulty) {
 
         let scoreNumber = (correct / questions.results.length) * 100;
         scoreNumber = scoreNumber.toFixed(1);
-        let sc = document.createTextNode(`Correct: ${scoreNumber}%`);
+        const sc = document.createTextNode(`Correct: ${scoreNumber}%`);
         scoreCounter.setAttribute("id", "scoreCounter");
         scoreCounter.classList.add("scoreCounter");
         scoreCounter.appendChild(sc);
@@ -178,7 +174,7 @@ async function updateQuestion(category, difficulty) {
 
         const answers = questions.results[questionNr].incorrect_answers;
         answers.push(questions.results[questionNr].correct_answer);
-        randomizedAnswers = shuffle(answers);
+        const randomizedAnswers = shuffle(answers);
 
         randomizedAnswers.forEach(answer => {
             const answerElement = document.createElement("button");
@@ -215,7 +211,6 @@ async function updateQuestion(category, difficulty) {
             document.body.appendChild(answerElement);
             answerElement.innerHTML = answer;
             answerElement.addEventListener("click", () => check(answer));
-
         });
 
         // replace the text with the next question
@@ -248,24 +243,24 @@ function endQuiz() {
     outdateQuizContainer.remove();
 
     // displays the "quiz complete" title
-    let endTitleElement = document.createElement("h3");
-    let e = document.createTextNode("Quiz Complete!");
+    const endTitleElement = document.createElement("h3");
+    const e = document.createTextNode("Quiz Complete!");
     endTitleElement.appendChild(e);
 
     document.body.appendChild(endTitleElement);
 
     // displays the score
-    let scoreTextElement = document.createElement("p");
+    const scoreTextElement = document.createElement("p");
     let scoreNumber = (correct / questions.results.length) * 100;
     scoreNumber = scoreNumber.toFixed(1);
-    let s = document.createTextNode(`Correct: ${scoreNumber}%`);
+    const s = document.createTextNode(`Correct: ${scoreNumber}%`);
     scoreTextElement.appendChild(s);
     document.body.appendChild(scoreTextElement);
 
     // restart quiz button
-    let restartElement = document.createElement("button");
-    let restartText = document.createTextNode("Restart Quiz");
-    restartElement.addEventListener("click", function(){
+    const restartElement = document.createElement("button");
+    const restartText = document.createTextNode("Restart Quiz");
+    restartElement.addEventListener("click", function () {
         location.reload();
     });
 
