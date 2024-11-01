@@ -70,15 +70,17 @@ async function getData(category, difficulty) {
         } else {
             if (response.status === 429) {
                 alert("Too many requests, please wait a second");
-                return (429);
+                console.error(response.status);
+                return(429);
             } else {
-                console.log(`Response status: ${response.status}`);
+                console.error(response.status);
             }
         }
 
     } catch (error) {
         // if the fetch didn't work
         alert("Network error, please check your network and try again");
+        console.error(error);
         return("network-error");
     }
 }
