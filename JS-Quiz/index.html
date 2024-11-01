@@ -11,10 +11,10 @@
 </head>
 
 <body>
-    <h1>The Custom Quiz!</h1>
-    <form id="startElements">
-        <label for="categorySelect">Choose your preferred genre:</label>
-        <select id="categorySelect">
+    <h1 class="title">The Custom Quiz!</h1>
+    <form id="game-settings-form" class="game-settings-form">
+        <label for="categorySelect" class="game-settings-form__label">Choose your preferred genre:</label>
+        <select id="categorySelect" class="game-settings-form__input">
             <option value="9" selected="selected">General Knowledge</option>
             <option value="10">Entertainment: Books</option>
             <option value="11">Entertainment: Film</option>
@@ -36,15 +36,15 @@
             <option value="31">Entertainment: Japanese Anime & Manga</option>
             <option value="32">Entertainment: Cartoon & Animations</option>
         </select>
-        <label for="inputQuestionNr">Select the number of questions:<span style="color: red;">*</span></label>
-        <input id="inputQuestionNr" type="number" placeholder="2-10" min="2" max="10">
-        <label for="inputDifficulty">Choos your difficulty:</label>
-        <select id="inputDifficulty">
+        <label for="inputQuestionNr" class="game-settings-form__label">Select the number of questions:<span style="color: red;">*</span></label>
+        <input id="inputQuestionNr" class="game-settings-form__input" type="number" placeholder="2-10" min="2" max="10">
+        <label for="inputDifficulty" class="game-settings-form__label">Choos your difficulty:</label>
+        <select id="inputDifficulty" class="game-settings-form__input">
             <option value="easy">Easy</option>
             <option value="medium" selected="selected">Medium</option>
             <option value="hard">Hard</option>
         </select>
-        <button type="submit" id="startButton">Start Quiz</button>
+        <button type="submit" class="game-settings-form__submit" id="startButton">Start Quiz</button>
     </form>
 
     <script src="script.js" defer></script>

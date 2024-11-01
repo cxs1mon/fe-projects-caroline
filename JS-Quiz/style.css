@@ -31,7 +31,7 @@ button:disabled {
     border: 1px solid #4a5759;
 }
 
-input, select {
+.game-settings-form__input {
     margin: 1% 0 3% 0;
     padding: 2%;
     border-radius: 5px;
@@ -39,17 +39,17 @@ input, select {
     background-color: #f0d4b8;
 }
 
-form {
+.game-settings-form {
     display: flex;
     flex-direction: column;
     width: 100%;
 }
 
-h1 {
+.title{
     margin-bottom: 30px;
 }
 
-#quizContainer {
+.quizContainer {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 5vh 10vh 5rem;
@@ -62,17 +62,17 @@ h1 {
     margin-bottom: 25px;
 }
 
-#timer {
+.timer {
     grid-area: timer;
 }
 
-#questionProgress {
+.questionProgress {
     background-color: #AF8F6F;
     height: 20px;
     border-radius: 5px;
 }
 
-#questionProgressContainer {
+.questionProgressContainer {
     padding: 5px;
     grid-area: progress;
     width: 100%;
@@ -84,10 +84,10 @@ h1 {
     border-style: solid;
 }
 
-#question {
+.question {
     grid-area: question;
 }
 
-#scoreCounter {
+.scoreCounter {
     grid-area: score;
 }

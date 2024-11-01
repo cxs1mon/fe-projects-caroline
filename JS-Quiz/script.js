@@ -36,6 +36,7 @@ async function timer() {
     // creates a <p> element
     let timerElement = document.createElement("p");
     timerElement.setAttribute("id", "timer");
+    timerElement.classList.add("timer");
     document.body.appendChild(timerElement);
 
     // sets the first frame of the interval because the interval has a delay of 1 second
@@ -135,12 +136,12 @@ async function updateQuestion(category, difficulty) {
         let questionCounter = questionNr;
 
 
-        const outdatedStartElements = document.getElementById("startElements");
+        const outdatedStartElements = document.getElementById("game-settings-form");
         outdatedStartElements.remove();
 
 
         quizContainer = document.createElement("div");
-        quizContainer.setAttribute("id", "quizContainer")
+        quizContainer.setAttribute("class", "quizContainer")
         document.body.appendChild(quizContainer);
 
         let timerElement = await timer();
@@ -149,8 +150,10 @@ async function updateQuestion(category, difficulty) {
         questionCounter++;
         // question progress
         let questionProgressContainer = document.createElement("div");
-        questionProgressContainer.setAttribute("id", "questionProgressContainer")
+        questionProgressContainer.setAttribute("id", "questionProgressContainer");
+        questionProgressContainer.classList.add("questionProgressContainer");
         questionProgress.setAttribute("id", "questionProgress");
+        questionProgress.classList.add("questionProgress");
         questionProgressContainer.appendChild(questionProgress);
         questionProgress.style.width = `${(100 / questions.results.length) * questionCounter}%`;
         quizContainer.appendChild(questionProgressContainer);
@@ -159,12 +162,14 @@ async function updateQuestion(category, difficulty) {
         scoreNumber = scoreNumber.toFixed(1);
         let sc = document.createTextNode(`Correct: ${scoreNumber}%`);
         scoreCounter.setAttribute("id", "scoreCounter");
+        scoreCounter.classList.add("scoreCounter");
         scoreCounter.appendChild(sc);
         quizContainer.appendChild(scoreCounter);
 
         // create the question element
         const questionElement = document.createElement("p");
         questionElement.setAttribute("id", "question");
+        questionElement.classList.add("question");
         quizContainer.appendChild(questionElement);
         // set the text to the first question
         questionElement.innerHTML = questions.results[questionNr].question;
@@ -228,7 +233,7 @@ function endQuiz() {
     const outdatedTimer = document.getElementById("timer");
     const outdatedProgress = document.getElementById("questionProgress");
     const outdatedScore = document.getElementById("scoreCounter");
-    const outdateQuizContainer = document.getElementById("quizContainer");
+    const outdateQuizContainer = document.querySelector(".quizContainer");
 
     // deletes those elements
     document.querySelectorAll(".answer").forEach(element => {
