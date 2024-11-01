@@ -49,7 +49,7 @@ button:disabled {
     margin-bottom: 30px;
 }
 
-.quizContainer {
+.quiz-stats-container{
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 5vh 10vh 5rem;
@@ -62,17 +62,17 @@ button:disabled {
     margin-bottom: 25px;
 }
 
-.timer {
+.container__timer {
     grid-area: timer;
 }
 
-.questionProgress {
+.progress--inner {
     background-color: #AF8F6F;
     height: 20px;
     border-radius: 5px;
 }
 
-.questionProgressContainer {
+.progress--outer {
     padding: 5px;
     grid-area: progress;
     width: 100%;

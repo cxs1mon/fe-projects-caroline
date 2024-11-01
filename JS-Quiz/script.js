@@ -32,7 +32,7 @@ async function timer() {
     // creates a <p> element
     const timerElement = document.createElement("p");
     timerElement.setAttribute("id", "timer");
-    timerElement.classList.add("timer");
+    timerElement.classList.add("conatiner__timer");
     document.body.appendChild(timerElement);
 
     // sets the first frame of the interval because the interval has a delay of 1 second
@@ -139,7 +139,7 @@ async function updateQuestion(category, difficulty) {
 
 
         const quizContainer = document.createElement("div");
-        quizContainer.setAttribute("class", "quizContainer")
+        quizContainer.setAttribute("class", "quiz-stats-container")
         document.body.appendChild(quizContainer);
 
         const timerElement = await timer();
@@ -148,10 +148,10 @@ async function updateQuestion(category, difficulty) {
         questionCounter++;
         // question progress
         const questionProgressContainer = document.createElement("div");
-        questionProgressContainer.setAttribute("id", "questionProgressContainer");
-        questionProgressContainer.classList.add("questionProgressContainer");
-        questionProgress.setAttribute("id", "questionProgress");
-        questionProgress.classList.add("questionProgress");
+        questionProgressContainer.setAttribute("id", "progress--outer");
+        questionProgressContainer.classList.add("progress--outer");
+        questionProgress.setAttribute("id", "progress--inner");
+        questionProgress.classList.add("progress--inner");
         questionProgressContainer.appendChild(questionProgress);
         questionProgress.style.width = `${(100 / questions.results.length) * questionCounter}%`;
         quizContainer.appendChild(questionProgressContainer);
@@ -178,7 +178,7 @@ async function updateQuestion(category, difficulty) {
 
         randomizedAnswers.forEach(answer => {
             const answerElement = document.createElement("button");
-            answerElement.setAttribute("class", "answer");
+            answerElement.setAttribute("class", "quiz-answer");
             quizContainer.after(answerElement);
             answerElement.innerHTML = answer;
             answerElement.addEventListener("click", () => check(answer));
@@ -188,7 +188,7 @@ async function updateQuestion(category, difficulty) {
     } else if (questionNr < numberOfQuestions) {
         let questionCounter = questionNr;
         questionCounter++;
-        let questionProgressElement = document.getElementById("questionProgress");
+        let questionProgressElement = document.getElementById("progress--inner");
         questionProgressElement.style.width = `${(100 / questions.results.length) * questionCounter}%`;
 
         let scoreElement = document.getElementById("scoreCounter");
@@ -201,13 +201,13 @@ async function updateQuestion(category, difficulty) {
         answers.push(questions.results[questionNr].correct_answer);
         randomizedAnswers = shuffle(answers);
 
-        document.querySelectorAll(".answer").forEach(element => {
+        document.querySelectorAll(".quiz-answer").forEach(element => {
             element.remove();
         });
 
         randomizedAnswers.forEach(answer => {
             const answerElement = document.createElement("button");
-            answerElement.setAttribute("class", "answer");
+            answerElement.setAttribute("class", "quiz-answer");
             document.body.appendChild(answerElement);
             answerElement.innerHTML = answer;
             answerElement.addEventListener("click", () => check(answer));
@@ -228,12 +228,12 @@ function endQuiz() {
     // lists the elements from the quiz
     const outdatedQuestion = document.querySelectorAll("#question");
     const outdatedTimer = document.getElementById("timer");
-    const outdatedProgress = document.getElementById("questionProgress");
+    const outdatedProgress = document.getElementById("progress--inner");
     const outdatedScore = document.getElementById("scoreCounter");
-    const outdateQuizContainer = document.querySelector(".quizContainer");
+    const outdateQuizContainer = document.querySelector(".quiz-stats-container");
 
     // deletes those elements
-    document.querySelectorAll(".answer").forEach(element => {
+    document.querySelectorAll(".quiz-answer").forEach(element => {
         element.remove();
     });
     Array.from(outdatedQuestion).forEach(question => question.remove());
@@ -272,7 +272,7 @@ function endQuiz() {
 
 function check(answerText) {
     // set buttons on disabled to avoid doubble clicking
-    (document.querySelectorAll(".answer")).forEach(answer => {
+    (document.querySelectorAll(".quiz-answer")).forEach(answer => {
         answer.disabled = true;
     });
 
@@ -308,7 +308,7 @@ function check(answerText) {
     correct_answer = correct_answer.replace('&quot;', '"');
     correct_answer = correct_answer.replace('&ntilde;', 'ñ');
 
-    let answerButtons = document.querySelectorAll(".answer");
+    let answerButtons = document.querySelectorAll(".quiz-answer");
 
 
     //color the buttons based on the given answer
