@@ -10,6 +10,13 @@ let numberOfQuestions;
 let timerTime;
 const cooldownTime = 1000;
 
+window.onload = function() {
+    (document.getElementById("startButton"))
+    .addEventListener("click", (e) =>
+        startQuiz(e))
+};
+
+
 function shuffle(array) {
     let currentIndex = array.length;
 
@@ -172,7 +179,7 @@ async function updateQuestion(category, difficulty) {
             answerElement.setAttribute("class", "answer");
             quizContainer.after(answerElement);
             answerElement.innerHTML = answer;
-            answerElement.setAttribute("onClick", `check('${answer}');`);
+            answerElement.addEventListener("click", () => check(answer));
         });
 
         // code to execute if the questions are already fetched and the questionNr is smaller or equal to 9
@@ -201,7 +208,7 @@ async function updateQuestion(category, difficulty) {
             answerElement.setAttribute("class", "answer");
             document.body.appendChild(answerElement);
             answerElement.innerHTML = answer;
-            answerElement.setAttribute("onClick", `check('${answer}');`);
+            answerElement.addEventListener("click", () => check(answer));
 
         });
 
@@ -252,7 +259,9 @@ function endQuiz() {
     // restart quiz button
     let restartElement = document.createElement("button");
     let restartText = document.createTextNode("Restart Quiz");
-    restartElement.setAttribute("onClick", `location.reload();`);
+    restartElement.addEventListener("click", function(){
+        location.reload();
+    });
 
     restartElement.appendChild(restartText);
     document.body.appendChild(restartElement);
