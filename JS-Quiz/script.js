@@ -16,7 +16,6 @@ window.onload = function() {
         startQuiz(e))
 };
 
-
 function shuffle(array) {
     let currentIndex = array.length;
 
@@ -44,7 +43,7 @@ async function timer() {
 
     // starts a timer for x seconds
     interval = setInterval(function () {
-        document.getElementById("timer").innerHTML = timerTime + " seconds remaining";
+        document.getElementById("timer").innerHTML = `${timerTime} seconds remaining`;
         timerTime--;
 
         if (timerTime < 0) {
@@ -68,7 +67,7 @@ async function getData(category, difficulty) {
             questions = questionsJson;
             return { questions };
         } else {
-            if (response.status = 429) {
+            if (response.status === 429) {
                 alert("Too many requests, please wait a second");
                 return (429);
             } else {
@@ -115,11 +114,11 @@ async function updateQuestion(category, difficulty) {
         // wait till the questions are loaded
         let response = await getData(category, difficulty);
 
-        if (response == "network-error") {
+        if (response === "network-error") {
             // if the fetch threw an error due to a networ error
             location.reload();
         } else{
-            if (response == 429) {
+            if (response === 429) {
                 // if the response status from the fetch was 429, reload the page
                 location.reload();
             } else {
@@ -128,7 +127,7 @@ async function updateQuestion(category, difficulty) {
         }
 
         let headerTitle = document.body.querySelector("h1");
-        headerTitle.innerHTML = (`The "${questions.results[1].category}" Quiz!`);
+        headerTitle.innerHTML = `The "${questions.results[1].category}" Quiz!`;
         
 
         let questionProgress = document.createElement("div");
@@ -153,7 +152,7 @@ async function updateQuestion(category, difficulty) {
         questionProgressContainer.setAttribute("id", "questionProgressContainer")
         questionProgress.setAttribute("id", "questionProgress");
         questionProgressContainer.appendChild(questionProgress);
-        questionProgress.style.width = ((100/questions.results.length)*questionCounter + "%")
+        questionProgress.style.width = `${(100 / questions.results.length) * questionCounter}%`;
         quizContainer.appendChild(questionProgressContainer);
 
         let scoreNumber = (correct / questions.results.length) * 100;
@@ -187,12 +186,12 @@ async function updateQuestion(category, difficulty) {
         let questionCounter = questionNr;
         questionCounter++;
         let questionProgressElement = document.getElementById("questionProgress");
-        questionProgressElement.style.width = ((100/questions.results.length)*questionCounter + "%");
+        questionProgressElement.style.width = `${(100 / questions.results.length) * questionCounter}%`;
 
         let scoreElement = document.getElementById("scoreCounter");
         let scoreNumber = (correct / questions.results.length) * 100;
         scoreNumber = scoreNumber.toFixed(1);
-        scoreElement.innerHTML = (`Correct: ${scoreNumber}%`);
+        scoreElement.innerHTML = `Correct: ${scoreNumber}%`;
 
         // get the answers and shufle them for the next question
         const answers = questions.results[questionNr].incorrect_answers;
@@ -216,7 +215,7 @@ async function updateQuestion(category, difficulty) {
         document.getElementById("question").innerHTML = questions.results[questionNr].question;
 
     } else {
-        document.getElementById("question").innerHTML = ("All Questions asked");
+        document.getElementById("question").innerHTML = "All Questions asked";
     }
 
 }
@@ -267,7 +266,7 @@ function endQuiz() {
     document.body.appendChild(restartElement);
 
     questions = undefined;
-}
+};
 
 function check(answerText) {
     // set buttons on disabled to avoid doubble clicking
@@ -276,7 +275,6 @@ function check(answerText) {
     });
 
     let correct_answer = questions.results[questionNr].correct_answer;
-
 
     answerText = answerText.replace('&auml;', 'ä');
     answerText = answerText.replace('&ouml;', 'ö');
@@ -315,11 +313,11 @@ function check(answerText) {
     for (let i = 0; i < answerButtons.length; i++) {
         answerButtons.item(i).style.color = "white";
         // if the given answer is equal to the correct answer of the current question
-        if (answerButtons.item(i).innerHTML == correct_answer) {
+        if (answerButtons.item(i).innerHTML === correct_answer) {
             answerButtons.item(i).style.backgroundColor = "#55A051";
         };
     }
-    if (answerText == correct_answer) {
+    if (answerText === correct_answer) {
         correct++;
         let scoreNumber = (correct / questions.results.length) * 100;
         scoreNumber = scoreNumber.toFixed(1);
