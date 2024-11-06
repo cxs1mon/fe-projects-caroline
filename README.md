@@ -18,4 +18,5 @@ Zurich-Website <br>
 # JavaScript Quiz
 JS-Quiz<br>
 A Quiz  with a simple HTML and a CSS template. It contains 5 questions and a timer as well as a score.
+Upgrade: In the Quiz you can choose between different categories, the number of questions and the difficulty. During the quiz, your progress, your score and the time you have left will be tracked and in the end you can see you total score.
 ![screenshot of the quiz](/JS-Quiz//quiz.png)
