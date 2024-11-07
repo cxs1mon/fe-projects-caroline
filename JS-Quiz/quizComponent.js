@@ -15,6 +15,89 @@ class quizComponent extends HTMLElement {
 
         // HTML Code
         template.innerHTML = `
+        <style>
+        button {
+            height: 6vh;
+            margin: 2% 0;
+            display: block;
+            width: 100%;
+            color: white;
+            background-color: #4a5759;
+            border-radius: 10px;
+            border: 0;
+        }
+
+        button:focus {
+            border-radius: 10px;
+            border: 1px solid;
+        }
+
+        button:disabled {
+            background-color: #c9c8c5;
+            border: 1px solid #4a5759;
+        }
+
+        .game-settings-form__input {
+            margin: 1% 0 3% 0;
+            padding: 2%;
+            border-radius: 5px;
+            border: 1px solid;
+            background-color: #f0d4b8;
+        }
+
+        .game-settings-form {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .title{
+            margin-bottom: 30px;
+        }
+
+        .quiz-stats-container{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 8vh 12vh 16vh;
+            grid-template-areas:
+                "progress progress"
+                "score timer"
+                "question question"
+            ;
+            height: fit-content;
+            margin-bottom: 25px;
+        }
+
+        .container__timer {
+            grid-area: timer;
+        }
+
+        .progress--inner {
+            background-color: #AF8F6F;
+            height: 20px;
+            border-radius: 5px;
+        }
+
+        .progress--outer {
+            padding: 5px;
+            grid-area: progress;
+            width: 100%;
+            border-color: rgba(0, 0, 0, 0.4);
+            background-color: rgba(0, 0, 0, 0.1);
+            height: 30px;
+            border-radius: 5px;
+            border-width: 1px;
+            border-style: solid;
+        }
+
+        .question {
+            grid-area: question;
+        }
+
+        .scoreCounter {
+            grid-area: score;
+        }
+        </style>
             <h1 class="title">The Custom Quiz!</h1>
             <form id="game-settings-form" class="game-settings-form">
                 <label for="categorySelect" class="game-settings-form__label">Choose your preferred genre:</label>
