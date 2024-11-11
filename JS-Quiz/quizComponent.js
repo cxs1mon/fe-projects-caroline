@@ -143,8 +143,7 @@ class quizComponent extends HTMLElement {
         this.timer = this.timer.bind(this);
         this.getData = this.getData.bind(this);
         this.createAnswers = this.createAnswers.bind(this);
-        this.decodeCorrectAnswer = this.decodeCorrectAnswer.bind(this);
-        this.decodeAnswerText = this.decodeAnswerText.bind(this);
+        this.decodeAnswer = this.decodeAnswer.bind(this);
         this.startQuiz = this.startQuiz.bind(this);
         this.updateQuestion = this.updateQuestion.bind(this);
         this.endQuiz = this.endQuiz.bind(this);
@@ -246,45 +245,26 @@ class quizComponent extends HTMLElement {
         return answerContainer;
     };
 
-    async decodeCorrectAnswer(correct_answer) {
+    async decodeAnswer(text) {
 
-        correct_answer = correct_answer.replace('&auml;', 'ä');
-        correct_answer = correct_answer.replace('&ouml;', 'ö');
-        correct_answer = correct_answer.replace('&uuml;', 'ü');
-        correct_answer = correct_answer.replace('&aring;', 'å');
-        correct_answer = correct_answer.replace('&#039;', '\'');
-        correct_answer = correct_answer.replace('&oacute;', 'ó');
-        correct_answer = correct_answer.replace('&ograve;', 'ò');
-        correct_answer = correct_answer.replace('&ocirc;', 'ô');
-        correct_answer = correct_answer.replace('&otilde;', 'õ');
-        correct_answer = correct_answer.replace('&iacute;', 'í');
-        correct_answer = correct_answer.replace('&lt;', '<');
-        correct_answer = correct_answer.replace('&gt;', '>');
-        correct_answer = correct_answer.replace('&quot;', '"');
-        correct_answer = correct_answer.replace('&ntilde;', 'ñ');
+        text = text.replace('&auml;', 'ä');
+        text = text.replace('&ouml;', 'ö');
+        text = text.replace('&uuml;', 'ü');
+        text = text.replace('&aring;', 'å');
+        text = text.replace('&#039;', '\'');
+        text = text.replace('&oacute;', 'ó');
+        text = text.replace('&ograve;', 'ò');
+        text = text.replace('&ocirc;', 'ô');
+        text = text.replace('&otilde;', 'õ');
+        text = text.replace('&iacute;', 'í');
+        text = text.replace('&lt;', '<');
+        text = text.replace('&gt;', '>');
+        text = text.replace('&quot;', '"');
+        text = text.replace('&ntilde;', 'ñ');
 
-        return correct_answer;
+        return text;
     };
 
-    async decodeAnswerText(answerText) {
-
-        answerText = answerText.replace('&auml;', 'ä');
-        answerText = answerText.replace('&ouml;', 'ö');
-        answerText = answerText.replace('&uuml;', 'ü');
-        answerText = answerText.replace('&aring;', 'å');
-        answerText = answerText.replace('&#039;', '\'');
-        answerText = answerText.replace('&oacute;', 'ó');
-        answerText = answerText.replace('&ograve;', 'ò');
-        answerText = answerText.replace('&ocirc;', 'ô');
-        answerText = answerText.replace('&otilde;', 'õ');
-        answerText = answerText.replace('&iacute;', 'í');
-        answerText = answerText.replace('&lt;', '<');
-        answerText = answerText.replace('&gt;', '>');
-        answerText = answerText.replace('&quot;', '"');
-        answerText = answerText.replace('&ntilde;', 'ñ');
-
-        return answerText;
-    };
 
     startQuiz(event) {
         // stops the page from reload, because thats the standard function when clicking the type submit button
@@ -462,8 +442,8 @@ class quizComponent extends HTMLElement {
 
         let correct_answer = this.questions.questionsJson.results[this.questionNr].correct_answer;
 
-        answerText = await this.decodeAnswerText(answerText);
-        correct_answer = await this.decodeCorrectAnswer(correct_answer);
+        answerText = await this.decodeAnswer(answerText);
+        correct_answer = await this.decodeAnswer(correct_answer);
 
         let answerButtons = this.shadowRoot.querySelectorAll(".answer-container__item");
 
