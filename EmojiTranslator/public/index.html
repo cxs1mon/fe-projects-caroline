@@ -10,26 +10,22 @@
     <script src="app.js" defer></script>
 </head>
 
-<body class="row justify-content-center">
+<body class="row justify-content-center" onload="loadFullHistory()">
     <main class="col-6 container">
         <h1 class="container__title">Emoji Translator</h1>
-        <div class="translator">
-            <form class="row justify-content-center translator__form">
-                <textarea class="col-10 my-2 translator__input" name="to-be-translated" placeholder="Enter text which should be translated into Emojis."
-                    required rows="5"></textarea>
-                <button class="col-4 my-3 translator__button" name="submit-form" type="submit">Translate</button>
+        <section class="translator">
+            <form class="row justify-content-center translator__form" onsubmit="saveInput(event);">
+                <textarea class="col-10 my-2 translator__input" name="to-be-translated"
+                    placeholder="Enter text which should be translated into Emojis." required rows="5"></textarea>
+                <button class="col-4 my-3 translator__button" type="submit">Translate</button>
             </form>
-            <p class="translator__result">Translated text</p>
-        </div>
-        <div class="history">
+            <p class="translator__result"></p>
+        </section>
+        <section class="history">
             <h2 class="history__title">History</h2>
-            <div class="row history__record">
-                <p class="col-4 record__text">text</p>
-                <p class="col-2 record__arrow">-></p>
-                <p class="col-4 record__emoji">emoji</p>
-                <p class="col-2 record__delete">delete</p>
+            <div class="history__list">
             </div>
-        </div>
+        </section>
     </main>
 </body>
 
