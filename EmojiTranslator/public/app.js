@@ -1,6 +1,4 @@
-// TODO: define logic for all event listeners and localStorage
 const emoji = "🌞";
-
 
 function saveInput(e) {
     e.preventDefault();
@@ -18,7 +16,6 @@ function addElement(text) {
     const t_result = document.querySelector(".translator__result");
     t_result.innerHTML = emoji;
 }
-
 
 // display the local storage as history when page loads
 function loadFullHistory() {
