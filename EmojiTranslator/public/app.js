@@ -1,71 +1,106 @@
-const emoji = "🌞";
+// public/app.js
 
-function saveInput(e) {
-    e.preventDefault();
-    const text = e.target.elements[0].value
-    localStorage.setItem(text, emoji);
+const STORAGE_KEY = 'emojiTranslatorHistory';
 
-    addElement(text);
+// Functions to handle localStorage
+function getHistory() {
+  const history = localStorage.getItem(STORAGE_KEY);
+  return history ? JSON.parse(history) : [];
 }
 
-// adds input into localStorage, display in history and translate results
-function addElement(text) {
-
-    createHistoryElement(text);
-
-    const t_result = document.querySelector(".translator__result");
-    t_result.innerHTML = emoji;
+function saveHistory(history) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(history));
 }
 
-// display the local storage as history when page loads
-function loadFullHistory() {
-
-    var archive = [],
-        keys = Object.keys(localStorage),
-        i = 0, key;
-
-    for (; key = keys[i]; i++) {
-        createHistoryElement(key);
-    }
-
-    console.log("done");
+// Function to add a translation to history
+function addToHistory(originalText, translatedText) {
+  const history = getHistory();
+  history.unshift({ originalText, translatedText }); // Add to the beginning
+  saveHistory(history);
 }
 
-function createHistoryElement(text) {
-    const h_element = document.createElement("p");
-    h_element.classList.add("row", "justify-content-space-between")
+// Function to display the history
+function displayHistory() {
+  const history = getHistory();
+  const historyList = document.getElementById('history-list');
+  historyList.innerHTML = ''; // Clear existing items
 
-    const h_text = document.createElement("p");
-    h_text.innerHTML = (text + ' -> ' + localStorage.getItem(text));
-    h_text.classList.add("col-10")
+  if (history.length === 0) {
+    const noEntriesItem = document.createElement('li');
+    noEntriesItem.textContent = 'No entries';
+    historyList.appendChild(noEntriesItem);
+    return; // Exit the function if there are no entries
+  }
 
-    const h_delete = document.createElement("p");
-    h_delete.innerHTML = "delete";
-    h_delete.setAttribute("onClick", `removeHistoryElement(\"${text}\");`)
-    h_delete.classList.add("col-2")
+  history.forEach((item, index) => {
+    const listItem = document.createElement('li');
+    listItem.classList.add('mb-2', 'flex', 'justify-between', 'items-center');
 
-    h_element.appendChild(h_text)
-    h_element.appendChild(h_delete)
+    const textSpan = document.createElement('span');
+    textSpan.textContent = `${item.originalText} → ${item.translatedText}`;
 
-    const historyList = document.querySelector(".history__list");
-    historyList.appendChild(h_element);
-
-    return historyList;
-}
-
-function removeHistoryElement(name) {
-    localStorage.removeItem(name);
-
-    const h_allElements = document.querySelectorAll('.history__list p p');
-
-    h_allElements.forEach(element => {
-
-        const element_text = element.innerHTML;
-        const textBeforeArrow = element_text.split('->')[0].trim();
-
-        if (textBeforeArrow === name) {
-            element.parentElement.remove();
-        }
+    const deleteButton = document.createElement('button');
+    deleteButton.textContent = 'Delete';
+    deleteButton.classList.add(
+      'ml-2',
+      'text-red-500',
+      'hover:underline',
+      'text-sm'
+    );
+    deleteButton.addEventListener('click', () => {
+      deleteHistoryItem(index);
     });
 
+    listItem.appendChild(textSpan);
+    listItem.appendChild(deleteButton);
+    historyList.appendChild(listItem);
+  });
 }
+
+// Function to delete a specific history item
+function deleteHistoryItem(index) {
+  const history = getHistory();
+  history.splice(index, 1); // Remove the item at the given index
+  saveHistory(history);
+  displayHistory();
+}
+
+// Handle form submission
+document.getElementById('translator-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  
+  const textInput = document.getElementById('text-input').value.trim();
+  const resultDiv = document.getElementById('result');
+  
+  if (!textInput) {
+    resultDiv.textContent = 'Please enter some text.';
+    return;
+  }
+
+  resultDiv.textContent = 'Translating...'; // Show loading message
+
+  try {
+    const response = await fetch('/translate', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text: textInput }),
+    });
+
+    const data = await response.json();
+
+    if (data.error) {
+      resultDiv.textContent = `Error: ${data.error}`;
+    } else {
+      resultDiv.textContent = data.translatedText;
+      addToHistory(textInput, data.translatedText);
+      displayHistory();
+      document.getElementById('text-input').value = '';
+    }
+  } catch (error) {
+    resultDiv.textContent = 'An error occurred while translating the text.';
+    console.error('Fetch error:', error);
+  }
+});
+
+// Load history on page load
+document.addEventListener('DOMContentLoaded', displayHistory);

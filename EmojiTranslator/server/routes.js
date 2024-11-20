@@ -1,5 +1,6 @@
 const express = require('express');
 const axios = require('axios');
+
 const router = express.Router();
 
 // Function to process text with Llama 2 via Ollama
@@ -17,6 +18,7 @@ async function processWithOllama(prompt) {
     );
 
     let generatedText = '';
+
     return new Promise((resolve, reject) => {
       response.data.on('data', (chunk) => {
         const lines = chunk.toString().split('\n');
@@ -48,9 +50,13 @@ async function processWithOllama(prompt) {
 
 // Translation Function
 async function translateToEmoji(text) {
-  const prompt = `Translate the following text into emojis where appropriate. Replace each word with emojis, if it doesn't make sense, keep the word unchanged, otherwise try to use emoji's only.
-Text:${text}
+  const prompt = `Translate the following text into emojis. Replace each word with an emoji, if it doesn't make sense, keep the word unchanged, otherwise try to use emoji's only. And don't add any text, just give the translated text back as emojis.
+
+Text:
+${text}
+
 Translated Text:`;
+
   const translatedText = await processWithOllama(prompt);
   return translatedText;
 }
