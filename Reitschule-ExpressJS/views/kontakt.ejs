@@ -10,6 +10,7 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative&display=swap" rel="stylesheet">
     <link href="./css/style.css" rel="stylesheet">
+    <script src="./js/main.js" defer></script>
 </head>
 
 <body class="page container-fluid">
@@ -43,20 +44,20 @@
                 </section>
                 <h3 class="text-block__subtitle">Kontaktformular:</h3>
             </section>
-            <form class="form">
+            <form class="form" id="contactForm" action="/kontakt" method="POST">
                 <fieldset>
                     <label class="form__label" for="form-input-name">Name Reitschülerin:</label>
-                    <input name="form-input-name" id="form-input-name" type="text">
-
+                    <input name="name" id="form-input-name" type="text" required>
+<!--
                     <label class="form__label" for="form-input-birthdate">Geburtsdatum:</label>
-                    <input name="form-input-birthdate" id="form-input-birthdate" type="date">
+                    <input name="birthdate" id="form-input-birthdate" type="date">
 
                     <label class="form__label" for="form-input-email">Email:</label>
-                    <input name="form-input-email" id="form-input-email" type="email">
-
+                    <input name="email" id="form-input-email" type="email">
+-->
                     <label class="form__label" for="form-input-phone">Telefonnummer:</label>
-                    <input name="form-input-phone" id="form-input-phone" type="tel">
-
+                    <input name="phone" id="form-input-phone" type="tel" required>
+<!--
                     <label class="form__label">Reiterfahrung:</label>
                     <input class="form-input-radio1" value="anfaenger" type="radio">
                     <label class="form__input-radio">Anf&#228;nger</label>
@@ -65,17 +66,19 @@
 
 
                     <label class="form__label" for="form-input-topic">Anfrage bezüglich:</label>
-                    <select id="form-input-topic" name="form-input-topic" class="form-input-topic">
+                    <select id="form-input-topic" name="topic" class="form-input-topic">
                         <option>Reitunterricht</option>
                         <option>Voltegieren</option>
                         <option>Sonstiges</option>
                     </select>
 
                     <label class="form__label" for="form-input-message">Nachricht:</label>
-                    <textarea id="form-input-message" name="form-input-message" class="form__textarea"
+                    <textarea id="form-input-message" name="message" class="form__textarea"
                         placeholder="z. B. Ich möchte mich für einen Schnupperkurs anmelden." cols="20"
                         rows="10"></textarea>
+-->
                     <button class="button form__submit" type="submit">Submit</button>
+                    <p class="form__notice" hidden>Anfrage wurde geschickt!</p>
                 </fieldset>
             </form>
         </div>
