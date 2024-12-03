@@ -13,8 +13,8 @@ allRoutes.get("/meine-pferde(.html)?", (req, res) => res.render('meine-pferde'))
 allRoutes.get("/kontakt(.html)?", (req, res) => res.render('kontakt'));
 
 allRoutes.post("/api/contact-form", [
-    body('name').trim().isLength({ min: 2 }).escape(),
-    body('phone').trim().isLength({ min: 5 }).escape(),
+    body('name').trim().isLength({ min: 2 }).isAlpha(),
+    body('phone').trim().isLength({ min: 10 }).isNumeric()
 ], (req, res) => {
     console.log('Received body:', req.body);
     const errors = validationResult(req);

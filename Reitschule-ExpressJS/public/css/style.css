@@ -23,6 +23,20 @@ to {
     background-color: violet;
 }
 }
+/* style form notice */
+.valid{
+    color: forestgreen;
+    font-weight: bold;
+    text-align: center;
+    margin: 10px;
+}
+
+.invalid{
+    color: red;
+    font-weight: bold;
+    text-align: center;
+    margin: 10px;
+}
 
 /* global elements */
 h4, h5 {
