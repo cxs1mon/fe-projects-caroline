@@ -15,7 +15,12 @@ document.getElementById('contactForm').addEventListener('submit', async (e) => {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 name: e.target.name.value,
-                phone: e.target.phone.value
+                birthdate: e.target.birthdate.value,
+                email: e.target.email.value,
+                phone: e.target.phone.value,
+                experience: e.target.experience.value,
+                topic: e.target.topic.value,
+                message: e.target.message.value
             })
         });
         const result = await response.json();

@@ -48,25 +48,24 @@
                 <fieldset>
                     <label class="form__label" for="form-input-name">Name Reitschülerin:</label>
                     <input name="name" id="form-input-name" type="text" required>
-<!--
+
                     <label class="form__label" for="form-input-birthdate">Geburtsdatum:</label>
-                    <input name="birthdate" id="form-input-birthdate" type="date">
+                    <input name="birthdate" id="form-input-birthdate" type="date" required>
 
                     <label class="form__label" for="form-input-email">Email:</label>
-                    <input name="email" id="form-input-email" type="email">
--->
+                    <input name="email" id="form-input-email" type="email" required>
+
                     <label class="form__label" for="form-input-phone">Telefonnummer:</label>
                     <input name="phone" id="form-input-phone" type="tel" required>
-<!--
+
                     <label class="form__label">Reiterfahrung:</label>
-                    <input class="form-input-radio1" value="anfaenger" type="radio">
+                    <input class="form-input-radio1" value="anfaenger" name="experience" type="radio" required>
                     <label class="form__input-radio">Anf&#228;nger</label>
-                    <input class="form-input-radio2 form__input" value="fortgeschritten" type="radio">
+                    <input class="form-input-radio2 form__input" name="experience" value="fortgeschritten" type="radio" required>
                     <label class="form__input-radio">Fortgeschritten</label>
 
-
                     <label class="form__label" for="form-input-topic">Anfrage bezüglich:</label>
-                    <select id="form-input-topic" name="topic" class="form-input-topic">
+                    <select id="form-input-topic" name="topic" class="form-input-topic" required>
                         <option>Reitunterricht</option>
                         <option>Voltegieren</option>
                         <option>Sonstiges</option>
@@ -76,7 +75,7 @@
                     <textarea id="form-input-message" name="message" class="form__textarea"
                         placeholder="z. B. Ich möchte mich für einen Schnupperkurs anmelden." cols="20"
                         rows="10"></textarea>
--->
+
                     <button class="button form__submit" type="submit">Submit</button>
                     <p class="form__notice" hidden>Anfrage wurde geschickt!</p>
                 </fieldset>

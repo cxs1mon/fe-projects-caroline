@@ -3,6 +3,9 @@ const allRoutes = Router();
 const { body, validationResult } = require("express-validator");
 const express = require('express');
 
+const date = new Date();
+const formattedDate = date.toISOString().split('T')[0];
+
 // Add body parsing middleware
 allRoutes.use(express.json());
 allRoutes.use(express.urlencoded({ extended: true }));
@@ -14,7 +17,12 @@ allRoutes.get("/kontakt(.html)?", (req, res) => res.render('kontakt'));
 
 allRoutes.post("/api/contact-form", [
     body('name').trim().isLength({ min: 2 }).isAlpha(),
-    body('phone').trim().isLength({ min: 10 }).isNumeric()
+    body('birthdate').trim().isLength({ min: 10 }).isDate().isBefore(formattedDate),
+    body('email').trim().isEmail(),
+    body('phone').trim().isLength({ min: 10 }).isNumeric(),
+    body('phone').trim(),
+    body('topic').trim(),
+    body('message').trim()
 ], (req, res) => {
     console.log('Received body:', req.body);
     const errors = validationResult(req);
@@ -26,11 +34,12 @@ allRoutes.post("/api/contact-form", [
             errors: errors.array()
         });
     }
-    const { name, phone } = req.body;
-    console.log('Contact form submission:', { name, phone });
+    const { name, birthdate, email, phone, experience, topic, message } = req.body;
+    console.log('Contact form submission:', { name, birthdate, email, phone, experience, topic, message });
+
     res.json({
         success: true,
-        data: { name, phone }
+        data: { name, birthdate, email, phone, experience, topic, message }
     });
 });
 
