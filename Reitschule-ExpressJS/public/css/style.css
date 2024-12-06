@@ -1,3 +1,11 @@
+:root {
+    --main-font: Verdana, Geneva, Tahoma, sans-serif;
+    --page-font-size: 12px;
+    --logo-font: "Cinzel Decorative";
+    --cascade-color: #81b29a;
+    --dusty-grey-color: #9e9290;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -11,7 +19,7 @@ from {
     background-color: orange;
 }
 40%  {
-    background-color: rgb(255, 230, 0);
+    background-color: yellow;
 }
 60%  {
     background-color: green;
@@ -40,7 +48,7 @@ to {
 
 /* global elements */
 h4, h5 {
-    font-size: 12px;
+    font-size: var(--page-font-size);
 }
 
 h4 {
@@ -63,20 +71,19 @@ main {
 
 
 .page {
-    font-size: 12px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: var(--page-font-size);
+    font-family: var(--main-font);
     margin: 0; 
     
 }
 
 /* Header */
 .header {
-    background-color: #81b29a;
+    background-color: var(--cascade-color);
 
     @media screen and (min-width: 1024px) {
         display: grid;
         grid-area: header;
-        background-color: #81b29a;
         align-content: center;
         justify-content: center;
     }
@@ -88,7 +95,7 @@ main {
 
 }
 .header__link {
-    font-family: "Cinzel Decorative";
+    font-family: var(--logo-font);
     font-weight: normal;
     font-size: 30px;
 
@@ -132,7 +139,7 @@ main {
     }
 }
 .nav__link {
-    color: #9E9290;
+    color: var(--dusty-grey-color);
     font-style: italic;
 }
 
@@ -185,12 +192,12 @@ main {
 
 .text-block__link {
     font-style: italic;
-    color: #81b29a;
+    color: var(--cascade-color);
 }
 
 .text-block__contact-tag {
     font-size: smaller;
-    color: #9E9290;
+    color: var(--dusty-grey-color);
     font-weight: bold;
     margin-bottom: 5px;
     margin-top: 20px;   
@@ -305,12 +312,12 @@ main {
 /* Miscellaneous */
 .button {
     padding: 8px 16px;
-    font-size: 12px;
+    font-size: var(--page-font-size);
     text-align: center;
     border: black;
     border-width: 1px;
     border-style: solid;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: var(--main-font);
 }
 
 /* Tablet */
