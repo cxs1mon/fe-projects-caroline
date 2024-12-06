@@ -1,23 +1,21 @@
 const { Router } = require("express");
-const allRoutes = Router();
+const apiRouter = Router();
 const { body, validationResult } = require("express-validator");
 const express = require('express');
+
+apiRouter.use(express.json());
+apiRouter.use(express.urlencoded({ extended: true }));
 
 const date = new Date();
 const formattedDate = date.toISOString().split('T')[0];
 
 // Add body parsing middleware
-allRoutes.use(express.json());
-allRoutes.use(express.urlencoded({ extended: true }));
+apiRouter.use(express.json());
+apiRouter.use(express.urlencoded({ extended: true }));
 
-allRoutes.get("/(index)?(.html)?", (req, res) => res.render('index'));
-allRoutes.get("/angebot(.html)?", (req, res) => res.render('angebot'));
-allRoutes.get("/meine-pferde(.html)?", (req, res) => res.render('meine-pferde'));
-allRoutes.get("/kontakt(.html)?", (req, res) => res.render('kontakt'));
-
-allRoutes.post("/api/contact-form", [
+apiRouter.post("/api/contact-form", [
     body('name').trim().isLength({ min: 2 }).isAlpha(),
-    body('birthdate').trim().isLength({ min: 10 }).isDate().isBefore(formattedDate),
+    body('birthdate').trim().isDate().isBefore(formattedDate),
     body('email').trim().isEmail(),
     body('phone').trim().isLength({ min: 10 }).isNumeric(),
     body('phone').trim(),
@@ -43,6 +41,4 @@ allRoutes.post("/api/contact-form", [
     });
 });
 
-allRoutes.get("/ueber-mich(.html)?", (req, res) => res.render('ueber-mich'));
-
-module.exports = allRoutes;
+module.exports = apiRouter;

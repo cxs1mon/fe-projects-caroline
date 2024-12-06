@@ -1,4 +1,6 @@
-document.getElementById('contactForm').addEventListener('submit', async (e) => {
+document.getElementById('contactForm').addEventListener('submit', handleForm);
+
+async function handleForm(e) {
     e.preventDefault();
     const noticeElement = document.querySelector('.form__notice');
 
@@ -39,4 +41,4 @@ document.getElementById('contactForm').addEventListener('submit', async (e) => {
         noticeElement.classList.add("invalid");
         noticeElement.hidden = false;
     }
-});
+};
