@@ -103,6 +103,33 @@ const pferdehaltung = {
     text: `In meiner Reitschule steht das Wohl der Pferde an erster Stelle. Ich setze auf eine artgerechte Pferdehaltung, die den Empfehlungen des "Pferde-raus" Programms von STS (Schweizer Tierschutz) folgt. Das bedeutet, dass unsere Pferde regelmäßig Auslauf auf weitläufigen Weiden genießen und in einer Umgebung leben, die ihren natürlichen Bedürfnissen gerecht wird. Eine artgerechte Haltung fördert nicht nur das körperliche Wohlbefinden der Pferde, sondern trägt auch zu ihrem mentalen und emotionalen Gleichgewicht bei. Ich bin überzeugt, dass glückliche und gesunde Pferde die besten Partner für ein harmonisches Reiterlebnis sind.`
 }
 
+const voltegierPreise = {
+    title:"Preise:",
+    text:"Die Preise für den Voltigierkurs sind individuell, da sie von Deinen persönlichen Bedürfnissen und Zielen abhängen. Wenn Du Interesse an einem Voltigierkurs hast, kontaktiere mich gerne direkt. Gemeinsam finden wir den passenden Kurs und die entsprechenden Konditionen für Dich.",
+    prominent:"true"
+}
+
+const gruppeEinzelPreise = {
+    title:"Preise:",
+    text:`  <h4>Einzelunterricht</h4>
+            <h5>Kinder (6-18)</h5>
+            <ul class="list">
+                <li class="list__item">Einzelzahlung - 65Fr./mal</li>
+                <li class="list__item">110er Abo - 600Fr. (60Fr./mal)</li>
+            </ul>
+            <h5>Erwachsene (ab 18. Geburtstag)</h5>
+            <ul class="list">
+                <li class="list__item">Einzelzahlung - 80Fr./mal</li>
+                <li class="list__item">10er Abo - 750Fr. (75Fr./mal)</li>
+            </ul>
+            <h4>Gruppenunterricht</h4>
+            <ul class="list">
+                <li class="list__item">Einzelzahlung - 50Fr./mal</li>
+                <li class="list__item">10er Abo - 400Fr. (40Fr./mal)</li>
+            </ul>`,
+    prominent:"true"
+}
+
 // horse cards
 const horse1 = {
     name:"Rosi",
@@ -159,5 +186,5 @@ const horse6 = {
     alt:"Foto eines Freiberger Wallachs."
 }
 
-module.exports = { meineLeidenschaft, meinZiel, gruppenEinzelnterricht, anmeldung, voltegieren, adressen, lage, kontaktformular, vorstellung, reiterfahrung, pferdehaltung, horse1, horse2, horse3, horse4, horse5, horse6};
+module.exports = { meineLeidenschaft, meinZiel, gruppenEinzelnterricht, anmeldung, voltegieren, adressen, lage, kontaktformular, vorstellung, reiterfahrung, pferdehaltung,voltegierPreise, gruppeEinzelPreise, horse1, horse2, horse3, horse4, horse5, horse6};
 
