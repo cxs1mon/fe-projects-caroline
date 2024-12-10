@@ -3,16 +3,18 @@
 
     <%- include('partials/head', { title: 'Meine Pferde' }) %>
 
-<body class="page container-fluid">
+    <body class="page container-fluid">
 
-    <!--Header-->
-    <%- include('partials/header'); %>
-
-    <!--Main-->
-    <main class="main row g-0">
-
-        <!--Nav-->
-        <%- include('partials/nav'); %>
+        <!--Header-->
+        <rts-header></rts-header>
+    
+        <!--Main-->
+        <main class="main row g-0">
+    
+            <!--Nav-->
+            <div class="col col-lg-2">
+                <rts-nav></rts-nav>
+            </div>
         <div class="col-sm-12 col-lg-10">
             <section class="text-block">
                 <h2 class="text-block__title">Kontakt</h2>
@@ -83,7 +85,7 @@
     </main>
 
     <!--Footer-->
-    <%- include('partials/footer'); %>
+    <rts-footer></rts-footer>
 
 </body>
 
