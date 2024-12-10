@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <%- include('partials/head', { title: 'Willkommen' }) %>
+</head>
+<body class="page container-fluid">
+    <!--Header-->
+    <%- include('partials/header'); %>
+
+    <!--Main-->
+    <main class="main row g-0">
+        <!--Nav-->
+        <%- include('partials/nav'); %>
+        <div class="col-sm-12 col-lg-10">
+            <%- include(body); %>
+        </div>
+    </main>
+
+    <!--Footer-->
+    <%- include('partials/footer'); %>
+</body>
+</html>
