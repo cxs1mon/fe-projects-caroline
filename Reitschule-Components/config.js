@@ -155,7 +155,7 @@ const horse6 = {
     birthyear:"2010",
     color:"Braun",
     gender:"Wallach",
-    photosrc:"./img/Rosi.jpg",
+    photosrc:"./img/Leandro.jpg",
     alt:"Foto eines Freiberger Wallachs."
 }
 
