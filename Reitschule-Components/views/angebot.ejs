@@ -18,12 +18,9 @@
         <div class="col-sm-12 col-lg-10">
             <section class="text-block">
                 <h2 class="text-block__title">Angebot</h2>
-                <rts-text-block title="Gruppen- und Einzelnterricht"
-                text="Ich biete maßgeschneiderten Einzelunterricht für Deine individuelle Förderung sowie dynamischen
-                Gruppenunterricht für gemeinsames Lernen und Teamgeist an. Ob Du persönlich betreut werden oder Dich
-                in der Gruppe weiterentwickeln möchtest, ich unterstütze Dich dabei, Deine Reitfähigkeiten zu
-                verbessern und Deine Ziele zu erreichen. Gemeinsam schaffen wir eine Lernumgebung, in der Du Dich
-                wohlfühlst und erfolgreich sein kannst.">
+                <rts-text-block 
+                    title="<%= gruppenEinzelnterricht.title %>"
+                    text="<%= gruppenEinzelnterricht.text %>">
                 </rts-text-block>
                 <h3 class="text-block__subtitle text-block__subtitle--prominent">Preise:</h3>
                 <section>
@@ -49,43 +46,21 @@
             <hr>
         
             <section class="text-block">
+
                 <rts-text-block 
-                    title="Anmeldung" 
-                    text='<ol class="list list--numbered">
-                        <li class="list__item">Schnupperlektion
-                            <p>
-                                Zuerst kommst du zu einer Schnupperlektion und entscheidest wie es dir gefällt.
-                            </p>
-                        </li>
-                        <li class="list__item">Einzelunterricht
-                            <p>
-                                Wenn du noch nie geritten bist, empfehlen wir mit ein paar Einzellektionen zu starten, damit
-                                du dich mit dem Reiten und dem Umgang mit dem Pferd vertraut machen kannst.
-                            </p>
-                        </li>
-                        <li class="list__item">Gruppenunterricht
-                            <p>
-                                Wenn du dann soweit bist, kannst du in einer Gruppe von 4-6 Personen mitreiten.
-                            </p>
-                        </li>
-            
-                    </ol>'>
-                </rts-text-block>                
+                    title="<%= anmeldung.title %>"
+                    text="<%= anmeldung.text %>">
+                </rts-text-block>        
+
                 <a class="link text-block__link" href="kontakt">Anmelden</a>
                 <hr>
             </section>
         
             <section class="section">
+                
                 <rts-text-block
-                title="Voltegieren"
-                text="Ich biete speziellen Einzelunterricht im Voltigieren an – eine faszinierende Mischung aus Gymnastik
-                und Reiten. Im Einzelunterricht kann ich mich ganz auf Dich und Deine individuellen Fähigkeiten
-                konzentrieren, um Deine Balance, Koordination und Körperbeherrschung zu verbessern. Schritt für
-                Schritt leite ich Dich an, damit Du sicher und selbstbewusst die Kunst des Voltigierens erlernst.
-                Egal, ob Du Anfänger bist oder Deine Technik verfeinern möchtest, der Einzelunterricht bietet Dir
-                die perfekte Gelegenheit, Deine Voltigierfähigkeiten in einem sicheren und unterstützenden Umfeld
-                weiterzuentwickeln. Ich freue mich darauf, Dich auf Deinem Weg zu begleiten!">
-
+                    title="<%= voltegieren.title %>"
+                    text="<%= voltegieren.text %>">
                 </rts-text-block>
                 
                 <h3 class="text-block__subtitle text-block__subtitle--prominent">Preise:</h3>

@@ -11,6 +11,7 @@ class RTSHorseCard extends HTMLElement {
 
         this.innerHTML =
         `
+        <hr>
         <section class="horse-overview">
             <ul class="list list--no-bullets">
                 <li class="list__item">${name}</li>
@@ -24,7 +25,6 @@ class RTSHorseCard extends HTMLElement {
                 <img class="image__img image__img--profile" src="${photosrc}" height="600" alt="${alt}">
             </figure>
         </section>  
-        <hr>
         `;
     }
 }
