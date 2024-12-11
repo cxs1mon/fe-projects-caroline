@@ -6,7 +6,6 @@ class RTSTextBlock extends HTMLElement {
         let h3Element;
         
         if (this.getAttribute('prominent')) {
-            const prominent = this.getAttribute('prominent');
             console.log("prominent");
             h3Element = `<h3 class="text-block__subtitle text-block__subtitle--prominent">${title}</h3>`
         } else {
