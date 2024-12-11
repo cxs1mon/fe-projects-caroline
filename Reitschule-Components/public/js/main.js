@@ -1,4 +1,13 @@
-document.getElementById('contactForm').addEventListener('submit', handleForm);
+// wait till the whole DOM is loaded and parsed before adding the eventlistener
+document.addEventListener('DOMContentLoaded', (event) => {
+    console.log('DOM fully loaded and parsed');
+    const contact_form = document.getElementById('contactForm');
+    if (contact_form) {
+        contact_form.addEventListener('submit', handleForm);
+    } else {
+        console.error('Element with ID "contactForm" not found.');
+    }
+});
 
 async function handleForm(e) {
     e.preventDefault();
@@ -7,7 +16,7 @@ async function handleForm(e) {
     try {
         if (noticeElement.classList.contains("valid")) {
             noticeElement.classList.remove("valid");
-        } else if(noticeElement.classList.contains("invalid")){
+        } else if (noticeElement.classList.contains("invalid")) {
             noticeElement.classList.remove("invalid");
         } else {
             console.log(noticeElement.classList);
