@@ -1,6 +1,8 @@
 class RTSHeader extends HTMLElement {
 
     connectedCallback() {
+        console.log(`Header was loaded on page ${window.location.href}`)
+
         this.innerHTML =
         `
         <header class="header row">
@@ -8,6 +10,9 @@ class RTSHeader extends HTMLElement {
         </header>
         `;
     }
+    disconnectedCallback() {
+        console.log(`Header was unloaded on page ${window.location.href}`)
+    };
 }
 
 customElements.define("rts-header", RTSHeader);

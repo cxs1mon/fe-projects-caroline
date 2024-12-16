@@ -9,6 +9,9 @@ class RTSHorseCard extends HTMLElement {
         const photosrc = this.getAttribute('photo-src');
         const alt = this.getAttribute('alt');
 
+        console.log(`Horse-card was loaded on page ${window.location.href}`)
+
+
         this.innerHTML =
         `
         <hr>
@@ -27,6 +30,9 @@ class RTSHorseCard extends HTMLElement {
         </section>  
         `;
     }
+    disconnectedCallback() {
+        console.log(`Horse-card was unloaded on page ${window.location.href}`)
+    };
 }
 
 customElements.define("rts-horse-card", RTSHorseCard);
