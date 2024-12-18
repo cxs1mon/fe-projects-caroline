@@ -1,16 +1,21 @@
-<h2 class="text-block__title">&#220;ber mich</h2>
+<%- include('partials/head', { title }) %>
+<rts-layout>
+    <div slot="content" class="content">
+        <h2 class="text-block__title">&#220;ber mich</h2>
 
-<rts-text-block title="<%= vorstellung.title %>" text="<%= vorstellung.text %>">
-</rts-text-block>
+        <rts-text-block title="<%= vorstellung.title %>" text="<%= vorstellung.text %>">
+        </rts-text-block>
 
 
-<rts-text-block title="<%= reiterfahrung.title %>" text="<%= reiterfahrung.text %>">
-</rts-text-block>
+        <rts-text-block title="<%= reiterfahrung.title %>" text="<%= reiterfahrung.text %>">
+        </rts-text-block>
 
-<rts-text-block title="<%= pferdehaltung.title %>" text="<%= pferdehaltung.text %>">
-</rts-text-block>
+        <rts-text-block title="<%= pferdehaltung.title %>" text="<%= pferdehaltung.text %>">
+        </rts-text-block>
 
-<section class="iframe-container">
-    <iframe class="iframe-container__iframe" width="600" height="400"
-        src="https://www.youtube.com/embed/nRvBLoE5CUc?list=PLTcbBaUOOBv6tOGwjjvnDIbU88UE5ITIs"></iframe>
-</section>
+        <section class="iframe-container">
+            <iframe class="iframe-container__iframe" width="600" height="400"
+                src="https://www.youtube.com/embed/nRvBLoE5CUc?list=PLTcbBaUOOBv6tOGwjjvnDIbU88UE5ITIs"></iframe>
+        </section>
+    </div>
+</rts-layout>

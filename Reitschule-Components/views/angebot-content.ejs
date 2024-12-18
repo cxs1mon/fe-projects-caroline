@@ -1,32 +1,38 @@
-<section class="text-block">
-    <h2 class="text-block__title">Angebot</h2>
-    <rts-text-block title="<%= gruppenEinzelnterricht.title %>" text="<%= gruppenEinzelnterricht.text %>">
-    </rts-text-block>
-    <section>
-        <rts-text-block title="<%= gruppeEinzelPreise.title %>" text="<%= gruppeEinzelPreise.text %>"
-            prominent="<%= gruppeEinzelPreise.prominent %>">
-        </rts-text-block>
-    </section>
-</section>
+<%- include('partials/head', { title }) %>
+<rts-layout>
+    <div slot="content" class="content">
 
-<hr>
+        <section class="text-block">
+            <h2 class="text-block__title">Angebot</h2>
+            <rts-text-block title="<%= gruppenEinzelnterricht.title %>" text="<%= gruppenEinzelnterricht.text %>">
+            </rts-text-block>
+            <section>
+                <rts-text-block title="<%= gruppeEinzelPreise.title %>" text="<%= gruppeEinzelPreise.text %>"
+                    prominent="<%= gruppeEinzelPreise.prominent %>">
+                </rts-text-block>
+            </section>
+        </section>
 
-<section class="text-block">
+        <hr>
 
-    <rts-text-block title="<%= anmeldung.title %>" text="<%= anmeldung.text %>">
-    </rts-text-block>
+        <section class="text-block">
 
-    <a class="link text-block__link" href="kontakt">Anmelden</a>
-    <hr>
-</section>
+            <rts-text-block title="<%= anmeldung.title %>" text="<%= anmeldung.text %>">
+            </rts-text-block>
 
-<section class="section">
+            <a class="link text-block__link" href="kontakt">Anmelden</a>
+            <hr>
+        </section>
 
-    <rts-text-block title="<%= voltegieren.title %>" text="<%= voltegieren.text %>">
-    </rts-text-block>
+        <section class="section">
 
-    <rts-text-block title="<%= voltegierPreise.title %>" text="<%= voltegierPreise.text %>"
-        prominent="<%= voltegierPreise.prominent %>">
-    </rts-text-block>
-    <a class="link text-block__link" href="kontakt">Anmelden</a>
-</section>
+            <rts-text-block title="<%= voltegieren.title %>" text="<%= voltegieren.text %>">
+            </rts-text-block>
+
+            <rts-text-block title="<%= voltegierPreise.title %>" text="<%= voltegierPreise.text %>"
+                prominent="<%= voltegierPreise.prominent %>">
+            </rts-text-block>
+            <a class="link text-block__link" href="kontakt">Anmelden</a>
+        </section>
+    </div>
+</rts-layout>
