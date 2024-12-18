@@ -14,7 +14,11 @@ apiRouter.use(express.json());
 apiRouter.use(express.urlencoded({ extended: true }));
 
 apiRouter.post("/api/contact-form", [
-    body('name').trim().isLength({ min: 2 }).isAlpha(),
+    body('name').trim().isLength({ min: 2 }).customSanitizer((value) => {
+        // Überprüft, ob der Wert ein Leerzeichen enthält und entfernt es
+        return value.replace(/\s+/g, '');
+    }
+    ).isAlpha(),
     body('birthdate').trim().isDate().isBefore(formattedDate),
     body('email').trim().isEmail(),
     body('phone').trim().isLength({ min: 10 }).isNumeric(),
