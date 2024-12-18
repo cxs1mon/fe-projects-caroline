@@ -320,6 +320,11 @@ main {
     font-family: var(--main-font);
 }
 
+div.content{
+    display: flex;
+    flex-direction: column;
+}
+
 /* Tablet */
 @media screen and (min-width: 768px) and (max-width: 1023px) {}
 
