@@ -1,6 +1,7 @@
 :root {
     --main-font: Verdana, Geneva, Tahoma, sans-serif;
     --page-font-size: 12px;
+    --smaller-page-font-size: 10px;
     --logo-font: "Cinzel Decorative";
     --cascade-color: #81b29a;
     --dusty-grey-color: #9e9290;
@@ -10,27 +11,6 @@
     box-sizing: border-box;
 }
 
-/* animantion */
-@keyframes colorTransform {  /* Name der Transformation */
-from {
-    background-color: red
-}
-20%{
-    background-color: orange;
-}
-40%  {
-    background-color: yellow;
-}
-60%  {
-    background-color: green;
-}
-80%  {
-    background-color: blue;
-}
-to {
-    background-color: violet;
-}
-}
 /* style form notice */
 .valid{
     color: forestgreen;
@@ -47,12 +27,13 @@ to {
 }
 
 /* global elements */
-h4, h5 {
+h5 {
     font-size: var(--page-font-size);
+    font-weight: 600;
 }
 
-h4 {
-    font-weight: 700;
+h6{
+    font-size: var(--page-font-size);
 }
 
 main {
@@ -89,11 +70,6 @@ main {
     }
 }
 
-.header:hover {
-    animation-name: colorTransform;
-    animation-duration: 5s;
-
-}
 .header__link {
     font-family: var(--logo-font);
     font-weight: normal;
@@ -145,7 +121,7 @@ main {
 
 /* Footer */
 .footer {
-    background-color: #f2cc8f;
+    background-color: var(--cascade-color);
 }
 
 .footer__figure {
@@ -171,7 +147,7 @@ main {
 
 /* Text Block */
 .text-block__title {
-    color: #3d405b;
+    color: #34508C;
     margin-top: 0;
 
     @media screen and (min-width: 1024px) {
@@ -187,7 +163,9 @@ main {
 
 .text-block__subtitle--prominent {
     text-decoration: underline;
-    color: #e07a5f;
+    color: #34508C;
+    font-size: 15px;
+    font-weight: bolder;
 }
 
 .text-block__link {

@@ -36,7 +36,7 @@ const voltegieren = {
 
 const adressen = {
     title: "Adressen",
-    text: ` <p>Email:<span class="text-block__contact-tag">emilia.muster@reitschule.ch</span></p>
+    text: ` <p>Email:<span class="text-block__contact-tag">Muster.muster@reitschule.ch</span></p>
             <p>Telefon:<span class="text-block__contact-tag">0123456789</span></p>`
 };
 
@@ -94,7 +94,7 @@ const kontaktformular = {
 
 const vorstellung = {
     title: "Wer bin ich",
-    text: "Ich bin Emilia Muster, Deine Reitlehrerin in der Reitschule Schluchebärg. Geboren und aufgewachsen auf einem Reiterhof in Zürich, habe ich meine Leidenschaft für Pferde und das Reiten schon von klein auf entwickelt. Vor 10 Jahren habe ich die Reitschule Schluchebärg gegründet, um meine Leidenschaft und mein Wissen an andere weiterzugeben. Mit über 30 Jahren Reiterfahrung und einem Bachelor in Tierwissenschaften von der Universität Zürich, bin ich bestens ausgestattet, um Dich auf Deinem Reitweg zu begleiten. Ich lege großen Wert auf eine harmonische Beziehung zwischen Mensch und Pferd, die auf Respekt, Vertrauen und gegenseitigem Verständnis basiert."
+    text: "Ich bin Muster Muster, Deine Reitlehrerin in der Reitschule Schluchebärg. Geboren und aufgewachsen auf einem Reiterhof in Zürich, habe ich meine Leidenschaft für Pferde und das Reiten schon von klein auf entwickelt. Vor 10 Jahren habe ich die Reitschule Schluchebärg gegründet, um meine Leidenschaft und mein Wissen an andere weiterzugeben. Mit über 30 Jahren Reiterfahrung und einem Bachelor in Tierwissenschaften von der Universität Zürich, bin ich bestens ausgestattet, um Dich auf Deinem Reitweg zu begleiten. Ich lege großen Wert auf eine harmonische Beziehung zwischen Mensch und Pferd, die auf Respekt, Vertrauen und gegenseitigem Verständnis basiert."
 };
 
 const reiterfahrung = {
@@ -115,18 +115,18 @@ const voltegierPreise = {
 
 const gruppeEinzelPreise = {
     title:"Preise:",
-    text:`  <h4>Einzelunterricht</h4>
-            <h5>Kinder (6-18)</h5>
+    text:`  <h5>Einzelunterricht</h5>
+            <h6>Kinder (6-18)</h6>
             <ul class="list">
                 <li class="list__item">Einzelzahlung - 65Fr./mal</li>
                 <li class="list__item">110er Abo - 600Fr. (60Fr./mal)</li>
             </ul>
-            <h5>Erwachsene (ab 18. Geburtstag)</h5>
+            <h6>Erwachsene (ab 18. Geburtstag)</h6>
             <ul class="list">
                 <li class="list__item">Einzelzahlung - 80Fr./mal</li>
                 <li class="list__item">10er Abo - 750Fr. (75Fr./mal)</li>
             </ul>
-            <h4>Gruppenunterricht</h4>
+            <h5>Gruppenunterricht</h5>
             <ul class="list">
                 <li class="list__item">Einzelzahlung - 50Fr./mal</li>
                 <li class="list__item">10er Abo - 400Fr. (40Fr./mal)</li>
