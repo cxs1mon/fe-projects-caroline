@@ -297,14 +297,36 @@ main {
     border-style: solid;
     font-family: var(--main-font);
 }
+.button--simple {
+    border: none;
+    background-color: transparent;
+    padding-left: 8px ;
+
+}
 
 div.content{
     display: flex;
     flex-direction: column;
 }
 
-/* Tablet */
-@media screen and (min-width: 768px) and (max-width: 1023px) {}
+.rotate{
+    transform: rotate(0deg);
+}
+.summaryText{
+    font-weight: 400;
+}
 
-/* Desktop */
-@media screen and (min-width: 1024px) {}
+summary::marker{
+    color: var(--cascade-color);
+    font-size: 1.4em;
+    cursor: pointer;
+}
+.summaryTitle {
+    color: var(--cascade-color);
+    font-weight: 600;
+}
+
+/* Tablet */
+@media screen and (min-width: 768px) {
+
+}

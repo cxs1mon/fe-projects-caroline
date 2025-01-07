@@ -142,7 +142,9 @@ const horse1 = {
     color:"Fuchs",
     gender:"Stute",
     photosrc:"./img/Rosi.jpg",
-    alt:"Foto einer Haflinger Stute."
+    alt:"Foto einer Haflinger Stute.",
+    info: "Mehr über Rosi:",
+    text: "Beispiel Beschreibung zu Rosi"
 };
 
 const horse2 = {
@@ -152,7 +154,9 @@ const horse2 = {
     color:"Fuchs",
     gender:"Stute",
     photosrc:"./img/Allegra.jpg",
-    alt:"Foto einer Haflinger Stute."
+    alt:"Foto einer Haflinger Stute.",
+    info: "Mehr über Allegra:",
+    text: "Beispiel Beschreibung zu Allegra"
 };
 
 const horse3 = {
@@ -162,7 +166,9 @@ const horse3 = {
     color:"Fuchs",
     gender:"Wallach",
     photosrc:"./img/MaikDuMilan.jpg",
-    alt:"Foto eines Haflinger Wallachs."
+    alt:"Foto eines Haflinger Wallachs.",
+    info: "Mehr über Maik:",
+    text: "Beispiel Beschreibung zu Maik"
 };
 
 const horse4 = {
@@ -172,7 +178,9 @@ const horse4 = {
     color:"Fuchs",
     gender:"Wallach",
     photosrc:"./img/Marrakesch.jpg",
-    alt:"Foto eines Haflinger Wallachs."
+    alt:"Foto eines Haflinger Wallachs.",
+    info: "Mehr über Marrakesch:",
+    text: "Beispiel Beschreibung zu Marrakesch"
 };
 
 const horse5 = {
@@ -182,7 +190,9 @@ const horse5 = {
     color:"Fuchs",
     gender:"Stute",
     photosrc:"./img/Halliena-Sue.jpg",
-    alt:"Foto einer Haflinger Stute."
+    alt:"Foto einer Haflinger Stute.",
+    info: "Mehr über Halliena:",
+    text: "Beispiel Beschreibung zu Halliena"
 };
 
 const horse6 = {
@@ -192,7 +202,9 @@ const horse6 = {
     color:"Braun",
     gender:"Wallach",
     photosrc:"./img/Leandro.jpg",
-    alt:"Foto eines Freiberger Wallachs."
+    alt:"Foto eines Freiberger Wallachs.",
+    info: "Mehr über Leandro:",
+    text: "Beispiel Beschreibung zu Leandro"
 };
 
 module.exports = { meineLeidenschaft, meinZiel, gruppenEinzelnterricht, anmeldung, voltegieren, adressen, lage, kontaktformular, vorstellung, reiterfahrung, pferdehaltung,voltegierPreise, gruppeEinzelPreise, horse1, horse2, horse3, horse4, horse5, horse6};
