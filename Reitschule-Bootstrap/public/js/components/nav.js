@@ -26,6 +26,16 @@ class RTSNav extends HTMLElement {
         </div>
         </nav>
         `;
+
+        // initializing collapse functionality
+        const navbarToggler = this.querySelector('.navbar-toggler');
+        const navbarCollapse = this.querySelector('.navbar-collapse');
+        
+        if (navbarToggler && navbarCollapse) {
+            navbarToggler.addEventListener('click', () => {
+                navbarCollapse.classList.toggle('show');
+            });
+        }
     }
     disconnectedCallback() {
         console.log(`Navigation was unloaded on page ${window.location.href}`)
