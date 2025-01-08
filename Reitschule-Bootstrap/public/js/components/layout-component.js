@@ -13,13 +13,12 @@ class RTSLayout extends HTMLElement {
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative&display=swap" rel="stylesheet">
         <div class="page container-fluid">
-            <rts-header></rts-header>
-            <main class="main row g-0">
+            <main class="main row justify-content-center g-0">
                 <!--Nav-->
                 <div class="col col-lg-2">
                     <rts-nav></rts-nav>
                 </div>
-                <div class="col-sm-12 col-lg-10">
+                <div class="col-sm-12 col-lg-11">
                     <section class="text-block">
                         <slot name="content"></slot>
                     </section>
