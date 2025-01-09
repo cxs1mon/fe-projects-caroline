@@ -144,7 +144,7 @@ const horse1 = {
     photosrc:"./img/Rosi.jpg",
     alt:"Foto einer Haflinger Stute.",
     info: "Mehr über Rosi:",
-    text: "Beispiel Beschreibung zu Rosi"
+    text: "Rosi Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam fermentum quis nulla at fringilla. Quisque pretium pretium sollicitudin. Quisque accumsan."
 };
 
 const horse2 = {
@@ -156,7 +156,7 @@ const horse2 = {
     photosrc:"./img/Allegra.jpg",
     alt:"Foto einer Haflinger Stute.",
     info: "Mehr über Allegra:",
-    text: "Beispiel Beschreibung zu Allegra"
+    text: "Allegra Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam fermentum quis nulla at fringilla. Quisque pretium pretium sollicitudin. Quisque accumsan."
 };
 
 const horse3 = {
@@ -168,7 +168,7 @@ const horse3 = {
     photosrc:"./img/MaikDuMilan.jpg",
     alt:"Foto eines Haflinger Wallachs.",
     info: "Mehr über Maik:",
-    text: "Beispiel Beschreibung zu Maik"
+    text: "Maik Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam fermentum quis nulla at fringilla. Quisque pretium pretium sollicitudin. Quisque accumsan."
 };
 
 const horse4 = {
@@ -180,7 +180,7 @@ const horse4 = {
     photosrc:"./img/Marrakesch.jpg",
     alt:"Foto eines Haflinger Wallachs.",
     info: "Mehr über Marrakesch:",
-    text: "Beispiel Beschreibung zu Marrakesch"
+    text: "Marrakesch Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam fermentum quis nulla at fringilla. Quisque pretium pretium sollicitudin. Quisque accumsan."
 };
 
 const horse5 = {
@@ -192,7 +192,7 @@ const horse5 = {
     photosrc:"./img/Halliena-Sue.jpg",
     alt:"Foto einer Haflinger Stute.",
     info: "Mehr über Halliena:",
-    text: "Beispiel Beschreibung zu Halliena"
+    text: "Halliena Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam fermentum quis nulla at fringilla. Quisque pretium pretium sollicitudin. Quisque accumsan."
 };
 
 const horse6 = {
@@ -204,7 +204,7 @@ const horse6 = {
     photosrc:"./img/Leandro.jpg",
     alt:"Foto eines Freiberger Wallachs.",
     info: "Mehr über Leandro:",
-    text: "Beispiel Beschreibung zu Leandro"
+    text: "Leandro Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam fermentum quis nulla at fringilla. Quisque pretium pretium sollicitudin. Quisque accumsan."
 };
 
 module.exports = { meineLeidenschaft, meinZiel, gruppenEinzelnterricht, anmeldung, voltegieren, adressen, lage, kontaktformular, vorstellung, reiterfahrung, pferdehaltung,voltegierPreise, gruppeEinzelPreise, horse1, horse2, horse3, horse4, horse5, horse6};
