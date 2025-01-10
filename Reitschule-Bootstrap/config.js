@@ -2,9 +2,9 @@
 const index_hero= {
     hero_body:`
     <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sagittis ligula eget augue placerat, et vehicula mauris rhoncus. Cras rutrum pharetra lacinia. In egestas et magna a blandit. Nulla eget scelerisque odio, ac ornare diam. Nulla facilisi. In facilisis est vel tortor aliquet consequat. Nunc semper fermentum gravida. Fusce at gravida tortor. In iaculis eu nibh non convallis. Nulla pharetra et leo ut egestas. Aenean facilisis efficitur imperdiet. Curabitur sed eleifend nibh, vitae interdum eros.</p>
-    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-        <a class="btn px-4 text-block__link" href="/angebot">> Angebot</a>
-        <a class="btn px-4 text-block__link" href="/kontakt">> Kontakt</a>
+    <div class="d-grid gap-2 d-md-flex justify-content-evenly">
+        <a class="btn px-4 btn-outline-green" href="/angebot">Angebot</a>
+        <a class="btn px-4 btn-outline-green" href="/kontakt">Kontakt</a>
     </div>
     `,
     media: `<img src="/img/schnee-pferde.jpeg" class="d-block mx-lg-auto img-fluid" alt="media mathcing the text" width="700" height="500" loading="lazy">

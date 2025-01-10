@@ -17,7 +17,7 @@ connectedCallback() {
                 ${media}
             </div>
             <div class="col-lg-6">
-                <h1 class=" text-block__title display-5 fw-bold text-body-emphasis lh-1 mb-3">${title}</h1>
+                <h1 class=" text-block__title display-5 fw-bold lh-1 mb-3">${title}</h1>
                 ${hero_body}
             </div>
         </div>
