@@ -1,13 +1,16 @@
 // text-blocks
-const meineLeidenschaft = {
-       title: "Die Reitschule",
-       text: "Erlebe die unvergleichliche Faszination des Reitens in einer idyllischen und naturnahen Umgebung, die Dich sofort in ihren Bann ziehen wird. Hier, inmitten der unberührten Natur, kannst Du dem Alltag entfliehen und eine tiefe Verbindung zu den majestätischen Pferden aufbauen. Meine Reitschule bietet Dir ein einzigartiges Erlebnis, bei dem Du die Schönheit und Anmut dieser edlen Tiere hautnah erleben kannst. Meine Reitschule ist mehr als nur ein Ort zum Reiten – sie ist ein Ort des Lernens, des Wachsens und des Genießens. Hier kannst Du neue Freundschaften schließen, sowohl mit Gleichgesinnten als auch mit den Pferden, und unvergessliche Momente erleben. Lass Dich von der Magie des Reitens verzaubern und entdecke eine neue Leidenschaft oder vertiefe Deine bestehende Liebe zu Pferden. Ich freue mich darauf, Dich auf diesem wunderbaren Weg zu begleiten und Dir unvergessliche Erlebnisse zu schenken."
-};
-
-const meinZiel = {
-    title: "Mein Ziel",
-    text: "Bei mir steht das Wohl von Mensch und Pferd im Mittelpunkt. Mein Ziel ist es, Reitern jeden Alters und Erfahrungslevels eine fundierte und einfühlsame Ausbildung zu bieten. Ich lege großen Wert auf eine harmonische Beziehung zwischen Reiter und Pferd, die auf Respekt, Vertrauen und gegenseitigem Verständnis basiert. Durch eine sorgfältige und individuelle Betreuung möchte ich die Freude am Reiten fördern und gleichzeitig Wissen über Pferdepflege, Haltung und ethisches Reiten vermitteln. Ob Du Anfänger bist oder Deine Reitfähigkeiten weiterentwickeln möchtest – ich begleite Dich auf Deinem Weg zu einem verantwortungsvollen und erfolgreichen Reiter."
-};
+const index_hero= {
+    hero_body:`
+    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sagittis ligula eget augue placerat, et vehicula mauris rhoncus. Cras rutrum pharetra lacinia. In egestas et magna a blandit. Nulla eget scelerisque odio, ac ornare diam. Nulla facilisi. In facilisis est vel tortor aliquet consequat. Nunc semper fermentum gravida. Fusce at gravida tortor. In iaculis eu nibh non convallis. Nulla pharetra et leo ut egestas. Aenean facilisis efficitur imperdiet. Curabitur sed eleifend nibh, vitae interdum eros.</p>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <a class="btn px-4 text-block__link" href="/angebot">> Angebot</a>
+        <a class="btn px-4 text-block__link" href="/kontakt">> Kontakt</a>
+    </div>
+    `,
+    media: `<img src="/img/schnee-pferde.jpeg" class="d-block mx-lg-auto img-fluid" alt="media mathcing the text" width="700" height="500" loading="lazy">
+`,
+    title: "Herzlich Willkommen"
+}
 
 const gruppenEinzelnterricht = {
     title: "Gruppen- und Einzelnterricht",
@@ -207,5 +210,5 @@ const horse6 = {
     text: "Leandro Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam fermentum quis nulla at fringilla. Quisque pretium pretium sollicitudin. Quisque accumsan."
 };
 
-module.exports = { meineLeidenschaft, meinZiel, gruppenEinzelnterricht, anmeldung, voltegieren, adressen, lage, kontaktformular, vorstellung, reiterfahrung, pferdehaltung,voltegierPreise, gruppeEinzelPreise, horse1, horse2, horse3, horse4, horse5, horse6};
+module.exports = { index_hero, gruppenEinzelnterricht, anmeldung, voltegieren, kontaktformular, adressen, lage, vorstellung, reiterfahrung, pferdehaltung,voltegierPreise, gruppeEinzelPreise, horse1, horse2, horse3, horse4, horse5, horse6};
 
