@@ -141,31 +141,6 @@ main {
         padding-bottom: 20px;
     }
 }
-/* Footer */
-.footer {
-    background-color: var(--cascade-color);
-}
-
-.footer__figure {
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
-
-    @media screen and (min-width: 1024px) {
-        align-items: center;
-        padding: 10px 0;
-    }
-}
-
-.footer__img {
-    width: 25px;
-    margin: 10px;
-}
-
-.footer__text {
-    font-size: 10px;
-
-}
 
 /* Text Block */
 .text-block__title {
@@ -332,6 +307,16 @@ main {
     background-color: transparent;
     padding-left: 8px;
 
+}
+
+.btn-outline-green{
+    border-color: var(--cascade-color);
+    border-width: 1px;
+    color: var(--cascade-color);
+    font-weight: 700;
+}
+.btn-outline-green:hover{
+    background-color: var(--cascade-color);
 }
 
 div.content {
