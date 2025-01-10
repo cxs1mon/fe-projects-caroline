@@ -6,7 +6,7 @@ class RTSNav extends HTMLElement {
         `
         <nav class="navbar navbar-expand-md navbar-green fixed-top bg-green">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Reitschule Schluchebärg</a>
+            <a class="navbar-brand" href="/">Reitschule Schluchebärg</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
