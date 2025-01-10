@@ -1,7 +1,18 @@
 :root {
     --main-font: Verdana, Geneva, Tahoma, sans-serif;
-    --page-font-size: 12px;
-    --smaller-page-font-size: 10px;
+    --desktop-font-size: 18px;
+    --phone-font-size: 16px;
+    --desktop-h1-font-size:51px;
+    --desktop-h2-font-size:39px;
+    --desktop-h3-font-size:30px;
+    --desktop-h4-font-size:23px;
+    --desktop-h4-font-size:21px;
+    --phone-h1-font-size:34px;
+    --phone-h2-font-size:28px;
+    --phone-h3-font-size:23px;
+    --phone-h4-font-size:19px;
+    --phone-h5-font-size:17px;
+
     --logo-font: "Cinzel Decorative";
     --cascade-color: #81b29a;
     --dusty-grey-color: #9e9290;
@@ -10,6 +21,11 @@
 * {
     box-sizing: border-box;
 }
+
+body{
+    padding-top: 4.5rem;
+    }
+
 
 /* style form notice */
 .valid {
@@ -27,13 +43,43 @@
 }
 
 /* global elements */
+h1{
+    font-size: var(--phone-h1-font-size);
+    @media screen and (min-width:1024px){
+        font-size: var(--desktop-h1-font-size);
+    }
+}
+h2{
+    font-size: var(--phone-h2-font-size);
+    @media screen and (min-width:1024px){
+        font-size: var(--desktop-h2-font-size);
+    }
+}
+h3{
+    font-size: var(--phone-h3-font-size);
+    @media screen and (min-width:1024px){
+        font-size: var(--desktop-h3-font-size);
+    }
+}
+h4{
+    font-size: var(--phone-h4-font-size);
+    @media screen and (min-width:1024px){
+        font-size: var(--desktop-h4-font-size);
+    }
+}
 h5 {
-    font-size: var(--page-font-size);
+    font-size: var(--phone-h5-font-size);
     font-weight: 600;
+    @media screen and (min-width:1024px){
+        font-size: var(--desktop-h5-font-size);
+    }
 }
 
 h6 {
-    font-size: var(--page-font-size);
+    font-size: var(--phone-font-size);
+    @media screen and (min-width:1024px){
+        font-size: var(--desktop-h6-font-size);
+    }
 }
 
 main {
@@ -44,6 +90,11 @@ main {
 .link {
     text-decoration: none;
     color: black;
+    font-size: var(--phone-page-font-size);
+    font-family: var(--main-font);
+    @media screen and (min-width: 1024px) {
+        font-size: var(--desktop-page-font-size);
+    }
 }
 
 .link--underline {
@@ -52,10 +103,12 @@ main {
 
 
 .page {
-    font-size: var(--page-font-size);
+    font-size: var(--phone-page-font-size);
     font-family: var(--main-font);
     margin: 0;
-
+    @media screen and (min-width: 1024px) {
+        font-size: var(--desktop-page-font-size);
+    }
 }
 
 /* Header */
@@ -77,8 +130,17 @@ main {
 
 .navbar-brand {
     font-family: var(--logo-font);
+    font-size: 8px;
+    @media screen and (min-width: 1024px) {
+        font-size: var(--desktop-page-font-size);
+    }
 }
 
+.navbar-toggler{
+    @media screen and (min-width: 1024px) {
+        padding-bottom: 20px;
+    }
+}
 /* Footer */
 .footer {
     background-color: var(--cascade-color);
@@ -254,12 +316,15 @@ main {
 /* Miscellaneous */
 .button {
     padding: 8px 16px;
-    font-size: var(--page-font-size);
+    font-size: var(--phone-page-font-size);
     text-align: center;
     border: black;
     border-width: 1px;
     border-style: solid;
     font-family: var(--main-font);
+    @media screen and (min-width: 1024px){
+        font-size: var(--desktop-page-font-size);
+    }
 }
 
 .button--simple {
