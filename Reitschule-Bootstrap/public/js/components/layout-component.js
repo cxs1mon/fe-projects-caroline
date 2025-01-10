@@ -15,9 +15,7 @@ class RTSLayout extends HTMLElement {
         <div class="page container-fluid">
             <main class="main row justify-content-center g-0">
                 <!--Nav-->
-                <div class="col col-lg-2">
-                    <rts-nav></rts-nav>
-                </div>
+                <rts-nav></rts-nav>
                 <div class="col-sm-12 col-lg-11">
                     <section class="text-block">
                         <slot name="content"></slot>
