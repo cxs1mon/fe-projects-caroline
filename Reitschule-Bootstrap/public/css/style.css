@@ -28,6 +28,9 @@ body{
 
 
 /* style form notice */
+.w-90 {
+    width: 90%;
+}
 .valid {
     color: forestgreen;
     font-weight: bold;
@@ -127,7 +130,9 @@ main {
     background-color: var(--cascade-color);
     border-radius: 5px;
 }
-
+.navbar-brand {
+    white-space: nowrap; /* Verhindert Zeilenumbruch im Seitennamen */
+}
 .navbar-brand {
     font-family: var(--logo-font);
     font-size: 8px;
@@ -262,7 +267,6 @@ main {
     min-height: 200px;
     display: block;
     width: 100%;
-    max-width: 700px;
     margin-bottom: 20px;
 }
 
@@ -278,6 +282,9 @@ main {
 
 .form__textarea {
     width: 100%;
+    @media screen and (min-width: 1024px){
+        font-size: var(--desktop-page-font-size);
+    }
 }
 
 .form__submit {
