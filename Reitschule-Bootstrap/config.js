@@ -50,9 +50,7 @@ const lage = {
                 8197 Rafz <br>
                 Schweiz
             </address>
-            <section class="iframe-container">
-                <iframe class="iframe-container__iframe" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1446.2232683999107!2d8.534571866180773!3d47.619425296295596!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479079cc5ed8fce3%3A0x9d1243e0b8bebad4!2sSchluchew%C3%A4g%201%2C%208197%20Rafz!5e1!3m2!1sen!2sch!4v1733920243366!5m2!1sen!2sch" width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </section>`
+        `
 };
 
 const kontaktformular = {
