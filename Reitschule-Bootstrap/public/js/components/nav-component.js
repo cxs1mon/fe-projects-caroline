@@ -1,8 +1,6 @@
 class RTSNav extends HTMLElement {
-
-    connectedCallback() {
-        this.innerHTML =
-        `
+  connectedCallback() {
+    this.innerHTML = `
         <nav class="navbar navbar-expand-md navbar-green fixed-top bg-green">
         <div class="container-fluid">
             <a class="navbar-brand" href="/">Reitschule Schluchebärg</a>
@@ -22,19 +20,16 @@ class RTSNav extends HTMLElement {
         </nav>
         `;
 
-        // initializing collapse functionality
-        const navbarToggler = this.querySelector('.navbar-toggler');
-        const navbarCollapse = this.querySelector('.navbar-collapse');
-        
-        if (navbarToggler && navbarCollapse) {
-            navbarToggler.addEventListener('click', () => {
-                navbarCollapse.classList.toggle('show');
-            });
-        }
+    // initializing collapse functionality
+    const navbarToggler = this.querySelector(".navbar-toggler");
+    const navbarCollapse = this.querySelector(".navbar-collapse");
+
+    if (navbarToggler && navbarCollapse) {
+      navbarToggler.addEventListener("click", () => {
+        navbarCollapse.classList.toggle("show");
+      });
     }
-    disconnectedCallback() {
-        /* optional function */    
-    }
+  }
 }
 
 customElements.define("rts-nav", RTSNav);

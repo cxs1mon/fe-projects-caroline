@@ -1,12 +1,11 @@
 class RTSLayout extends HTMLElement {
-    constructor() {
-        super();
-    }
+  constructor() {
+    super();
+  }
 
-    connectedCallback() {
-
-        const template = document.createElement('template');
-        template.innerHTML = `
+  connectedCallback() {
+    const template = document.createElement("template");
+    template.innerHTML = `
         <link href="/css/style.css" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -25,16 +24,10 @@ class RTSLayout extends HTMLElement {
         </div>
         `;
 
-        // Attach the shadow DOM and clone the template content into it
-        const shadowRoot = this.attachShadow({ mode: "open" });
-        shadowRoot.appendChild(template.content.cloneNode(true));
-
-
-    }
-
-    disconnectedCallback() {
-        /* optional function */    
-    }
+    // Attach the shadow DOM and clone the template content into it
+    const shadowRoot = this.attachShadow({ mode: "open" });
+    shadowRoot.appendChild(template.content.cloneNode(true));
+  }
 }
 
 customElements.define("rts-layout", RTSLayout);

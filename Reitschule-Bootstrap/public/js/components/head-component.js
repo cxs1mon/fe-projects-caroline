@@ -19,9 +19,6 @@ class RTSHead extends HTMLElement {
         <script src="/js/components/layout-component.js" defer></script>
         `;
     }
-    disconnectedCallback() {
-        /* optional function */    
-    }
 }
 
 customElements.define("rts-head", RTSHead);

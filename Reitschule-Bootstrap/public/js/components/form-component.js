@@ -59,9 +59,6 @@ class RTSForm extends HTMLElement {
             </form>
         `;
     }
-    disconnectedCallback() {
-        /* optional function */    
-    };
 }
 
 customElements.define("rts-form", RTSForm);

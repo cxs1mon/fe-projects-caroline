@@ -11,9 +11,6 @@ class RTSFooter extends HTMLElement {
         </div>
         `;
     }
-    disconnectedCallback() {
-        /* optional function */
-    };
 }
 
 customElements.define("rts-footer", RTSFooter);

@@ -8,9 +8,6 @@ class RTSHeader extends HTMLElement {
         </header>
         `;
     }
-    disconnectedCallback() {
-        /* optional function */    
-    };
 }
 
 customElements.define("rts-header", RTSHeader);

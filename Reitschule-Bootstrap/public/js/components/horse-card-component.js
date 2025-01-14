@@ -1,13 +1,11 @@
 class RTSHorseCard extends HTMLElement {
+  connectedCallback() {
+    const name = this.getAttribute("name");
+    const photosrc = this.getAttribute("photo-src");
+    const alt = this.getAttribute("alt");
+    const id = this.getAttribute("id");
 
-    connectedCallback() {
-        const name = this.getAttribute('name');
-        const photosrc = this.getAttribute('photo-src');
-        const alt = this.getAttribute('alt');
-        const id = this.getAttribute('id');
-
-        this.innerHTML =
-        `
+    this.innerHTML = `
         <div class="col" id="${id}">
           <div class="card shadow-sm">
             <img src="${photosrc}" class="bd-placeholder-img horse-card-image" height="225" alt="${alt}">
@@ -17,12 +15,7 @@ class RTSHorseCard extends HTMLElement {
           </div>
         </div>
         `;
-
-      
-    }
-    disconnectedCallback() {
-              /* optional function */    
-    };
+  }
 }
 
 customElements.define("rts-horse-card", RTSHorseCard);

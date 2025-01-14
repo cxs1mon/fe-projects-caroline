@@ -1,14 +1,10 @@
-
-
 class RTSHero extends HTMLElement {
+  connectedCallback() {
+    const media = this.getAttribute("media");
+    const title = this.getAttribute("title");
+    const hero_body = this.getAttribute("hero_body");
 
-connectedCallback() {
-    const media = this.getAttribute('media');
-    const title = this.getAttribute('title');
-    const hero_body = this.getAttribute('hero_body');
-    
-    this.innerHTML =
-    `
+    this.innerHTML = `
     <div class="container col-xxl-10 px-4 py-5">
         <div class="row flex-lg-row-reverse align-items-center g-5 py-1">
             <div class="col-10 col-sm-8 col-lg-6">
@@ -21,10 +17,7 @@ connectedCallback() {
         </div>
     </div>
     `;
-}
-disconnectedCallback() {
-        /* optional function */    
-};
+  }
 }
 
 customElements.define("rts-hero", RTSHero);
