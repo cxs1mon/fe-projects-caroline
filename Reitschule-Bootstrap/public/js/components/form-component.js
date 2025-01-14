@@ -1,8 +1,6 @@
 class RTSForm extends HTMLElement {
-
-    connectedCallback() {
-        this.innerHTML =
-        `
+  connectedCallback() {
+    this.innerHTML = `
             <h3 class="text-block__subtitle">Kontaktformular</h3>
             <form class="form d-flex justify-content-between" id="contactForm">
                 <fieldset class="row">
@@ -58,7 +56,7 @@ class RTSForm extends HTMLElement {
                 </fieldset>
             </form>
         `;
-    }
+  }
 }
 
 customElements.define("rts-form", RTSForm);

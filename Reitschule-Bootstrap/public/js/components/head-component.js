@@ -1,8 +1,6 @@
 class RTSHead extends HTMLElement {
-
-    connectedCallback() {
-        this.innerHTML =
-        `
+  connectedCallback() {
+    this.innerHTML = `
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title><%= title %></title>
@@ -18,7 +16,7 @@ class RTSHead extends HTMLElement {
         <script src="/js/components/horse-card-component.js" defer></script>
         <script src="/js/components/layout-component.js" defer></script>
         `;
-    }
+  }
 }
 
 customElements.define("rts-head", RTSHead);

@@ -1,9 +1,22 @@
 const { Router } = require("express");
 const angebotRouter = Router();
-const { gruppenEinzelnterricht, anmeldung, voltegieren, voltegierPreise, gruppeEinzelPreise } = require('../../config.js');
+const {
+  gruppenEinzelnterricht,
+  anmeldung,
+  voltegieren,
+  voltegierPreise,
+  gruppeEinzelPreise,
+} = require("../../config.js");
 
-angebotRouter.get('/angebot', async (req, res) => {
-    res.render('angebot-content', { gruppenEinzelnterricht, anmeldung, voltegieren, voltegierPreise, gruppeEinzelPreise,title: 'Angebot'});
+angebotRouter.get("/angebot", async (req, res) => {
+  res.render("angebot-content", {
+    gruppenEinzelnterricht,
+    anmeldung,
+    voltegieren,
+    voltegierPreise,
+    gruppeEinzelPreise,
+    title: "Angebot",
+  });
 });
 
 module.exports = angebotRouter;
