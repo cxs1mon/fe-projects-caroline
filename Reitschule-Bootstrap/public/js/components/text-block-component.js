@@ -6,13 +6,10 @@ class RTSTextBlock extends HTMLElement {
         let h3Element;
         
         if (this.getAttribute('prominent')) {
-            console.log(`"${title}" is prominent`);
             h3Element = `<h4 class="text-block__subtitle text-block__subtitle--prominent">${title}</h4>`
         } else {
-            console.log(`"${title}" is not prominent`)
             h3Element = `<h3 class="text-block__subtitle">${title}</h3>`
         }
-        console.log(`Text block was loaded on page ${window.location.href}`)
 
         this.innerHTML =
         `
@@ -25,7 +22,7 @@ class RTSTextBlock extends HTMLElement {
         `;
     }   
     disconnectedCallback() {
-        console.log(`Text block was unloaded on page ${window.location.href}`)
+        /* optional function */   
     }
 }
 

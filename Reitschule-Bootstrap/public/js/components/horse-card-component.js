@@ -6,9 +6,6 @@ class RTSHorseCard extends HTMLElement {
         const alt = this.getAttribute('alt');
         const id = this.getAttribute('id');
 
-        console.log(`Horse-card was loaded on page ${window.location.href}`)
-
-
         this.innerHTML =
         `
         <div class="col" id="${id}">
@@ -24,7 +21,7 @@ class RTSHorseCard extends HTMLElement {
       
     }
     disconnectedCallback() {
-        console.log(`Horse-card was unloaded on page ${window.location.href}`)
+              /* optional function */    
     };
 }
 

@@ -4,7 +4,6 @@ class RTSLayout extends HTMLElement {
     }
 
     connectedCallback() {
-        console.log(`Layout was loaded on page ${window.location.href}`);
 
         const template = document.createElement('template');
         template.innerHTML = `
@@ -34,7 +33,7 @@ class RTSLayout extends HTMLElement {
     }
 
     disconnectedCallback() {
-        console.log(`Layout was unloaded on page ${window.location.href}`);
+        /* optional function */    
     }
 }
 

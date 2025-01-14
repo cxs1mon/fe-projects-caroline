@@ -12,7 +12,6 @@ class RTSToggleText extends HTMLElement {
         const gender = this.getAttribute('gender');
 
         if (window.innerWidth >= 768) {
-            console.log("big" + window.innerWidth)
             var toggleElement = `
             <h5 class="summaryTitle">Mehr über ${name}</h5>
             <p class="summaryText">${text}</p>
@@ -25,7 +24,6 @@ class RTSToggleText extends HTMLElement {
             </ul>
             `
         } else {
-            console.log("small" + window.innerWidth)
             var toggleElement = `
             <details>
                 <summary class="summaryTitle">Mehr über ${name}</summary>
@@ -41,14 +39,13 @@ class RTSToggleText extends HTMLElement {
             `
         }
         
-        console.log(`A togglable text was loaded on page ${window.location.href}`)
         this.innerHTML =
         `
         ${toggleElement}
         `;
     }
     disconnectedCallback() {
-        console.log(`A togglable text was unloaded on page ${window.location.href}`)
+        /* optional function */    
     };
 };
 

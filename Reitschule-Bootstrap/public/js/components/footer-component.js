@@ -1,7 +1,6 @@
 class RTSFooter extends HTMLElement {
 
     connectedCallback() {
-        console.log(`Footer was loaded on page ${window.location.href}`)
         this.innerHTML =
         `
         <div class="container">
@@ -13,7 +12,7 @@ class RTSFooter extends HTMLElement {
         `;
     }
     disconnectedCallback() {
-        console.log(`Footer was unloaded on page ${window.location.href}`)
+        /* optional function */
     };
 }
 

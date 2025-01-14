@@ -1,7 +1,6 @@
 class RTSNav extends HTMLElement {
 
     connectedCallback() {
-        console.log(`Navigation was loaded on page ${window.location.href}`)
         this.innerHTML =
         `
         <nav class="navbar navbar-expand-md navbar-green fixed-top bg-green">
@@ -34,7 +33,7 @@ class RTSNav extends HTMLElement {
         }
     }
     disconnectedCallback() {
-        console.log(`Navigation was unloaded on page ${window.location.href}`)
+        /* optional function */    
     }
 }
 

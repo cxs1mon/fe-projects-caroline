@@ -1,7 +1,6 @@
 class RTSHead extends HTMLElement {
 
     connectedCallback() {
-        console.log(`Head was loaded on page ${window.location.href}`)
         this.innerHTML =
         `
         <meta charset="UTF-8">
@@ -21,7 +20,7 @@ class RTSHead extends HTMLElement {
         `;
     }
     disconnectedCallback() {
-        console.log(`Head was unloaded on page ${window.location.href}`)
+        /* optional function */    
     }
 }
 

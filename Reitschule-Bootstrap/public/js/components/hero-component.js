@@ -7,8 +7,6 @@ connectedCallback() {
     const title = this.getAttribute('title');
     const hero_body = this.getAttribute('hero_body');
     
-    console.log(`A hero was loaded on page ${window.location.href}`)
-
     this.innerHTML =
     `
     <div class="container col-xxl-10 px-4 py-5">
@@ -25,7 +23,7 @@ connectedCallback() {
     `;
 }
 disconnectedCallback() {
-    console.log(`A hero was removed from page ${window.location.href}`)
+        /* optional function */    
 };
 }
 

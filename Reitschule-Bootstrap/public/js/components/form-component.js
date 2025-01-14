@@ -1,7 +1,6 @@
 class RTSForm extends HTMLElement {
 
     connectedCallback() {
-        console.log(`Footer was loaded on page ${window.location.href}`)
         this.innerHTML =
         `
             <h3 class="text-block__subtitle">Kontaktformular</h3>
@@ -61,7 +60,7 @@ class RTSForm extends HTMLElement {
         `;
     }
     disconnectedCallback() {
-        console.log(`Footer was unloaded on page ${window.location.href}`)
+        /* optional function */    
     };
 }
 
