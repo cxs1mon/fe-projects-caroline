@@ -1,10 +1,11 @@
 // wait till the whole DOM is loaded and parsed before adding the eventlistener
 document.addEventListener('DOMContentLoaded', (event) => {
-    console.log('DOM fully loaded and parsed');
     const contact_form = document.getElementById('contactForm');
+    /* if contact_form is present */
     if (contact_form) {
         contact_form.addEventListener('submit', handleForm);
-    } else {
+    /* if contact_form is not present but the url is .../kontakt */
+    } else if (window.URL == "http://localhost:8080/kontakt") {
         console.error('Element with ID "contactForm" not found.');
     }
 });
