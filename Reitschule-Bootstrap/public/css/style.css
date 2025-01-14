@@ -23,7 +23,10 @@
 }
 
 body {
-  padding-top: 4.5rem;
+  padding-top: 15vh;
+  @media screen and (min-width: 384px) {
+    padding-top: 4.5rem;
+  }
 }
 
 /* style form notice */
