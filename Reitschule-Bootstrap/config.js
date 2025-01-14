@@ -137,6 +137,7 @@ const gruppeEinzelPreise = {
 
 // horse cards
 const horse1 = {
+    id:"h1",
     name:"Rosi",
     breed:"Haflinger",
     birthyear:"2006",
@@ -149,6 +150,7 @@ const horse1 = {
 };
 
 const horse2 = {
+    id:"h2",
     name:"Allegra",
     breed:"Haflinger",
     birthyear:"2011",
@@ -161,6 +163,7 @@ const horse2 = {
 };
 
 const horse3 = {
+    id:"h3",
     name:"Maik du Milan",
     breed:"Haflinger",
     birthyear:"2009",
@@ -173,6 +176,7 @@ const horse3 = {
 };
 
 const horse4 = {
+    id:"h4",
     name:"Marrakesch vom Schluchebärg",
     breed:"Haflinger",
     birthyear:"2017",
@@ -185,6 +189,7 @@ const horse4 = {
 };
 
 const horse5 = {
+    id:"h5",
     name:"Halliena-Sue",
     breed:"Haflinger",
     birthyear:"2012",
@@ -197,6 +202,7 @@ const horse5 = {
 };
 
 const horse6 = {
+    id:"h6",
     name:"Leandro",
     breed:"Freiberger",
     birthyear:"2010",
