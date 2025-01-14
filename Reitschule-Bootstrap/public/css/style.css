@@ -120,7 +120,11 @@ main {
     align-items: center;
 }
 .horse-card-image {
-    width: auto !important;
+    width: auto;
+    margin-top: 20px;
+}
+.card-text{
+    text-align: center;
 }
 
 /* Navigation */
