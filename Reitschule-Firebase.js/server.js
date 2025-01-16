@@ -20,11 +20,24 @@ app.get('/', async (req, res) => {
   } catch (error) {
     res.status(500).send(error.message);
     console.error("horses db not loaded")
+    console.error(error);
+    
   }
 });
 
 // TODO: Add new horse
 // TODO: Delete horse
+app.delete(`/delete/:id`, async (req, res) => {
+  const horseId = req.params.id;
+  console.log(horseId);
+  try {
+    await db.collection('stable').doc(horseId).delete();
+    res.status(200).send({ message: 'Horse deleted successfully!' });
+  } catch (error) {
+    console.error("Error deleting horse: ", error);
+    res.status(500).send({ message: 'Failed to delete horse.' });
+  }
+});
 // TODO: Edit horse page
 // TODO: Update horse
 
