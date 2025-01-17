@@ -26,10 +26,10 @@ app.get('/', async (req, res) => {
 });
 
 // TODO: Add new horse
+
 // TODO: Delete horse
-app.delete(`/delete/:id`, async (req, res) => {
+app.post(`/delete/:id`, async (req, res) => {
   const horseId = req.params.id;
-  console.log(horseId);
   try {
     await db.collection('stable').doc(horseId).delete();
     res.status(200).send({ message: 'Horse deleted successfully!' });
