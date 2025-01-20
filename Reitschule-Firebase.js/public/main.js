@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
       const horseId = element.getAttribute("data-id");
 
       // Send delete request to server
-      fetch(`/api/delete?id=${horseId}`, {
+      fetch(`/delete?id=${horseId}`, {
         method: "POST",
       })
         .then((response) => {
@@ -23,9 +23,16 @@ document.addEventListener("DOMContentLoaded", (event) => {
     });
   });
 
+  /* create new horse
+  const create_btn = document.querySelectorAll(".create-btn");
+  create_btn.addEventListener("click", () => {
+    const name_input = document.getElementsByName("name").values;
+    console.log(name_input);
+  });
+});*/
 });
 document.getElementById('myForm').addEventListener('submit', async function(event) {
-  event.preventDefault();
+  event.preventDefault();  // Verhindert das Neuladen der Seite
   
   const name = document.getElementById('name').value;
   const age = document.getElementById('age').value;
@@ -34,19 +41,21 @@ document.getElementById('myForm').addEventListener('submit', async function(even
   
   const newHorse = { name, age, color, breed };
 
+  // Senden der Daten per POST an den Server
   try {
       const response = await fetch('/api/horses', {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json',
           },
-          body: JSON.stringify(newHorse),
+          body: JSON.stringify(newHorse),  // Die Pferdedaten als JSON
       });
 
       if (response.ok) {
           alert('New horse created!');
           console.log('New horse created!');
-          window.location.reload();
+          // Optionally, du könntest die Seite neu laden oder das Formular zurücksetzen
+          document.getElementById('myForm').reset();
       } else {
           alert('Error while adding a horse.');
       }
