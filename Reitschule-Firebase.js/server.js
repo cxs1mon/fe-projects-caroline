@@ -11,7 +11,7 @@ app.use(express.static(`public`));
 
 
 // Get all horses
-app.get('/api/horses', async (req, res) => {
+app.get('/', async (req, res) => {
   try {
     const horsesSnapshot = (await db.collection('stable').get());
     const horses = [];
@@ -50,7 +50,7 @@ app.post('/api/horses', async (req, res) => {
 });
 
 // Delete horse
-app.post(`/api/delete/:id`, async (req, res) => {
+app.post(`/delete/:id`, async (req, res) => {
   const horseId = req.params.id;
   try {
     await db.collection('stable').doc(horseId).delete();
@@ -60,10 +60,7 @@ app.post(`/api/delete/:id`, async (req, res) => {
     res.status(500).send('Failed to delete horse.');
   }
 });
-
+// TODO: Edit horse page
 // TODO: Update horse
-app.post(`/api/horses/:id`, async (req, res) => {
-
-});
 
 app.listen(port, () => console.log(`Server running on port ${port}`));
