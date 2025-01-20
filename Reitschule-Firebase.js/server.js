@@ -29,7 +29,7 @@ app.get('/', async (req, res) => {
 });
 
 // Add new horse
-app.post('/api/horses', async (req, res) => {
+app.post('/api/add', async (req, res) => {
   const {  name, age, color, breed } = req.body;
 
   if (!name || !age || !color || !breed) {
@@ -50,7 +50,7 @@ app.post('/api/horses', async (req, res) => {
 });
 
 // Delete horse
-app.post(`/delete/:id`, async (req, res) => {
+app.post(`/api/delete/:id`, async (req, res) => {
   const horseId = req.params.id;
   try {
     await db.collection('stable').doc(horseId).delete();
@@ -60,7 +60,14 @@ app.post(`/delete/:id`, async (req, res) => {
     res.status(500).send('Failed to delete horse.');
   }
 });
-// TODO: Edit horse page
 // TODO: Update horse
+app.post('/api/update/:id', async (req, res) => {
+
+});
+
+// TODO: Delete all horses
+app.post('/api/delete-all', async (req, res) => {
+
+});
 
 app.listen(port, () => console.log(`Server running on port ${port}`));
