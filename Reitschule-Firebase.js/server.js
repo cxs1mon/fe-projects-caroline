@@ -7,6 +7,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 
+app.use(express.static(`public`));
+
+
 // Get all horses
 app.get('/', async (req, res) => {
   try {
@@ -25,17 +28,36 @@ app.get('/', async (req, res) => {
   }
 });
 
-// TODO: Add new horse
+// Add new horse
+app.post('/api/horses', async (req, res) => {
+  const {  name, age, color, breed } = req.body;
 
-// TODO: Delete horse
+  if (!name || !age || !color || !breed) {
+    return res.status(400).send('Check your input, something is missing.');
+  }
+  try {
+    await db.collection('stable').add({
+      name,
+      age,
+      color,
+      breed,
+    });
+    res.status(201).send( 'New horse added!');
+  } catch (error) {
+    console.error('Error while adding horse.', error);
+    res.status(500).send('Error while adding horse.');
+  }
+});
+
+// Delete horse
 app.post(`/delete/:id`, async (req, res) => {
   const horseId = req.params.id;
   try {
     await db.collection('stable').doc(horseId).delete();
-    res.status(200).send({ message: 'Horse deleted successfully!' });
+    res.status(200).send('Horse deleted successfully!');
   } catch (error) {
     console.error("Error deleting horse: ", error);
-    res.status(500).send({ message: 'Failed to delete horse.' });
+    res.status(500).send('Failed to delete horse.');
   }
 });
 // TODO: Edit horse page
