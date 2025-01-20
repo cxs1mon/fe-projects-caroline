@@ -30,12 +30,10 @@
           <td><%= horse.color %></td>
           <td><%= horse.breed %></td>
           <td>
-            <form action="/edit/<%= horse.id %>" method="POST">
-              <button class="btn btn-sm btn-info edit-btn">Edit</button>
-            </form>
+            <button class="btn btn-sm btn-info edit-btn">Edit</button>
           </td>
           <td>
-            <form action="/delete/<%= horse.id %>" method="POST">
+            <form action="/api/delete/<%= horse.id %>" method="POST">
               <button class="btn btn-sm btn-danger delete-btn">Delete</button>
             </form>
           </td>
@@ -44,15 +42,12 @@
       </table>
 
       <div class="justify-content-center">
-        <form action="/delete/all" method="POST">
+        <form action="/api/delete-all" method="POST">
           <button class="btn btn-sm btn-danger delete-all-btn">
             Delete all horses
           </button>
         </form>
 
-        <!-- TODO: Horses List -->
-
-        <!-- TODO: Add Horse Form -->
         <details>
           <summary>Add new horse</summary>
           <form id="myForm" class="w-75">
