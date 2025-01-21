@@ -1,3 +1,15 @@
+document.addEventListener("DOMContentLoaded", function () {
+  const buttons = document.querySelectorAll(".btn");
+
+  buttons.forEach(function (button) {
+    button.addEventListener("click", function (event) {
+      setTimeout(function () {
+        button.disabled = true;
+      }, 0);
+    });
+  });
+});
+
 document
   .getElementById("myForm")
   .addEventListener("submit", async function (event) {
@@ -20,11 +32,10 @@ document
       });
 
       if (response.ok) {
-        alert("New horse created!");
-        console.log("New horse created!");
         window.location.reload();
       } else {
         alert("Error while adding a horse.");
+        document.getElementById("form-submit").toggleAttribute("disabled");
       }
     } catch (error) {
       console.error("Error while sending a request.", error);
