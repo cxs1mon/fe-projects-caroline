@@ -1,0 +1,360 @@
+:root {
+  --main-font: Verdana, Geneva, Tahoma, sans-serif;
+  --desktop-font-size: 18px;
+  --phone-font-size: 16px;
+  --desktop-h1-font-size: 51px;
+  --desktop-h2-font-size: 39px;
+  --desktop-h3-font-size: 30px;
+  --desktop-h4-font-size: 23px;
+  --desktop-h4-font-size: 21px;
+  --phone-h1-font-size: 34px;
+  --phone-h2-font-size: 28px;
+  --phone-h3-font-size: 23px;
+  --phone-h4-font-size: 19px;
+  --phone-h5-font-size: 17px;
+
+  --logo-font: "Cinzel Decorative";
+  --cascade-color: #81b29a;
+  --dusty-grey-color: #9e9290;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding-top: 15vh;
+  @media screen and (min-width: 384px) {
+    padding-top: 4.5rem;
+  }
+}
+
+/* style form notice */
+.w-90 {
+  width: 90%;
+}
+.valid {
+  color: forestgreen;
+  font-weight: bold;
+  text-align: center;
+  margin: 10px;
+}
+
+.invalid {
+  color: red;
+  font-weight: bold;
+  text-align: center;
+  margin: 10px;
+}
+
+/* global elements */
+h1 {
+  font-size: var(--phone-h1-font-size);
+  @media screen and (min-width: 1024px) {
+    font-size: var(--desktop-h1-font-size);
+  }
+}
+h2 {
+  font-size: var(--phone-h2-font-size);
+  @media screen and (min-width: 1024px) {
+    font-size: var(--desktop-h2-font-size);
+  }
+}
+h3 {
+  font-size: var(--phone-h3-font-size);
+  @media screen and (min-width: 1024px) {
+    font-size: var(--desktop-h3-font-size);
+  }
+}
+h4 {
+  font-size: var(--phone-h4-font-size);
+  @media screen and (min-width: 1024px) {
+    font-size: var(--desktop-h4-font-size);
+  }
+}
+h5 {
+  font-size: var(--phone-h5-font-size);
+  font-weight: 600;
+  @media screen and (min-width: 1024px) {
+    font-size: var(--desktop-h5-font-size);
+  }
+}
+
+h6 {
+  font-size: var(--phone-font-size);
+  @media screen and (min-width: 1024px) {
+    font-size: var(--desktop-h6-font-size);
+  }
+}
+
+main {
+  margin-bottom: 30px;
+}
+
+/*mobile*/
+.link {
+  text-decoration: none;
+  color: black;
+  font-size: var(--phone-page-font-size);
+  font-family: var(--main-font);
+  @media screen and (min-width: 1024px) {
+    font-size: var(--desktop-page-font-size);
+  }
+}
+
+.link--underline {
+  text-decoration: underline;
+}
+
+.page {
+  font-size: var(--phone-page-font-size);
+  font-family: var(--main-font);
+  margin: 0;
+  @media screen and (min-width: 1024px) {
+    font-size: var(--desktop-page-font-size);
+  }
+}
+
+/* Header */
+.card {
+  display: flex;
+  align-items: center;
+}
+.horse-card-image {
+  width: auto;
+  margin-top: 20px;
+}
+.card-text {
+  text-align: center;
+}
+
+/* Navigation */
+
+.navbar-green {
+  color: black;
+  background-color: var(--cascade-color);
+  border-radius: 5px;
+}
+.navbar-brand {
+  white-space: nowrap; /* Verhindert Zeilenumbruch im Seitennamen */
+}
+.navbar-brand {
+  font-family: var(--logo-font);
+  font-size: 8px;
+  @media screen and (min-width: 1024px) {
+    font-size: var(--desktop-page-font-size);
+  }
+}
+
+.navbar-toggler {
+  @media screen and (min-width: 1024px) {
+    padding-bottom: 20px;
+  }
+}
+
+/* Text Block */
+.text-block__title {
+  color: #34508c;
+  margin-top: 0;
+
+  @media screen and (min-width: 1024px) {
+    margin-top: 30px;
+  }
+}
+
+.text-block__subtitle {
+  color: teal;
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+.text-block__subtitle--prominent {
+  text-decoration: underline;
+  color: #34508c;
+  font-size: 15px;
+  font-weight: bolder;
+}
+
+.text-block__link {
+  font-style: italic;
+  color: var(--cascade-color);
+}
+
+.text-block__contact-tag {
+  font-size: smaller;
+  color: var(--dusty-grey-color);
+  font-weight: bold;
+  margin-bottom: 5px;
+  margin-top: 20px;
+}
+
+/* Image */
+.image__figure {
+  display: flex;
+  width: auto;
+  margin: 20px;
+  justify-content: center;
+  height: 100%;
+}
+
+.image__img {
+  width: 100%;
+  max-width: 700px;
+}
+
+.image__img--profile {
+  height: 100%;
+  max-height: 200px;
+  width: auto;
+
+  @media screen and (min-width: 1024px) {
+    max-height: 300px;
+  }
+}
+
+/* List */
+.list--no-bullets {
+  margin-left: -30px;
+}
+
+.list__item {
+  list-style-type: square;
+}
+
+.list--numbered .list__item {
+  list-style: decimal;
+}
+
+.list--no-bullets .list__item {
+  list-style: none;
+  padding: 20px 0 0 0;
+
+  @media screen and (min-width: 1024px) {
+    padding-bottom: 20px;
+  }
+}
+
+.list__title {
+  font-weight: bold;
+  list-style: none;
+}
+
+.list__subtitle {
+  margin: 20px 0 10px 0;
+}
+
+/* Horse overview */
+.horse-overview {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+/* Address Block */
+.address-block {
+  font-style: normal;
+  border-style: dashed;
+  border-width: 1px;
+  width: fit-content;
+  padding: 10px;
+}
+
+/* Iframe container */
+.iframe-container .iframe-container__iframe {
+  margin: 20px 0px;
+  height: 300px;
+  display: block;
+  width: 100%;
+  max-width: 700px;
+}
+
+/* Contact Form */
+.form {
+  min-height: 200px;
+  display: block;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.form__label {
+  display: block;
+  padding-top: 15px;
+}
+
+.form__input-radio {
+  font-size: smaller;
+  padding-right: 10px;
+}
+
+.form__textarea {
+  width: 100%;
+  @media screen and (min-width: 1024px) {
+    font-size: var(--desktop-page-font-size);
+  }
+}
+
+.form__submit {
+  margin-top: 15px;
+  width: 100%;
+  border-radius: 20px;
+  background-color: #aadfc5;
+  border-color: #5d9178;
+}
+
+/* Miscellaneous */
+.button {
+  padding: 8px 16px;
+  font-size: var(--phone-page-font-size);
+  text-align: center;
+  border: black;
+  border-width: 1px;
+  border-style: solid;
+  font-family: var(--main-font);
+  @media screen and (min-width: 1024px) {
+    font-size: var(--desktop-page-font-size);
+  }
+}
+
+.button--simple {
+  border: none;
+  background-color: transparent;
+  padding-left: 8px;
+}
+
+.btn-outline-green {
+  border-color: var(--cascade-color);
+  border-width: 1px;
+  color: var(--cascade-color);
+  font-weight: 700;
+}
+.btn-outline-green:hover {
+  background-color: var(--cascade-color);
+}
+
+div.content {
+  display: flex;
+  flex-direction: column;
+}
+
+.rotate {
+  transform: rotate(0deg);
+}
+
+.summaryText {
+  font-weight: 400;
+}
+
+summary::marker {
+  color: var(--cascade-color);
+  font-size: 1.4em;
+  cursor: pointer;
+}
+
+.summaryTitle {
+  color: var(--cascade-color);
+  font-weight: 600;
+  margin-top: 1.5rem;
+}
+
+/* Tablet */
+@media screen and (min-width: 768px) {
+}
