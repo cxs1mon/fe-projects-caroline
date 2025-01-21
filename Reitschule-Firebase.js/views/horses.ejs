@@ -30,7 +30,9 @@
           <td><%= horse.color %></td>
           <td><%= horse.breed %></td>
           <td>
-            <button class="btn btn-sm btn-info edit-btn">Edit</button>
+            <form action="/api/edit/<%= horse.id %>" method="GET">
+              <button class="btn btn-sm btn-info edit-btn">Edit</button>
+            </form>
           </td>
           <td>
             <form action="/api/delete/<%= horse.id %>" method="POST">
