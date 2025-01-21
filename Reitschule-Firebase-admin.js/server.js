@@ -77,7 +77,6 @@ app.post("/api/edit/:id", async (req, res) => {
       horses.push({ id: doc.id, ...doc.data() });
     });
 
-    console.log("all horses (server.js post edit): ", horses);
     res.redirect("/");
   } catch (error) {
     console.error("Error while updating horse.", error);
