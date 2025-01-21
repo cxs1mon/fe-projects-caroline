@@ -54,7 +54,7 @@ app.post(`/api/delete/:id`, async (req, res) => {
   const horseId = req.params.id;
   try {
     await db.collection('stable').doc(horseId).delete();
-    res.status(200).send('Horse deleted successfully!');
+    res.redirect('/');
   } catch (error) {
     console.error("Error deleting horse: ", error);
     res.status(500).send('Failed to delete horse.');
