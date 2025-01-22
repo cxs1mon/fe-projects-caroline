@@ -1,7 +1,7 @@
 class RTSHorseCard extends HTMLElement {
   connectedCallback() {
     const name = this.getAttribute("name");
-    const photosrc = this.getAttribute("photo-src");
+    const photosrc = this.getAttribute("photosrc");
     const alt = this.getAttribute("alt");
     const id = this.getAttribute("id");
 
