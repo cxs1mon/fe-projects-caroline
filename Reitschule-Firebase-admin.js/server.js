@@ -27,17 +27,18 @@ app.get("/", async (req, res) => {
 
 // Add new horse
 app.post("/api/add", async (req, res) => {
-  const { name, age, color, breed } = req.body;
+  const { name, birthyear, color, breed, text } = req.body;
 
-  if (!name || !age || !color || !breed) {
+  if (!name || !birthyear || !color || !breed|| !text) {
     return res.status(400).send("Check your input, something is missing.");
   }
   try {
     await db.collection("stable").add({
       name,
-      age,
+      birthyear,
       color,
       breed,
+      text
     });
     res.status(201).send("New horse added!");
   } catch (error) {
@@ -59,17 +60,18 @@ app.post(`/api/delete/:id`, async (req, res) => {
 });
 // Update horse
 app.post("/api/edit/:id", async (req, res) => {
-  const { id, name, age, color, breed } = req.body;
+  const { id, name, birthyear, color, breed, text} = req.body;
 
-  if (!name || !age || !color || !breed) {
+  if (!name || !birthyear || !color || !breed || !text) {
     return res.status(400).send("Check your input, something's wrong.");
   }
   try {
     await db.collection("stable").doc(id).update({
       name: name,
-      age: age,
+      birthyear: birthyear,
       color: color,
       breed: breed,
+      text: text
     });
     const horsesSnapshot = await db.collection("stable").get();
     const horses = [];
