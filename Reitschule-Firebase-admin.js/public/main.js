@@ -85,3 +85,33 @@ try {
   console.log("no editForm")
 }
 
+try {
+  const mySearchForm = document.getElementById("mySearchForm");
+  mySearchForm.addEventListener("submit", async function (event) {
+  event.preventDefault();
+  const searchText = document.getElementById("searchText").value;
+
+  try {
+    const response = await fetch(`/api/search`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({searchText}),
+    });
+
+    if (response.ok) {
+      //window.location.href = "/";
+      console.log("fetch was okay")
+    } else {
+      alert("Error while searching");
+      document.getElementById("form-submit").toggleAttribute("disabled");
+    }
+  } catch (error) {
+    console.error("Error while searching", error);
+    alert("caught error while fetching");
+  }
+})
+} catch (error) {
+  console.log("no searchForm found")
+}
