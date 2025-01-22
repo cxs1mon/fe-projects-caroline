@@ -17,18 +17,20 @@
       <table class="table">
         <tr>
           <th>Name</th>
-          <th>Age</th>
+          <th>Birthyear</th>
           <th>Color</th>
           <th>Breed</th>
+          <th>Text</th>
           <th>Edit</th>
           <th>Delete</th>
         </tr>
         <% horses.forEach(horse => { %>
         <tr>
           <td><%= horse.name %></td>
-          <td><%= horse.age %></td>
+          <td><%= horse.birthyear %></td>
           <td><%= horse.color %></td>
           <td><%= horse.breed %></td>
+          <td><%= horse.text %></td>
           <td>
             <form action="/api/edit/<%= horse.id %>" method="GET">
               <button class="btn btn-sm btn-info edit-btn">Edit</button>
@@ -64,10 +66,10 @@
               </div>
               <div class="col form-group m-2">
                 <input
-                  id="age"
+                  id="birthyear"
                   type="number"
                   class="form-control"
-                  placeholder="Age"
+                  placeholder="Birthyear"
                 />
               </div>
             </div>
@@ -86,6 +88,14 @@
                   type="text"
                   class="form-control"
                   placeholder="Breed"
+                />
+              </div>
+              <div class="col form-group m-2">
+                <input
+                  id="text"
+                  type="text"
+                  class="form-control"
+                  placeholder="Text"
                 />
               </div>
             </div>
