@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const { db } = require("./config/firebase");
+const { Query } = require("firebase-admin/firestore");
 const port = process.env.PORT || 8383;
 
 app.use(express.json());
@@ -60,7 +61,7 @@ app.post(`/api/delete/:id`, async (req, res) => {
 });
 // Update horse
 app.post("/api/edit/:id", async (req, res) => {
-  const { id, name, birthyear, color, breed, text} = req.body;
+  const { id, name, birthyear, color, breed, text } = req.body;
 
   if (!name || !birthyear || !color || !breed || !text) {
     return res.status(400).send("Check your input, something's wrong.");
@@ -71,7 +72,7 @@ app.post("/api/edit/:id", async (req, res) => {
       birthyear: birthyear,
       color: color,
       breed: breed,
-      text: text
+      text: text,
     });
     const horsesSnapshot = await db.collection("stable").get();
     const horses = [];
@@ -93,6 +94,34 @@ app.get("/api/edit/:id", async (req, res) => {
     const horseSnapshot = await db.collection("stable").doc(horseId).get();
     const horse = { id: horseSnapshot.id, ...horseSnapshot.data() };
     res.render("edit-horse", { horse });
+  } catch (error) {
+    res.status(500).send(error.message);
+    console.error("horses db not loaded");
+    console.error(error);
+  }
+});
+
+// Search
+app.post("/api/search", async (req, res) => {
+  const searchText = req.body.searchText;
+  console.log("GET /api/search loaded whith text: ", searchText);
+
+  try {
+    const querySnapshot = await db
+      .collection("stable")
+      .where("name", "==", searchText)
+      .get();
+
+    const horses = [];
+    querySnapshot.forEach((doc) => {
+      horses.push({ id: doc.id, ...doc.data() });
+    });
+
+    // TODO: rerender horses view with filter OR make a new page with the filtered view
+
+    console.log(horses)
+    res.render("horses", {horses});
+
   } catch (error) {
     res.status(500).send(error.message);
     console.error("horses db not loaded");
