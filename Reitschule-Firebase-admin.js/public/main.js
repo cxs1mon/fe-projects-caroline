@@ -16,11 +16,12 @@ myForm.addEventListener("submit", async function (event) {
   event.preventDefault();
 
   const name = document.getElementById("name").value;
-  const age = document.getElementById("age").value;
+  const birthyear = document.getElementById("birthyear").value;
   const color = document.getElementById("color").value;
   const breed = document.getElementById("breed").value;
+  const text = document.getElementById("text").value;
 
-  const newHorse = { name, age, color, breed };
+  const newHorse = { name, birthyear, color, breed, text };
 
   try {
     const response = await fetch("/api/add", {
@@ -53,11 +54,12 @@ try {
   event.preventDefault();
   const id = document.getElementById("id").value;
   const name = document.getElementById("name").value;
-  const age = document.getElementById("age").value;
+  const birthyear = document.getElementById("birthyear").value;
   const color = document.getElementById("color").value;
   const breed = document.getElementById("breed").value;
+  const text = document.getElementById("text").value;
 
-  const horse = { id, name, age, color, breed };
+  const horse = { id, name, birthyear, color, breed, text };
 
   try {
     const response = await fetch(`/api/edit/${id}`, {
