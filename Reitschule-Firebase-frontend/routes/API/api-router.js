@@ -14,7 +14,7 @@ apiRouter.use(express.json());
 apiRouter.use(express.urlencoded({ extended: true }));
 
 // Get all horses
-apiRouter.get("/api/horses", async (req, res) => {
+apiRouter.get("/meine-pferde", async (req, res) => {
   try {
     const horsesSnapshot = await db.collection("stable").get();
     const horses = [];
@@ -22,7 +22,7 @@ apiRouter.get("/api/horses", async (req, res) => {
       horses.push({ id: doc.id, ...doc.data() });
     });
     console.log(horses);
-    res.render("meine-pferde-content", {horses, title: "Willkommen"});
+    res.render("meine-pferde-content", {horses, title: "Meine Pferde"});
   } catch (error) {
     res.status(500).send(error.message);
     console.error("horses db not loaded");
