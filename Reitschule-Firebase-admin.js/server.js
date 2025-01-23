@@ -12,7 +12,7 @@ app.use(express.static(`public`));
 
 // Get all horses or search for specific ones
 app.get("/", async (req, res) => {
-  const searchText = req.query.searchText; 
+  const searchText = req.query.searchText;
   try {
     let query = db.collection("stable");
 
@@ -38,7 +38,7 @@ app.get("/", async (req, res) => {
 app.post("/api/add", async (req, res) => {
   const { name, birthyear, color, breed, text } = req.body;
 
-  if (!name || !birthyear || !color || !breed|| !text) {
+  if (!name || !birthyear || !color || !breed || !text) {
     return res.status(400).send("Check your input, something is missing.");
   }
   try {
@@ -47,7 +47,7 @@ app.post("/api/add", async (req, res) => {
       birthyear,
       color,
       breed,
-      text
+      text,
     });
     res.status(201).send("New horse added!");
   } catch (error) {
