@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const { db } = require("./config/firebase");
-const { Query } = require("firebase-admin/firestore");
+const { body, validationResult } = require('express-validator');
 const port = process.env.PORT || 8383;
 
 app.use(express.json());
@@ -13,11 +13,12 @@ app.use(express.static(`public`));
 // Get all horses or search for specific ones
 app.get("/", async (req, res) => {
   const searchText = req.query.searchText;
+  const betterSearchText = searchText.replace(/^(\+|\s)+|(\+|\s)+$/g, '');
   try {
     let query = db.collection("stable");
 
-    if (searchText) {
-      query = query.where("name", "==", searchText);
+    if (betterSearchText) {
+      query = query.where("name", "==", betterSearchText);
     }
 
     const horsesSnapshot = await query.get();
@@ -35,24 +36,37 @@ app.get("/", async (req, res) => {
 });
 
 // Add new horse
-app.post("/api/add", async (req, res) => {
+// Deine POST-Route zum Hinzufügen eines Pferdes:
+app.post("/api/add", [
+  // Verwende express-validator, um die Felder zu validieren und zu trimmen
+  body('name').trim().notEmpty().withMessage('Name is required'),
+  body('birthyear').trim().notEmpty().withMessage('Birthyear is required').isInt().withMessage('Birthyear must be a number'),
+  body('color').trim().notEmpty().withMessage('Color is required'),
+  body('breed').trim().notEmpty().withMessage('Breed is required'),
+  body('text').trim().optional(), // Optionales Feld, wird aber getrimmt, wenn vorhanden
+], async (req, res) => {
+  const errors = validationResult(req); // Validierung prüfen
+
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+
   const { name, birthyear, color, breed, text } = req.body;
 
-  if (!name || !birthyear || !color || !breed || !text) {
-    return res.status(400).send("Check your input, something is missing.");
-  }
+  const newHorse = {
+    name,
+    birthyear,
+    color,
+    breed,
+    text
+  };
+
   try {
-    await db.collection("stable").add({
-      name,
-      birthyear,
-      color,
-      breed,
-      text,
-    });
-    res.status(201).send("New horse added!");
+    await db.collection("stable").add(newHorse);
+    res.redirect("/"); // Nach dem Hinzufügen weiterleiten
   } catch (error) {
-    console.error("Error while adding horse.", error);
-    res.status(500).send("Error while adding horse.");
+    console.error("Error while adding horse:", error);
+    res.status(500).send("Error while adding horse");
   }
 });
 
