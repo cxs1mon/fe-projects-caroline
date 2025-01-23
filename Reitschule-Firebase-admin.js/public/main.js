@@ -84,3 +84,12 @@ try {
 } catch (error) {
   console.log("no editForm")
 }
+
+try {
+  const reloadAllHorses = document.querySelector(".reload-all-btn");
+  reloadAllHorses.addEventListener("click", () => {
+    window.location.href = "/";
+  });
+} catch (error) {
+  console.log("no reload button found");
+}
