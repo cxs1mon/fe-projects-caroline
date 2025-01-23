@@ -10,18 +10,26 @@ app.set("view engine", "ejs");
 
 app.use(express.static(`public`));
 
-// Get all horses
+// Get all horses or search for specific ones
 app.get("/", async (req, res) => {
+  const searchText = req.query.searchText; 
   try {
-    const horsesSnapshot = await db.collection("stable").get();
+    let query = db.collection("stable");
+
+    if (searchText) {
+      query = query.where("name", "==", searchText);
+    }
+
+    const horsesSnapshot = await query.get();
     const horses = [];
     horsesSnapshot.forEach((doc) => {
       horses.push({ id: doc.id, ...doc.data() });
     });
+
     res.render("horses", { horses });
   } catch (error) {
     res.status(500).send(error.message);
-    console.error("horses db not loaded");
+    console.error("Horses db not loaded");
     console.error(error);
   }
 });
@@ -94,34 +102,6 @@ app.get("/api/edit/:id", async (req, res) => {
     const horseSnapshot = await db.collection("stable").doc(horseId).get();
     const horse = { id: horseSnapshot.id, ...horseSnapshot.data() };
     res.render("edit-horse", { horse });
-  } catch (error) {
-    res.status(500).send(error.message);
-    console.error("horses db not loaded");
-    console.error(error);
-  }
-});
-
-// Search
-app.post("/api/search", async (req, res) => {
-  const searchText = req.body.searchText;
-  console.log("GET /api/search loaded whith text: ", searchText);
-
-  try {
-    const querySnapshot = await db
-      .collection("stable")
-      .where("name", "==", searchText)
-      .get();
-
-    const horses = [];
-    querySnapshot.forEach((doc) => {
-      horses.push({ id: doc.id, ...doc.data() });
-    });
-
-    // TODO: rerender horses view with filter OR make a new page with the filtered view
-
-    console.log(horses)
-    res.render("horses", {horses});
-
   } catch (error) {
     res.status(500).send(error.message);
     console.error("horses db not loaded");
