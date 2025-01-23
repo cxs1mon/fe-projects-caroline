@@ -1,0 +1,14 @@
+<%- include('partials/head', { title }) %>
+<rts-layout>
+    <div slot="content" class="content">
+        <h2 class="text-block__title">Kontakt</h2>
+        <rts-text-block title="<%= adressen.title %>" text="<%= adressen.text %>">
+        </rts-text-block>
+
+        <rts-text-block title="<%= lage.title %>" text="<%= lage.text %>">
+        </rts-text-block>
+
+        <rts-text-block title="<%= kontaktformular.title %>" text="<%= kontaktformular.text %>">
+        </rts-text-block>
+    </div>
+</rts-layout>

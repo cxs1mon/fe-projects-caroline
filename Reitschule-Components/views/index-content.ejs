@@ -1,0 +1,15 @@
+<%- include('partials/head', { title }) %>
+<rts-layout>
+    <div slot="content" class="content">
+        <h2 class="text-block__title">Herzlich Willkommen</h2>
+        <figure class="image__figure">
+            <img class="image__img" src="/img/schnee-pferde.jpeg" alt="image of a horse stable">
+        </figure>
+
+        <rts-text-block title="<%= meinZiel.title %>" text="<%= meinZiel.text %>">
+        </rts-text-block>
+
+        <rts-text-block title="<%= meineLeidenschaft.title %>" text="<%= meineLeidenschaft.text %>">
+        </rts-text-block>
+    </div>
+</rts-layout>
