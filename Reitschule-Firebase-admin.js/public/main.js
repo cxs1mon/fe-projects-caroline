@@ -12,77 +12,76 @@ document.addEventListener("DOMContentLoaded", function () {
 
 try {
   const myForm = document.getElementById("myForm");
-myForm.addEventListener("submit", async function (event) {
-  event.preventDefault();
+  myForm.addEventListener("submit", async function (event) {
+    event.preventDefault();
 
-  const name = document.getElementById("name").value;
-  const birthyear = document.getElementById("birthyear").value;
-  const color = document.getElementById("color").value;
-  const breed = document.getElementById("breed").value;
-  const text = document.getElementById("text").value;
+    const name = document.getElementById("name").value;
+    const birthyear = document.getElementById("birthyear").value;
+    const color = document.getElementById("color").value;
+    const breed = document.getElementById("breed").value;
+    const text = document.getElementById("text").value;
 
-  const newHorse = { name, birthyear, color, breed, text };
+    const newHorse = { name, birthyear, color, breed, text };
 
-  try {
-    const response = await fetch("/api/add", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newHorse),
-    });
+    try {
+      const response = await fetch("/api/add", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newHorse),
+      });
 
-    if (response.ok) {
-      window.location.reload();
-    } else {
+      if (response.ok) {
+        window.location.reload();
+      } else {
+        alert("Error while adding a horse.");
+        document.getElementById("form-submit").toggleAttribute("disabled");
+      }
+    } catch (error) {
+      console.error("Error while sending a request.", error);
       alert("Error while adding a horse.");
-      document.getElementById("form-submit").toggleAttribute("disabled");
     }
-  } catch (error) {
-    console.error("Error while sending a request.", error);
-    alert("Error while adding a horse.");
-  }
-});
+  });
 } catch (error) {
-  console.log("no form")
+  console.log("no form");
 }
-
 
 try {
   const myEditForm = document.getElementById("myEditForm");
   myEditForm.addEventListener("submit", async function (event) {
-  event.preventDefault();
-  const id = document.getElementById("id").value;
-  const name = document.getElementById("name").value;
-  const birthyear = document.getElementById("birthyear").value;
-  const color = document.getElementById("color").value;
-  const breed = document.getElementById("breed").value;
-  const text = document.getElementById("text").value;
+    event.preventDefault();
+    const id = document.getElementById("id").value;
+    const name = document.getElementById("name").value;
+    const birthyear = document.getElementById("birthyear").value;
+    const color = document.getElementById("color").value;
+    const breed = document.getElementById("breed").value;
+    const text = document.getElementById("text").value;
 
-  const horse = { id, name, birthyear, color, breed, text };
+    const horse = { id, name, birthyear, color, breed, text };
 
-  try {
-    const response = await fetch(`/api/edit/${id}`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(horse),
-    });
+    try {
+      const response = await fetch(`/api/edit/${id}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(horse),
+      });
 
-    if (response.ok) {
-      window.location.href = "/";
-    } else {
+      if (response.ok) {
+        window.location.href = "/";
+      } else {
+        alert("Error while adding a horse.");
+        document.getElementById("form-submit").toggleAttribute("disabled");
+      }
+    } catch (error) {
+      console.error("Error while sending a request.", error);
       alert("Error while adding a horse.");
-      document.getElementById("form-submit").toggleAttribute("disabled");
     }
-  } catch (error) {
-    console.error("Error while sending a request.", error);
-    alert("Error while adding a horse.");
-  }
-})
+  });
 } catch (error) {
-  console.log("no editForm")
+  console.log("no editForm");
 }
 
 try {

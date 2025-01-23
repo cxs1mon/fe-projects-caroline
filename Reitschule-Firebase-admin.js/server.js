@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const { db } = require("./config/firebase");
-const { body, validationResult } = require('express-validator');
+const { body, validationResult } = require("express-validator");
 const port = process.env.PORT || 8383;
 
 app.use(express.json());
@@ -13,21 +13,24 @@ app.use(express.static(`public`));
 // Get all horses or search for specific ones
 app.get("/", async (req, res) => {
   const searchText = req.query.searchText;
-  const betterSearchText = searchText.replace(/^(\+|\s)+|(\+|\s)+$/g, '');
+  const betterSearchText = searchText
+    ? searchText.replace(/^(\+|\s)+|(\+|\s)+$/g, "")
+    : "";
+
   try {
     let query = db.collection("stable");
-
-    if (betterSearchText) {
-      query = query.where("name", "==", betterSearchText);
-    }
-
+    let horses = [];
     const horsesSnapshot = await query.get();
-    const horses = [];
     horsesSnapshot.forEach((doc) => {
       horses.push({ id: doc.id, ...doc.data() });
     });
 
-    res.render("horses", { horses });
+    if (betterSearchText) {
+      const regex = new RegExp(betterSearchText, "i");
+      horses = horses.filter((horse) => regex.test(horse.name));
+    }
+
+    res.render("horses", { horses, searchText: betterSearchText });
   } catch (error) {
     res.status(500).send(error.message);
     console.error("Horses db not loaded");
@@ -36,39 +39,46 @@ app.get("/", async (req, res) => {
 });
 
 // Add new horse
-// Deine POST-Route zum Hinzufügen eines Pferdes:
-app.post("/api/add", [
-  // Verwende express-validator, um die Felder zu validieren und zu trimmen
-  body('name').trim().notEmpty().withMessage('Name is required'),
-  body('birthyear').trim().notEmpty().withMessage('Birthyear is required').isInt().withMessage('Birthyear must be a number'),
-  body('color').trim().notEmpty().withMessage('Color is required'),
-  body('breed').trim().notEmpty().withMessage('Breed is required'),
-  body('text').trim().optional(), // Optionales Feld, wird aber getrimmt, wenn vorhanden
-], async (req, res) => {
-  const errors = validationResult(req); // Validierung prüfen
+app.post(
+  "/api/add",
+  [
+    body("name").trim().notEmpty().withMessage("Name is required"),
+    body("birthyear")
+      .trim()
+      .notEmpty()
+      .withMessage("Birthyear is required")
+      .isInt()
+      .withMessage("Birthyear must be a number"),
+    body("color").trim().notEmpty().withMessage("Color is required"),
+    body("breed").trim().notEmpty().withMessage("Breed is required"),
+    body("text").trim().optional(),
+  ],
+  async (req, res) => {
+    const errors = validationResult(req);
 
-  if (!errors.isEmpty()) {
-    return res.status(400).json({ errors: errors.array() });
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    const { name, birthyear, color, breed, text } = req.body;
+
+    const newHorse = {
+      name,
+      birthyear,
+      color,
+      breed,
+      text,
+    };
+
+    try {
+      await db.collection("stable").add(newHorse);
+      res.redirect("/");
+    } catch (error) {
+      console.error("Error while adding horse:", error);
+      res.status(500).send("Error while adding horse");
+    }
   }
-
-  const { name, birthyear, color, breed, text } = req.body;
-
-  const newHorse = {
-    name,
-    birthyear,
-    color,
-    breed,
-    text
-  };
-
-  try {
-    await db.collection("stable").add(newHorse);
-    res.redirect("/"); // Nach dem Hinzufügen weiterleiten
-  } catch (error) {
-    console.error("Error while adding horse:", error);
-    res.status(500).send("Error while adding horse");
-  }
-});
+);
 
 // Delete horse
 app.post(`/api/delete/:id`, async (req, res) => {
