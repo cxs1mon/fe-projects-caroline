@@ -13,9 +13,24 @@
     ></script>
   </head>
   <body class="container">
-
-    <form class="w-100 row my-4" role="search" id="mySearchForm">
-      <input id="searchText" type="search" class="form-control" placeholder="Search..." aria-label="Search">
+    <form
+      class="w-100 row my-4 justify-content-between row"
+      role="search"
+      id="mySearchForm"
+      method="GET"
+      action="/"
+    >
+      <input
+        id="searchText"
+        name="searchText"
+        type="search"
+        class="form-control w-75"
+        placeholder="Search..."
+        aria-label="Search"
+      />
+      <button class="btn btn-sm btn-success search-btn col-2" type="submit">
+        Search
+      </button>
     </form>
 
     <div class="row justify-content-center">
@@ -104,7 +119,9 @@
                 />
               </div>
             </div>
-            <button class="btn btn-primary m-2" id="form-submit" type="submit">Submit</button>
+            <button class="btn btn-primary m-2" id="form-submit" type="submit">
+              Submit
+            </button>
           </form>
         </details>
       </div>
