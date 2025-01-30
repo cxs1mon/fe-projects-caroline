@@ -1,0 +1,18 @@
+{
+  "horses": [
+    {
+      "name": "Rosi",
+      "birthyear": "2007",
+      "color": "Fuchs",
+      "breed": "Haflinger",
+      "text": "Beschreibung zu Rosi"
+    },
+    {
+      "name": "Maik",
+      "birthyear": "2011",
+      "color": "Fuchs",
+      "breed": "Haflinger",
+      "text": "Beschreibung zu Maik"
+    }
+  ]
+}
