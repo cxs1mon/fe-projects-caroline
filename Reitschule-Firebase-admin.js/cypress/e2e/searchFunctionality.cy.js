@@ -1,18 +1,43 @@
 describe("Test Search Functionality", () => {
+  // Fixture einmal laden und die Daten speichern
+  let horseData;
+  before(() => {
+    cy.fixture("example.json").then((data) => {
+      horseData = data;
+    });
+  });
   beforeEach(() => {
     // Alle Pferde löschen
     cy.request("POST", "http://localhost:8383/api/delete-all");
 
     // Pferde aus der Fixture-Datei hinzufügen
-    cy.fixture("example.json").then((horseData) => {
-      cy.request("POST", "http://localhost:8383/api/add", horseData.horses[0]);
-      cy.request("POST", "http://localhost:8383/api/add", horseData.horses[1]);
-    });
+    cy.request("POST", "http://localhost:8383/api/add", horseData.horses[0]);
+    cy.request("POST", "http://localhost:8383/api/add", horseData.horses[1]);
 
     cy.visit("http://localhost:8383/");
   });
 
-  it("should filter horses based on search input", () => {});
-  it('should show "No results found" for non-matching search', () => {});
-  it("should clear search results when input is cleared", () => {});
+  it("should filter horses based on search input", () => {
+    // Prüfen ob die Tabelle 2 einträge + heading hat
+    cy.get("table").find("tr").should("have.length", 2+1);
+    // nach Rosi suchen
+    cy.get("#searchText").type("Rosi");
+    cy.get(".search-btn").click();
+    // Prüfen dass Rosi angezeigt wird und Mike nicht
+    cy.get("table").should("contain", "Rosi").and("not.contain", "Maik");
+  });
+
+  it("should clear search results when input is cleared", () => {
+     // Prüfen ob die Tabelle 2 einträge + heading hat
+     cy.get("table").find("tr").should("have.length", 2+1);
+     // nach Rosi suchen
+     cy.get("#searchText").type("Rosi");
+     cy.get(".search-btn").click();
+     // Prüfen dass Rosi angezeigt wird und Mike nicht
+     cy.get("table").should("contain", "Rosi").and("not.contain", "Maik");
+     // Button zum alle anzeigen klicken
+     cy.get(".reload-all-btn").click();
+     // Prüfen, dass wieder beide angezeigt werden
+     cy.get("table").should("contain", "Rosi").and("contain", "Maik");
+  });
 });
