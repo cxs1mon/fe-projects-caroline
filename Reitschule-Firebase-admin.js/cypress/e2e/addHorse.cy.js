@@ -1,4 +1,12 @@
 describe("Add Horse Tests", () => {
+  // Fixture einmal laden und die Daten speichern
+  let horseData;
+  before(() => {
+    cy.fixture("example.json").then((data) => {
+      horseData = data;
+    });
+  });
+
   beforeEach(() => {
     // Alle Pferde löschen
     cy.request("POST", "http://localhost:8383/api/delete-all");
@@ -19,12 +27,10 @@ describe("Add Horse Tests", () => {
     cy.get("summary").click();
 
     // Daten holen
-    cy.fixture("example.json").then((horseData) => {
-      // Innerhablb des Forms Daten einfügen
-      cy.get("#myForm").within(() => {
-        Object.keys(horseData.horses[0]).forEach((key) => {
-          cy.get(`#${key}`).type(horseData.horses[0][key]);
-        });
+    // Innerhablb des Forms Daten einfügen
+    cy.get("#myForm").within(() => {
+      Object.keys(horseData.horses[0]).forEach((key) => {
+        cy.get(`#${key}`).type(horseData.horses[0][key]);
       });
     });
     // Form abschicken
