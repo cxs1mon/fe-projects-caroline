@@ -4,7 +4,8 @@
     "description": "Horse Management System",
     "main": "server.js",
     "scripts": {
-        "start": "node server.js"
+        "start": "node server.js",
+        "test": "npx cypress open"
     },
     "keywords": [],
     "author": "",
