@@ -29,8 +29,11 @@ app.get("/", async (req, res) => {
       const regex = new RegExp(betterSearchText, "i");
       horses = horses.filter((horse) => regex.test(horse.name));
     }
-
-    res.render("horses", { horses, searchText: betterSearchText });
+    const numOfHorses = Object.keys(horses).length;
+    // if numOfHorses is bigger or equal to 1
+    let showInfo;
+    showInfo = numOfHorses <= 0;
+    res.render("horses", { horses, searchText: betterSearchText, showInfo });
   } catch (error) {
     res.status(500).send(error.message);
     console.error("Horses db not loaded");
