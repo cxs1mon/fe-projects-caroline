@@ -1,0 +1,26 @@
+<%- include('partials/head', { title }) %>
+<rts-layout>
+  <div slot="content" class="content">
+    <h2 class="text-block__title">Meine Pferde</h2>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+      <% horses.forEach(horse => { %>
+      <article>
+        <rts-horse-card
+          name="<%= horse.name %>"
+          photosrc="https://placehold.co/200x250"
+          alt="Placeholder image"
+          id="<%= horse.id %>"
+        ></rts-horse-card>
+        </rts-horse-card>
+        <rts-toggletext
+          text="<%= horse.text %>"
+          name="<%= horse.name %>"
+          breed="<%= horse.breed %>"
+          birthyear="<%= horse.birthyear %>"
+          color="<%= horse.color %>"
+        ></rts-toggletext>
+      </article>
+      <% }); %>
+    </div>
+  </div>
+</rts-layout>
