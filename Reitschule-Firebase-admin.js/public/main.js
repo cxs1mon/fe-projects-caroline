@@ -85,7 +85,7 @@ try {
 }
 
 try {
-  const reloadAllHorses = document.querySelector(".reload-all-btn");
+  const reloadAllHorses = document.querySelector("#reset-filter");
   reloadAllHorses.addEventListener("click", () => {
     window.location.href = "/";
   });

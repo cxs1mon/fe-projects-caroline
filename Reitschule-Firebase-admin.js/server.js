@@ -22,15 +22,27 @@ app.get("/", async (req, res) => {
     let horses = [];
     const horsesSnapshot = await query.get();
     horsesSnapshot.forEach((doc) => {
-      horses.push({ id: doc.id, ...doc.data() });
-    });
+      horses.push({ id: doc.id, ...doc.data() 
+                   
+  let activeFilter;
 
     if (betterSearchText) {
       const regex = new RegExp(betterSearchText, "i");
       horses = horses.filter((horse) => regex.test(horse.name));
+      activeFilter = true;
+      console.log(betterSearchText);
     }
 
-    res.render("horses", { horses, searchText: betterSearchText });
+    const numOfHorses = Object.keys(horses).length;
+    // if numOfHorses is bigger or equal to 1
+    let showInfo;
+    showInfo = numOfHorses <= 0;
+    res.render("horses", {
+      horses,
+      searchText: betterSearchText,
+      showInfo,
+      activeFilter,
+    });
   } catch (error) {
     res.status(500).send(error.message);
     console.error("Horses db not loaded");
