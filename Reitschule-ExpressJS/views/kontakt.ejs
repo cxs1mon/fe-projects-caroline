@@ -1,78 +1,52 @@
-<!DOCTYPE html>
-<html lang="de">
+<section class="text-block">
+    <h2 class="text-block__title">Kontakt</h2>
+    <h3 class="text-block__subtitle">Addressen</h3>
+    <p class="text-block__contact-tag">Email: emilia.muster@reitschule.ch</p>
+    <p class="text-block__contact-tag">Telefon: 0123456789</p>
+    <h3 class="text-block__subtitle">Lage</h3>
+    <address class="address-block">
+        64th Street and Fifth Avenue <br>
+        New York, NY 10021 <br>
+        Vereinigte Staaten
+    </address>
+    <section class="iframe-container">
+        <iframe class="iframe-container__iframe"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13028.508160478501!2d-73.9742368517586!3d40.76954385157948!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c258f1fcd66869%3A0x65d72e84d91a3f14!2sCentral%20Park%20Zoo!5e0!3m2!1sde!2sch!4v1723108597732!5m2!1sde!2sch"></iframe>
+    </section>
+    <h3 class="text-block__subtitle">Kontaktformular:</h3>
+</section>
+<form class="form" id="contactForm">
+    <fieldset>
+        <label class="form__label" for="form-input-name">Name Reitschülerin:</label>
+        <input name="name" id="form-input-name" type="text" required  aria-label="Name der Reitschülerin eingeben">
 
-<%- include('partials/head', { title: 'Kontakt' }) %>
+        <label class="form__label" for="form-input-birthdate">Geburtsdatum:</label>
+        <input name="birthdate" id="form-input-birthdate" type="date" required aria-label="Geburtstag der Reitschülerin eingeben">
 
-<body class="page container-fluid">
+        <label class="form__label" for="form-input-email">Email:</label>
+        <input name="email" id="form-input-email" type="email" required aria-label="Email der Reitschülerin/Eltern eingeben">
 
-    <!--Header-->
-    <%- include('partials/header'); %>
+        <label class="form__label" for="form-input-phone">Telefonnummer:</label>
+        <input name="phone" id="form-input-phone" type="tel" required aria-label="Telefonnummer der Reitschülerin/Eltern eingeben">
 
-    <!--Main-->
-    <main class="main row g-0">
+        <label class="form__label">Reiterfahrung:</label>
+        <input class="form-input-radio1" value="anfaenger" name="experience" type="radio" required aria-label="Reiterfahrung der Reitschpleritn: Anfänger">
+        <label class="form__input-radio">Anf&#228;nger</label>
+        <input class="form-input-radio2 form__input" name="experience" value="fortgeschritten" type="radio" required aria-label="Reiterfahrung der Reitschpleritn: Fortgeschritten">
+        <label class="form__input-radio">Fortgeschritten</label>
 
-        <!--Nav-->
-        <%- include('partials/nav'); %>
-        <div class="col-sm-12 col-lg-10">
-            <section class="text-block">
-                <h2 class="text-block__title">Kontakt</h2>
-                <h3 class="text-block__subtitle">Addressen</h3>
-                <p class="text-block__contact-tag">Email: emilia.muster@reitschule.ch</p>
-                <p class="text-block__contact-tag">Telefon: 0123456789</p>
-                <h3 class="text-block__subtitle">Lage</h3>
-                <address class="address-block">
-                    64th Street and Fifth Avenue <br>
-                    New York, NY 10021 <br>
-                    Vereinigte Staaten
-                </address>
-                <section class="iframe-container">
-                    <iframe class="iframe-container__iframe"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13028.508160478501!2d-73.9742368517586!3d40.76954385157948!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c258f1fcd66869%3A0x65d72e84d91a3f14!2sCentral%20Park%20Zoo!5e0!3m2!1sde!2sch!4v1723108597732!5m2!1sde!2sch"></iframe>
-                </section>
-                <h3 class="text-block__subtitle">Kontaktformular:</h3>
-            </section>
-            <form class="form" id="contactForm">
-                <fieldset>
-                    <label class="form__label" for="form-input-name">Name Reitschülerin:</label>
-                    <input name="name" id="form-input-name" type="text" required>
+        <label class="form__label" for="form-input-topic">Anfrage bezüglich:</label>
+        <select id="form-input-topic" name="topic" class="form-input-topic" required aria-label="Thema der Anfrage">
+            <option>Reitunterricht</option>
+            <option>Voltegieren</option>
+            <option>Sonstiges</option>
+        </select>
 
-                    <label class="form__label" for="form-input-birthdate">Geburtsdatum:</label>
-                    <input name="birthdate" id="form-input-birthdate" type="date" required>
+        <label class="form__label" for="form-input-message">Nachricht:</label>
+        <textarea id="form-input-message" name="message" class="form__textarea"
+            placeholder="z. B. Ich möchte mich für einen Schnupperkurs anmelden." cols="20" rows="10" aria-label="Optionale Nachricht"></textarea>
 
-                    <label class="form__label" for="form-input-email">Email:</label>
-                    <input name="email" id="form-input-email" type="email" required>
-
-                    <label class="form__label" for="form-input-phone">Telefonnummer:</label>
-                    <input name="phone" id="form-input-phone" type="tel" required>
-
-                    <label class="form__label">Reiterfahrung:</label>
-                    <input class="form-input-radio1" value="anfaenger" name="experience" type="radio" required>
-                    <label class="form__input-radio">Anf&#228;nger</label>
-                    <input class="form-input-radio2 form__input" name="experience" value="fortgeschritten" type="radio" required>
-                    <label class="form__input-radio">Fortgeschritten</label>
-
-                    <label class="form__label" for="form-input-topic">Anfrage bezüglich:</label>
-                    <select id="form-input-topic" name="topic" class="form-input-topic" required>
-                        <option>Reitunterricht</option>
-                        <option>Voltegieren</option>
-                        <option>Sonstiges</option>
-                    </select>
-
-                    <label class="form__label" for="form-input-message">Nachricht:</label>
-                    <textarea id="form-input-message" name="message" class="form__textarea"
-                        placeholder="z. B. Ich möchte mich für einen Schnupperkurs anmelden." cols="20"
-                        rows="10"></textarea>
-
-                    <button class="button form__submit" type="submit">Submit</button>
-                    <p class="form__notice" hidden>Anfrage wurde geschickt!</p>
-                </fieldset>
-            </form>
-        </div>
-    </main>
-
-    <!--Footer-->
-    <%- include('partials/footer'); %>
-
-</body>
-
-</html>
+        <button class="button form__submit" type="submit">Submit</button>
+        <p class="form__notice" hidden>Anfrage wurde geschickt!</p>
+    </fieldset>
+</form>

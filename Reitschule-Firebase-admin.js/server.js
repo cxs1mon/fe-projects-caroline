@@ -22,9 +22,9 @@ app.get("/", async (req, res) => {
     let horses = [];
     const horsesSnapshot = await query.get();
     horsesSnapshot.forEach((doc) => {
-      horses.push({ id: doc.id, ...doc.data() });
-    });
-    let activeFilter;
+      horses.push({ id: doc.id, ...doc.data() 
+                   
+  let activeFilter;
 
     if (betterSearchText) {
       const regex = new RegExp(betterSearchText, "i");
