@@ -30,7 +30,7 @@ app.get("/admin", async (req, res) => {
   }
 });
 
-//app.get("/(index)?", indexRouter);
+app.get("/(index)?", indexRouter);
 
 /*
 

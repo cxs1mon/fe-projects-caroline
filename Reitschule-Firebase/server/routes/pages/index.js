@@ -1,6 +1,7 @@
 const { Router } = require("express");
 const indexRouter = Router();
-const { index_hero } = require('../../../client/public/js/components/hero-component');
+//nur daten vom config laden, nicht die ganze komponente
+const { index_hero } = require('../../config/config.js');
 
 indexRouter.get("/", async (req, res) => {
   res.render("index-content", { index_hero, title: "Willkommen" });
