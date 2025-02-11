@@ -9,6 +9,7 @@ const kontaktRouter = require(`../routes/pages/kontakt.js`);
 const angebotRouter = require(`../routes/pages/angebot.js`);
 const ueberMichRouter = require(`../routes/pages/ueber-mich.js`);
 const apiRouter = require(`../routes/api/api-router.js`);
+const horseServices = require("../services/horseServices.js");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -75,7 +76,7 @@ app.post(
     };
 
     try {
-      await db.collection("stable").add(newHorse);
+      await horsesService.addHorse(newHorse);
       res.redirect("/adm");
     } catch (error) {
       console.error("Error while adding horse:", error);
@@ -88,7 +89,7 @@ app.post(
 app.post(`/adm/delete/:id`, async (req, res) => {
   const horseId = req.params.id;
   try {
-    await db.collection("stable").doc(horseId).delete();
+    await horsesService.deleteOneHorse(horseId);
     res.redirect("/adm");
   } catch (error) {
     console.error("Error deleting horse: ", error);
@@ -104,19 +105,7 @@ app.post("/adm/edit/:id", async (req, res) => {
     return res.status(400).send("Check your input, something's wrong.");
   }
   try {
-    await db.collection("stable").doc(id).update({
-      name: name,
-      birthyear: birthyear,
-      color: color,
-      breed: breed,
-      text: text,
-    });
-    const horsesSnapshot = await db.collection("stable").get();
-    const horses = [];
-    horsesSnapshot.forEach((doc) => {
-      horses.push({ id: doc.id, ...doc.data() });
-    });
-
+    await horsesService.updateHorse(id, name, birthyear, color, breed, text);
     res.redirect("/adm");
   } catch (error) {
     console.error("Error while updating horse.", error);
@@ -128,8 +117,7 @@ app.post("/adm/edit/:id", async (req, res) => {
 app.get("/adm/edit/:id", async (req, res) => {
   const horseId = req.params.id;
   try {
-    const horseSnapshot = await db.collection("stable").doc(horseId).get();
-    const horse = { id: horseSnapshot.id, ...horseSnapshot.data() };
+    const horse = await horsesService.getUpdateHorse(horseId);
     res.render("edit-horse", { horse });
   } catch (error) {
     res.status(500).send(error.message);
@@ -141,15 +129,7 @@ app.get("/adm/edit/:id", async (req, res) => {
 // Delete all horses
 app.post("/adm/delete-all", async (req, res) => {
   try {
-    // get all documents
-    const val = await db.collection("stable").listDocuments();
-
-    // for each document, delete it
-    for (let i = 0; i < val.length; i++) {
-      const document = val[i];
-      await document.delete();
-    }
-
+    await horsesService.deleteAll();
     res.redirect("/adm");
   } catch (error) {
     console.error("Error deleting all horses: ", error);
