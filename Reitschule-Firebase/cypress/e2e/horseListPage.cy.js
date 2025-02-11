@@ -1,15 +1,15 @@
 describe("Horse List Page Tests", () => {
   beforeEach(() => {
     // Alle Pferde löschen
-    cy.request("POST", "http://localhost:8383/api/delete-all");
+    cy.request("POST", "http://localhost:8080/adm/delete-all");
 
     // Pferde aus der Fixture-Datei hinzufügen
     cy.fixture("example.json").then((horseData) => {
-      cy.request("POST", "http://localhost:8383/api/add", horseData.horses[0]);
-      cy.request("POST", "http://localhost:8383/api/add", horseData.horses[1]);
+      cy.request("POST", "http://localhost:8080/adm/add", horseData.horses[0]);
+      cy.request("POST", "http://localhost:8080/adm/add", horseData.horses[1]);
     });
 
-    cy.visit("http://localhost:8383/");
+    cy.visit("http://localhost:8080/adm");
   });
 
   it("should display the horse list page", () => {

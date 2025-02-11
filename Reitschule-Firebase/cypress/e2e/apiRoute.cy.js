@@ -9,10 +9,10 @@ describe("Test API Routes directly", () => {
 
   beforeEach(() => {
     // Alle Pferde löschen
-    cy.request("POST", "http://localhost:8383/api/delete-all");
+    cy.request("POST", "http://localhost:8080/adm/delete-all");
     // Maik aus der Fixture-Datei hinzufügen
-    cy.request("POST", "http://localhost:8383/api/add", horseData.horses[1]);
-    cy.visit("http://localhost:8383/");
+    cy.request("POST", "http://localhost:8080/adm/add", horseData.horses[1]);
+    cy.visit("http://localhost:8080/adm");
   });
 
   it("should successfully fetch all horses from API", () => {
@@ -22,7 +22,7 @@ describe("Test API Routes directly", () => {
 
   it("should create new horse via API", () => {
     // Zweites Pferd aus der fixture Datei laden
-    cy.request("POST", "http://localhost:8383/api/add", horseData.horses[0]);
+    cy.request("POST", "http://localhost:8080/adm/add", horseData.horses[0]);
     // Seite neu laden
     cy.reload();
     // Schauen obs in der Tabelle existiert
@@ -31,7 +31,7 @@ describe("Test API Routes directly", () => {
 
   it("should update horse via API", () => {
     // Form holen mit der Action "/api/edit/"
-    cy.get('form[action^="/api/edit/"]')
+    cy.get('form[action^="/adm/edit/"]')
       .should("exist")
       .first()
       .then((form) => {
@@ -53,7 +53,7 @@ describe("Test API Routes directly", () => {
         // POST Request auf /api/edit/id
         cy.request({
           method: "POST",
-          url: `/api/edit/${dummyData.id}`,
+          url: `/adm/edit/${dummyData.id}`,
           // dummy Daten als body zum updaten
           body: dummyData,
           headers: {
@@ -71,7 +71,7 @@ describe("Test API Routes directly", () => {
     // Daten holen
     cy.get("table").should("contain", horseData.horses[1].name);
     // Form holen mit der Action "/api/edit/"
-    cy.get('form[action^="/api/edit/"]')
+    cy.get('form[action^="/adm/edit/"]')
       .should("exist")
       .first()
       .then((form) => {
@@ -80,7 +80,7 @@ describe("Test API Routes directly", () => {
         // Holt das letze Element nach dem spliten
         const horseId = actionUrl.split("/").pop();
         // POST request zum löschen
-        cy.request("POST", `http://localhost:8383/api/delete/${horseId}`);
+        cy.request("POST", `http://localhost:8080/adm/delete/${horseId}`);
         //seite laden
         cy.reload();
         // prüfen, dass es das Pferd nichtmehr gibt
@@ -89,8 +89,8 @@ describe("Test API Routes directly", () => {
 
     it("should delete all horses via API", () => {
       // POST request zum alle löschen
-      cy.request("POST", "http://localhost:8383/api/delete-all");
-      cy.visit("http://localhost:8383/");
+      cy.request("POST", "http://localhost:8080/adm/delete-all");
+      cy.visit("http://localhost:8080/adm");
       // prüfen, dass es das Pferd nichtmehr gibt
       cy.get("table").should("not.contain", horseData.horses[1].name);
     });

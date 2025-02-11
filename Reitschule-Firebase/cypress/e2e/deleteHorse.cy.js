@@ -9,18 +9,27 @@ describe("Delete Horse Tests", () => {
 
   beforeEach(() => {
     // Alle Pferde löschen
-    cy.request("POST", "http://localhost:8383/api/delete-all");
+    cy.request("POST", "http://localhost:8080/adm/delete-all");
 
     // Pferde aus der Fixture-Datei hinzufügen
-    cy.request("POST", "http://localhost:8383/api/add", horseData.horses[0]);
+    cy.request("POST", "http://localhost:8080/adm/add", horseData.horses[0]);
+    cy.request("POST", "http://localhost:8080/adm/add", horseData.horses[1]);
 
-    cy.visit("http://localhost:8383/");
+    cy.visit("http://localhost:8080/adm");
   });
 
   it("should successfully delete a horse", () => {
     cy.get("table").should("contain", horseData.horses[0].name);
-    cy.get(".delete-btn").click();
+    cy.contains(horseData.horses[0].name).parent().find(".delete-btn").click();
+    cy.get("table").should("not.contain", horseData.horses[0].name);
+  });
+
+  it("should successfully delete all horses", () => {
+    cy.get("table").should("contain", horseData.horses[0].name);
+    cy.get("table").should("contain", horseData.horses[1].name);
+    cy.get(".delete-all-btn").click();
     cy.reload();
     cy.get("table").should("not.contain", horseData.horses[0].name);
+    cy.get("table").should("not.contain", horseData.horses[1].name);
   });
 });

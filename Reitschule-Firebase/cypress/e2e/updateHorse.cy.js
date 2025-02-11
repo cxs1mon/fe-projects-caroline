@@ -9,15 +9,16 @@ describe("Update Horse Tests", () => {
 
   beforeEach(() => {
     // Alle Pferde löschen
-    cy.request("POST", "http://localhost:8383/api/delete-all");
+    cy.request("POST", "http://localhost:8080/adm/delete-all");
     // Pferde aus der Fixture-Datei hinzufügen
-    cy.request("POST", "http://localhost:8383/api/add", horseData.horses[0]);
-    cy.visit("http://localhost:8383/");
+    cy.request("POST", "http://localhost:8080/adm/add", horseData.horses[0]);
+    cy.request("POST", "http://localhost:8080/adm/add", horseData.horses[0]);
+    cy.visit("http://localhost:8080/adm");
   });
 
   it("should allow editing existing horse details", () => {
     // Edit Seite öffnen
-    cy.get("table").get(".edit-btn").click();
+    cy.get("table").get(".edit-btn").first().click();
     // Textfeld leeren und neuen Text eingeben
     cy.get("#text").clear().type(`Edited horse`);
     // Prüfen dass der eingegebene Text auch im Feld ist
@@ -26,7 +27,7 @@ describe("Update Horse Tests", () => {
 
   it("should save updated horse information", () => {
     // Edit Seite öffnen
-    cy.get("table").get(".edit-btn").click();
+    cy.get("table").get(".edit-btn").first().click();
     // Textfeld leeren und neuen Text eingeben
     cy.get("#text").clear().type(`Edited horse`);
     // Update Form abschicken
@@ -37,7 +38,7 @@ describe("Update Horse Tests", () => {
 
   it("should show validation errors when updating with invalid data", () => {
     // Edit Seite öffnen
-    cy.get("table").get(".edit-btn").click();
+    cy.get("table").get(".edit-btn").first().click();
     // Textfeld leeren
     cy.get("#text").clear();
     // Update Form abschicken

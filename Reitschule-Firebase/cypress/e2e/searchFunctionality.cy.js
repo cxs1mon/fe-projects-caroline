@@ -8,13 +8,13 @@ describe("Test Search Functionality", () => {
   });
   beforeEach(() => {
     // Alle Pferde löschen
-    cy.request("POST", "http://localhost:8383/api/delete-all");
+    cy.request("POST", "http://localhost:8080/adm/delete-all");
 
     // Pferde aus der Fixture-Datei hinzufügen
-    cy.request("POST", "http://localhost:8383/api/add", horseData.horses[0]);
-    cy.request("POST", "http://localhost:8383/api/add", horseData.horses[1]);
+    cy.request("POST", "http://localhost:8080/adm/add", horseData.horses[0]);
+    cy.request("POST", "http://localhost:8080/adm/add", horseData.horses[1]);
 
-    cy.visit("http://localhost:8383/");
+    cy.visit("http://localhost:8080/adm");
   });
 
   it("should filter horses based on search input", () => {
@@ -36,7 +36,7 @@ describe("Test Search Functionality", () => {
      // Prüfen dass Rosi angezeigt wird und Mike nicht
      cy.get("table").should("contain", "Rosi").and("not.contain", "Maik");
      // Button zum alle anzeigen klicken
-     cy.get(".reload-all-btn").click();
+     cy.get("#reset-filter").click();
      // Prüfen, dass wieder beide angezeigt werden
      cy.get("table").should("contain", "Rosi").and("contain", "Maik");
   });
