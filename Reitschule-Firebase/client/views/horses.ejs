@@ -18,7 +18,7 @@
       role="search"
       id="mySearchForm"
       method="GET"
-      action="/"
+      action="/adm"
     >
       <input
         id="searchText"
@@ -64,12 +64,12 @@
           <td><%= horse.breed %></td>
           <td><%= horse.text %></td>
           <td>
-            <form action="/api/edit/<%= horse.id %>" method="GET">
+            <form action="/adm/edit/<%= horse.id %>" method="GET">
               <button class="btn btn-sm btn-info edit-btn">Edit</button>
             </form>
           </td>
           <td>
-            <form action="/api/delete/<%= horse.id %>" method="POST">
+            <form action="/adm/delete/<%= horse.id %>" method="POST">
               <button class="btn btn-sm btn-danger delete-btn">Delete</button>
             </form>
           </td>
@@ -91,7 +91,7 @@
       </div>
       <div class="row w-50">
         <form
-          action="/api/delete-all"
+          action="/adm/delete-all"
           method="POST"
           class="row justify-content-center my-4 mx-0"
         >

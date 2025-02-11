@@ -24,7 +24,7 @@ try {
     const newHorse = { name, birthyear, color, breed, text };
 
     try {
-      const response = await fetch("/api/add", {
+      const response = await fetch("/adm/add", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -61,7 +61,7 @@ try {
     const horse = { id, name, birthyear, color, breed, text };
 
     try {
-      const response = await fetch(`/api/edit/${id}`, {
+      const response = await fetch(`/adm/edit/${id}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -70,7 +70,7 @@ try {
       });
 
       if (response.ok) {
-        window.location.href = "/";
+        window.location.href = "/adm";
       } else {
         alert("Error while adding a horse.");
         document.getElementById("form-submit").toggleAttribute("disabled");
@@ -87,7 +87,7 @@ try {
 try {
   const reloadAllHorses = document.querySelector("#reset-filter");
   reloadAllHorses.addEventListener("click", () => {
-    window.location.href = "/";
+    window.location.href = "/adm";
   });
 } catch (error) {
   console.log("no reload button found");

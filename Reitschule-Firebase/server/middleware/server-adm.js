@@ -1,23 +1,24 @@
 const express = require("express");
 const app = express();
+const { db } = require("../config/firebase.js");
+const { body, validationResult } = require("express-validator");
 const port = process.env.PORT || 8080;
-const horsesService = require("../services/horseServices.js")
+const horsesService = require("../services/horseServices.js");
 const indexRouter = require(`../routes/pages/index.js`);
 const kontaktRouter = require(`../routes/pages/kontakt.js`);
 const angebotRouter = require(`../routes/pages/angebot.js`);
 const ueberMichRouter = require(`../routes/pages/ueber-mich.js`);
 const apiRouter = require(`../routes/api/api-router.js`);
 
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.set('views', './client/views'); 
+app.set("views", "./client/views");
 app.set("view engine", "ejs");
 
-app.use(express.static('client/public'));
+app.use(express.static("client/public"));
 
 // Get all horses or search for specific ones
-app.get("/admin", async (req, res) => {
+app.get("/adm", async (req, res) => {
   const searchText = req.query.searchText;
   try {
     const horses = await horsesService.getAllHorses(searchText);
@@ -41,11 +42,9 @@ app.get("/angebot", angebotRouter);
 app.get("/ueber-mich", ueberMichRouter);
 app.post("/api/*", apiRouter);
 
-/*
-
 // Add new horse
 app.post(
-  "/api/add",
+  "/adm/add",
   [
     body("name").trim().notEmpty().withMessage("Name is required"),
     body("birthyear")
@@ -77,7 +76,7 @@ app.post(
 
     try {
       await db.collection("stable").add(newHorse);
-      res.redirect("/");
+      res.redirect("/adm");
     } catch (error) {
       console.error("Error while adding horse:", error);
       res.status(500).send("Error while adding horse");
@@ -86,18 +85,19 @@ app.post(
 );
 
 // Delete horse
-app.post(`/api/delete/:id`, async (req, res) => {
+app.post(`/adm/delete/:id`, async (req, res) => {
   const horseId = req.params.id;
   try {
     await db.collection("stable").doc(horseId).delete();
-    res.redirect("/");
+    res.redirect("/adm");
   } catch (error) {
     console.error("Error deleting horse: ", error);
     res.status(500).send("Failed to delete horse.");
   }
 });
+
 // Update horse
-app.post("/api/edit/:id", async (req, res) => {
+app.post("/adm/edit/:id", async (req, res) => {
   const { id, name, birthyear, color, breed, text } = req.body;
 
   if (!name || !birthyear || !color || !breed || !text) {
@@ -117,7 +117,7 @@ app.post("/api/edit/:id", async (req, res) => {
       horses.push({ id: doc.id, ...doc.data() });
     });
 
-    res.redirect("/");
+    res.redirect("/adm");
   } catch (error) {
     console.error("Error while updating horse.", error);
     res.status(500).send("Error while updating horse.");
@@ -125,7 +125,7 @@ app.post("/api/edit/:id", async (req, res) => {
 });
 
 // Get horse to update
-app.get("/api/edit/:id", async (req, res) => {
+app.get("/adm/edit/:id", async (req, res) => {
   const horseId = req.params.id;
   try {
     const horseSnapshot = await db.collection("stable").doc(horseId).get();
@@ -139,7 +139,7 @@ app.get("/api/edit/:id", async (req, res) => {
 });
 
 // Delete all horses
-app.post("/api/delete-all", async (req, res) => {
+app.post("/adm/delete-all", async (req, res) => {
   try {
     // get all documents
     const val = await db.collection("stable").listDocuments();
@@ -150,11 +150,11 @@ app.post("/api/delete-all", async (req, res) => {
       await document.delete();
     }
 
-    res.redirect("/");
+    res.redirect("/adm");
   } catch (error) {
     console.error("Error deleting all horses: ", error);
     res.status(500).send("Failed to delete all horses.");
   }
 });
-*/
+
 app.listen(port, () => console.log(`Server running on port ${port}`));
