@@ -3,6 +3,10 @@ const app = express();
 const port = process.env.PORT || 8080;
 const horsesService = require("../services/horseServices.js")
 const indexRouter = require(`../routes/pages/index.js`);
+const kontaktRouter = require(`../routes/pages/kontakt.js`);
+const angebotRouter = require(`../routes/pages/angebot.js`);
+const ueberMichRouter = require(`../routes/pages/ueber-mich.js`);
+const apiRouter = require(`../routes/api/api-router.js`);
 
 
 app.use(express.json());
@@ -31,6 +35,11 @@ app.get("/admin", async (req, res) => {
 });
 
 app.get("/(index)?", indexRouter);
+app.get("/kontakt", kontaktRouter);
+app.get("/meine-pferde", apiRouter);
+app.get("/angebot", angebotRouter);
+app.get("/ueber-mich", ueberMichRouter);
+app.post("/api/*", apiRouter);
 
 /*
 

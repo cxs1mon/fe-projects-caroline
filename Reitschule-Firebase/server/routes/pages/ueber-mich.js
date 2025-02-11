@@ -4,7 +4,7 @@ const {
   vorstellung,
   reiterfahrung,
   pferdehaltung,
-} = require("../../config.js");
+} = require("../../config/config.js");
 
 ueberMichRouter.get("/ueber-mich", async (req, res) => {
   res.render("ueber-mich-content", {

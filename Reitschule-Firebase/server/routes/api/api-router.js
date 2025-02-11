@@ -1,7 +1,7 @@
 const express = require("express");
 const apiRouter = express.Router();
 const { body, validationResult } = require("express-validator");
-const { db } = require("../../firebase");
+const { db } = require("../../config/firebase");
 
 apiRouter.use(express.json());
 apiRouter.use(express.urlencoded({ extended: true }));

@@ -6,7 +6,7 @@ const {
   voltegieren,
   voltegierPreise,
   gruppeEinzelPreise,
-} = require("../../config.js");
+} = require("../../config/config.js");
 
 angebotRouter.get("/angebot", async (req, res) => {
   res.render("angebot-content", {
