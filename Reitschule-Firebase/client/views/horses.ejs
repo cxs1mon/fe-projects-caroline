@@ -13,6 +13,9 @@
     ></script>
   </head>
   <body class="container">
+    <header class="my-2">
+      <a href="/" class="link-underline-opacity-0 link-underline-opacity-50-hover link-secondary link-offset-2">&#x2B60; Back to Website</a>
+    </header>
     <form
       class="w-100 row my-4 justify-content-between row"
       role="search"
@@ -81,7 +84,7 @@
         <p
           id="emptydb-info"
           style="display: block"
-          class="col-md-auto fw-bold my-3 text-secondary"
+          class="col-md-auto fw-bold my-3 text-secondary w-auto"
         >
           No horses found
         </p>
@@ -89,13 +92,13 @@
         <p id="emptydb-info" style="display: none">No horses found</p>
         <% } %>
       </div>
-      <div class="row w-50">
+      <div class="row w-auto">
         <form
           action="/adm/delete-all"
           method="POST"
           class="row justify-content-center my-4 mx-0"
         >
-          <button class="btn btn-sm btn-danger delete-all-btn w-50">
+          <button class="btn btn-sm btn-danger delete-all-btn w-auto">
             Delete all horses
           </button>
         </form>

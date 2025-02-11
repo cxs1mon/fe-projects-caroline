@@ -17,6 +17,13 @@ app.set("view engine", "ejs");
 
 app.use(express.static("client/public"));
 
+app.get("/(index)?", indexRouter);
+app.get("/kontakt", kontaktRouter);
+app.get("/meine-pferde", apiRouter);
+app.get("/angebot", angebotRouter);
+app.get("/ueber-mich", ueberMichRouter);
+app.post("/api/*", apiRouter);
+
 // Get all horses or search for specific ones
 app.get("/adm", async (req, res) => {
   const searchText = req.query.searchText;
@@ -34,13 +41,6 @@ app.get("/adm", async (req, res) => {
     res.status(500).send(error.message);
   }
 });
-
-app.get("/(index)?", indexRouter);
-app.get("/kontakt", kontaktRouter);
-app.get("/meine-pferde", apiRouter);
-app.get("/angebot", angebotRouter);
-app.get("/ueber-mich", ueberMichRouter);
-app.post("/api/*", apiRouter);
 
 // Add new horse
 app.post(
