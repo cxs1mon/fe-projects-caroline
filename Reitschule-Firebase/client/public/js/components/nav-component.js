@@ -14,7 +14,7 @@ class RTSNav extends HTMLElement {
                   <li class="nav-item"><a class="nav-link px-2 text-body-secondary" href="meine-pferde">Meine Pferde</a></li>
                   <li class="nav-item"><a class="nav-link px-2 text-body-secondary" href="ueber-mich">Über mich</a></li>
                   <li class="nav-item"><a class="nav-link px-2 text-body-secondary" href="kontakt">Kontakt</a></li>
-                  <li class="nav-item"><a class="nav-link px-2 text-body-secondary" href="adm">Admin</a></li>
+                  <li class="nav-item"><a class="nav-link px-2 text-body-secondary" href="admin">Admin</a></li>
               </ul>
             </div>
         </div>

@@ -26,7 +26,7 @@ app.get("/ueber-mich", ueberMichRouter);
 app.post("/api/*", apiRouter);
 
 // Get all horses or search for specific ones
-app.get("/adm", async (req, res) => {
+app.get("/admin", async (req, res) => {
   const searchText = req.query.searchText;
   try {
     const horses = await horsesService.getAllHorses(searchText);
@@ -45,7 +45,7 @@ app.get("/adm", async (req, res) => {
 
 // Add new horse
 app.post(
-  "/adm/add",
+  "/admin/add",
   [
     body("name").trim().notEmpty().withMessage("Name is required"),
     body("birthyear")
@@ -77,7 +77,7 @@ app.post(
 
     try {
       await horsesService.addHorse(newHorse);
-      res.redirect("/adm");
+      res.redirect("/admin");
     } catch (error) {
       console.error("Error while adding horse:", error);
       res.status(500).send("Error while adding horse");
@@ -86,11 +86,11 @@ app.post(
 );
 
 // Delete horse
-app.post(`/adm/delete/:id`, async (req, res) => {
+app.post(`/admin/delete/:id`, async (req, res) => {
   const horseId = req.params.id;
   try {
     await horsesService.deleteOneHorse(horseId);
-    res.redirect("/adm");
+    res.redirect("/admin");
   } catch (error) {
     console.error("Error deleting horse: ", error);
     res.status(500).send("Failed to delete horse.");
@@ -98,7 +98,7 @@ app.post(`/adm/delete/:id`, async (req, res) => {
 });
 
 // Update horse
-app.post("/adm/edit/:id", async (req, res) => {
+app.post("/admin/edit/:id", async (req, res) => {
   const { id, name, birthyear, color, breed, text } = req.body;
 
   if (!name || !birthyear || !color || !breed || !text) {
@@ -106,7 +106,7 @@ app.post("/adm/edit/:id", async (req, res) => {
   }
   try {
     await horsesService.updateHorse(id, name, birthyear, color, breed, text);
-    res.redirect("/adm");
+    res.redirect("/admin");
   } catch (error) {
     console.error("Error while updating horse.", error);
     res.status(500).send("Error while updating horse.");
@@ -114,7 +114,7 @@ app.post("/adm/edit/:id", async (req, res) => {
 });
 
 // Get horse to update
-app.get("/adm/edit/:id", async (req, res) => {
+app.get("/admin/edit/:id", async (req, res) => {
   const horseId = req.params.id;
   try {
     const horse = await horsesService.getUpdateHorse(horseId);
@@ -127,10 +127,10 @@ app.get("/adm/edit/:id", async (req, res) => {
 });
 
 // Delete all horses
-app.post("/adm/delete-all", async (req, res) => {
+app.post("/admin/delete-all", async (req, res) => {
   try {
     await horsesService.deleteAll();
-    res.redirect("/adm");
+    res.redirect("/admin");
   } catch (error) {
     console.error("Error deleting all horses: ", error);
     res.status(500).send("Failed to delete all horses.");

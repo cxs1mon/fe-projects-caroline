@@ -9,9 +9,9 @@ describe("Add Horse Tests", () => {
 
   beforeEach(() => {
     // Alle Pferde löschen
-    cy.request("POST", "http://localhost:8080/adm/delete-all");
+    cy.request("POST", "http://localhost:8080/admin/delete-all");
 
-    cy.visit("http://localhost:8080/adm");
+    cy.visit("http://localhost:8080/admin");
   });
 
   it("should display the add horse form", () => {
