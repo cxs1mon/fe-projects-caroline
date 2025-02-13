@@ -2,9 +2,8 @@ const { db } = require("../config/firebase");
 
 class Horses {
   async getAllHorses(searchText) {
-    const betterSearchText = searchText;
-    /*? searchText.replace(/^(+|\s)+|(+|\s)+$/g, "")
-      : ""*/ try {
+    const betterSearchText = searchText ? searchText.replace(/^[\s+]+|[\s+]+$/g, "") : "";
+      try {
       let query = db.collection("stable");
       let horses = [];
       const horsesSnapshot = await query.get();
@@ -38,10 +37,10 @@ class Horses {
     }
   }
 
+
   async deleteOneHorse(id){
     await db.collection("stable").doc(id).delete();
   }
-
 
   async updateHorse(id, name, birthyear, color, breed, text){
     await db.collection("stable").doc(id).update({
@@ -63,6 +62,5 @@ class Horses {
     const horse = { id: horseSnapshot.id, ...horseSnapshot.data() };
     return horse;
   }
-
 }
 module.exports = new Horses();
