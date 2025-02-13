@@ -1,0 +1,24 @@
+{
+  "name": "reitschule-firebase",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx cypress open",
+    "test-headless": "npx cypress run",
+    "start": "node server/app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "express-validator": "^7.2.1",
+    "firebase-admin": "^13.0.2",
+    "nodemon": "^3.1.9"
+  },
+  "devDependencies": {
+    "cypress": "^14.0.1"
+  }
+}
