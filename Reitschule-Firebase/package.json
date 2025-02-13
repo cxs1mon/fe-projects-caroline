@@ -5,7 +5,7 @@
   "scripts": {
     "test": "npx cypress open",
     "test-headless": "npx cypress run",
-    "start": "node server/middleware/server-adm.js"
+    "start": "node server/app.js"
   },
   "author": "",
   "license": "ISC",
@@ -16,8 +16,7 @@
     "express": "^4.21.2",
     "express-validator": "^7.2.1",
     "firebase-admin": "^13.0.2",
-    "nodemon": "^3.1.9",
-    "path": "^0.12.7"
+    "nodemon": "^3.1.9"
   },
   "devDependencies": {
     "cypress": "^14.0.1"
