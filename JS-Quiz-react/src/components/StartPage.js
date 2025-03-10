@@ -1,7 +1,8 @@
-import { React, useState } from "react";
+import { React, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import "./APIStartPage.css";
-import  Header from "./Header.js";
+import { TypeContext } from "././App/App.js";
+import Header from "./Header.js";
 
 export default function StartPage() {
   const navigate = useNavigate();
@@ -9,30 +10,21 @@ export default function StartPage() {
     navigate("/quiz");
   };
 
-  const [formData, setFormData] = useState({
-        type: "t/f",
-  });
+  const { type, setType } = useContext(TypeContext);
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-
-    // Update only the changed field in our state object
-    setFormData((prevData) => ({
-      ...prevData, // Keep all existing data
-      [name]: value,
-    }));
+    setType(e.target.value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form submitted with:", formData);
+    console.log("Form submitted with:", type);
     startQuiz();
   };
 
-
   return (
     <>
-      < Header></ Header>
+      <Header></Header>
       <form
         id="game-settings-form"
         className="game-settings-form"
@@ -46,7 +38,7 @@ export default function StartPage() {
           className="game-settings-form__input"
           name="type"
           onChange={handleChange}
-          value={formData.type}
+          value={type}
           required
         >
           <option value="t/f">True/False</option>

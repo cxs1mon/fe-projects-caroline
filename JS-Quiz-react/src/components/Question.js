@@ -1,6 +1,11 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { CounterContext, IndexContext, QuestionContext } from "./App/App";
+import {
+  CounterContext,
+  IndexContext,
+  QuestionContext,
+  TypeContext,
+} from "./App/App";
 import "animate.css";
 
 export default function Questions() {
@@ -9,6 +14,8 @@ export default function Questions() {
   const [combinedanswers, setCombinedanswers] = useState([]);
 
   const questions = useContext(QuestionContext);
+  // for different game types:
+  const type = useContext(TypeContext);
 
   const navigate = useNavigate();
   const endQuiz = () => {
@@ -51,7 +58,7 @@ export default function Questions() {
     const answers = Array.from(
       document.getElementsByClassName("answer-container__item")
     );
-    
+
     answers.map((element) => {
       if (element.innerText === questions.quiz[index].correct_answer) {
         element.style.backgroundColor = "#ADC4AB";
