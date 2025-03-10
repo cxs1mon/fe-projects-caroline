@@ -3,7 +3,7 @@ export default function Header() {
   if (window.location.pathname === "/quiz") {
     return (
       <>
-        <h1 className="title">
+        <h1 className="title" style={{marginBottom: "0"}}>
           <a href="/" aria-description="Title to reset Quiz">
             The custom Quiz!
           </a>
