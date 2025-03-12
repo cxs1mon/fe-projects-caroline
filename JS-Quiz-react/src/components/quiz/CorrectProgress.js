@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { CounterContext, QuestionContext } from "./App/App";
+import { CounterContext, QuestionContext } from "../../context/QuizContext";
 
 export default function CounterProgress() {
   const correct = useContext(CounterContext);

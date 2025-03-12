@@ -5,9 +5,9 @@ import {
   IndexContext,
   QuestionContext,
   TypeContext,
-} from "./App/App";
+} from "../../context/QuizContext";
 import "animate.css";
-import "./Questions.css";
+import "./Question.css";
 
 export default function Questions() {
   const [index, setIndex] = useContext(IndexContext);

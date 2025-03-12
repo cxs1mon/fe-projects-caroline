@@ -1,8 +1,8 @@
 import { React, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import "./APIStartPage.css";
-import { TypeContext } from "././App/App.js";
-import Header from "./Header.js";
+import { TypeContext } from "../../context/QuizContext";
+import Header from "../layout/Header.js";
 
 export default function StartPage() {
   const navigate = useNavigate();

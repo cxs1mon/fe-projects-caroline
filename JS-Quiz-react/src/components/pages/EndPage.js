@@ -1,8 +1,8 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { CounterContext, IndexContext } from "./App/App";
-import CounterProgress from "./CorrectProgress";
-import  Header from "./Header";
+import { CounterContext, IndexContext } from "../../context/QuizContext";
+import CounterProgress from "../quiz/CorrectProgress";
+import  Header from "../layout/Header";
 
 
 export default function EndPage() {

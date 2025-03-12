@@ -4,7 +4,7 @@ import "animate.css";
 import "./Timer.css";
 
 export default function Timer() {
-  const [seconds, setSeconds] = useState(7);
+  const [seconds, setSeconds] = useState(30);
 
   const navigate = useNavigate();
   const endQuiz = () => {
