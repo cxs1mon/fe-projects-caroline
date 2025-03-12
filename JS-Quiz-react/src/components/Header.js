@@ -8,7 +8,7 @@ export default function Header() {
             The custom Quiz!
           </a>
         </h1>
-        <a href="/" aria-description="Title to reset Quiz" id="reset">
+        <a href="/" aria-description="Title to reset Quiz" id="reset" title="Reset Quz and go to Start Page">
           &#10226;
         </a>
       </>
