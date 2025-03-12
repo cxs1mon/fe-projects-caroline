@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { CounterContext, IndexContext } from "./App/App";
-import CounterProgress from "./CorrecteProgress";
+import CounterProgress from "./CorrectProgress";
 import  Header from "./Header";
 
 

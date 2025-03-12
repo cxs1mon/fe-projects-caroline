@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { IndexContext, QuestionContext } from "./App/App";
-import PercentageProgress from "./CorrecteProgress";
+import PercentageProgress from "./CorrectProgress";
 import Timer from "./Timer";
 
 export default function QuizProgress() {
