@@ -7,6 +7,7 @@ import {
   TypeContext,
 } from "./App/App";
 import "animate.css";
+import "./Questions.css";
 
 export default function Questions() {
   const [index, setIndex] = useContext(IndexContext);
@@ -97,7 +98,7 @@ export default function Questions() {
           combinedanswers[index].map((answer) => (
             <button
               key={answer}
-              className="answer-container__item animate__animated"
+              className="answer-container__item animate__animated animate__bounceInRight"
               onClick={handleClick}
             >
               {answer}

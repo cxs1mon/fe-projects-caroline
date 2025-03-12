@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "animate.css";
+import "./Timer.css";
 
 export default function Timer() {
-  const [seconds, setSeconds] = useState(30);
+  const [seconds, setSeconds] = useState(7);
 
   const navigate = useNavigate();
   const endQuiz = () => {
@@ -10,7 +12,16 @@ export default function Timer() {
   };
 
   useEffect(() => {
+    const timerElement = document.querySelector(".timer");
+
     const timer = setTimeout(() => {
+      if (seconds <= 6) {
+        timerElement.classList.add("low-time")
+        timerElement.classList.remove("animate__pulse");
+        void timerElement.offsetWidth;
+        timerElement.classList.add("animate__pulse");
+      }
+
       if (seconds <= 0) {
         endQuiz();
       } else {
@@ -23,7 +34,7 @@ export default function Timer() {
 
   return (
     <>
-      <p style={{ width: `50%` }}>{seconds} seconds remaining</p>
+      <p style={{ width: `50%` }} className="timer animate__animated">{seconds} seconds remaining</p>
     </>
   );
 }
