@@ -1,6 +1,5 @@
 import { React, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./APIStartPage.css";
 import  Header from "./Header.js";
 
 export default function StartPage() {
