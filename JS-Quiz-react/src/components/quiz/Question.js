@@ -8,11 +8,11 @@ import {
 } from "../../context/QuizContext";
 import "animate.css";
 import "./Question.css";
+import useShuffledAnswers from "../hooks/Shuffle";
 
 export default function Questions() {
   const [index, setIndex] = useContext(IndexContext);
   const [counter, setCounter] = useContext(CounterContext);
-  const [combinedanswers, setCombinedanswers] = useState([]);
 
   const questions = useContext(QuestionContext);
   // for different game types:
@@ -23,32 +23,7 @@ export default function Questions() {
     navigate("/end");
   };
 
-  useEffect(() => {
-    setCombinedanswers(
-      questions.quiz.map((question) => {
-        const answers = question.wrong_answers.concat(question.correct_answer);
-        return shuffle(answers);
-      })
-    );
-  }, []);
-
-  function shuffle(array) {
-    let currentIndex = array.length;
-
-    // While there remain elements to shuffle...
-    while (currentIndex !== 0) {
-      // Pick a remaining element...
-      let randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex--;
-
-      // And swap it with the current element.
-      [array[currentIndex], array[randomIndex]] = [
-        array[randomIndex],
-        array[currentIndex],
-      ];
-    }
-    return array;
-  }
+  const combinedanswers = useShuffledAnswers();
 
   if (!questions) {
     return <div>Loading...</div>;
