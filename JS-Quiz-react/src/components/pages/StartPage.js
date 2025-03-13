@@ -1,6 +1,6 @@
 import { React, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import "./APIStartPage.css";
+import "./StartPage.css";
 import { TypeContext } from "../../context/QuizContext";
 import Header from "../layout/Header.js";
 
