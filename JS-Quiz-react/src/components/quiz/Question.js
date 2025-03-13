@@ -30,6 +30,11 @@ export default function Questions() {
   } else {
   }
 
+  function checkAnswer(answer) {
+    console.log(answer);
+    return answer === questions.quiz[index].correct_answer;
+  }
+
   const handleClick = (e) => {
     const answers = Array.from(
       document.getElementsByClassName("answer-container__item")
@@ -42,7 +47,9 @@ export default function Questions() {
 
       element.disabled = true;
 
-      if (e.target.innerText === questions.quiz[index].correct_answer) {
+      let answerState = checkAnswer(element.innerText);
+
+      if (answerState) {
         e.target.classList.remove("animate__bounceInRight");
         e.target.classList.add("animate__heartBeat");
         e.target.style.backgroundColor = "#55A051";
@@ -59,6 +66,7 @@ export default function Questions() {
         endQuiz();
       } else {
         setIndex(index + 1);
+        console.log(combinedanswers);
       }
     }, 1500);
   };

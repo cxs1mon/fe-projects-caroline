@@ -1,6 +1,7 @@
 {
   "name": "quiz-app-react",
   "version": "0.1.0",
+  "main": "src/context/index.js",
   "private": true,
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
@@ -8,6 +9,7 @@
     "@testing-library/react": "^16.2.0",
     "@testing-library/user-event": "^13.5.0",
     "animate.css": "^4.1.1",
+    "jest": "^27.5.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.2.0",
@@ -17,8 +19,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "test": "jest"
   },
   "eslintConfig": {
     "extends": [
