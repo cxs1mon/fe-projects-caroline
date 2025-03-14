@@ -1,12 +1,41 @@
 import Question from "./Question.js"
-import {render} from "@testing-library/react"
+import {render, screen} from "@testing-library/react"
 import testData from "../../__testdata__/quizTestData.json"
+import { QuestionContext, IndexContext, CounterContext, TypeContext } from "../../context/QuizContext";
 
-describe(Question, () => {
+// Jest will automatically use the manual mock from __mocks__ directory
+jest.mock('react-router-dom');
+
+// Mock for the useShuffledAnswers hook
+jest.mock('../hooks/Shuffle', () => () => {
+  // Return a mock array of answers
+  return [[
+    ["Iron", "Potassium", "Sodium", "Calcium"],
+    ["Atlantic Ocean", "Indian Ocean", "Arctic Ocean", "Pacific Ocean"],
+    ["Leonardo da Vinci", "Vincent van Gogh", "Pablo Picasso", "Michelangelo"],
+    ["Jupiter", "Saturn", "Venus", "Mars"],
+    ["False", "True"]
+  ]];
+});
+
+describe('Question', () => {
   it('should render question correctly', () => {
-    const {getByTestId} = render(<Question/>);
-    const questionValue = getByTestId("question").textContent;
-    expect(questionValue).toMatch(testData.quiz[1].question)
+    // Wrap with all required contexts
+    const wrapper = ({ children }) => (
+      <QuestionContext.Provider value={testData}>
+        <IndexContext.Provider value={[0, jest.fn()]}>
+          <CounterContext.Provider value={[0, jest.fn()]}>
+            <TypeContext.Provider value="test">
+              {children}
+            </TypeContext.Provider>
+          </CounterContext.Provider>
+        </IndexContext.Provider>
+      </QuestionContext.Provider>
+    );
+    
+    render(<Question />, { wrapper });
+    const questionValue = screen.getByTestId("question").textContent;
+    expect(questionValue).toMatch(testData.quiz[0].question)
   })
 })
 
