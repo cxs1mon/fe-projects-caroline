@@ -1,11 +1,14 @@
-import questions from "../../__testdata__/quizTestData.json";
-import { IndexContext } from "../../context/QuizContext";
-/*
+import Question from "./Question.js"
+import {render} from "@testing-library/react"
+import testData from "../../__testdata__/quizTestData.json"
 
-const index = useContext(IndexContext);*/
-test("should render question correctly", () => {
-  expect(1).toEqual(1);
-});
+describe(Question, () => {
+  it('should render question correctly', () => {
+    const {getByTestId} = render(<Question/>);
+    const questionValue = getByTestId("question").textContent;
+    expect(questionValue).toMatch(testData.quiz[1].question)
+  })
+})
 
 /*
 it('should render question correctly')

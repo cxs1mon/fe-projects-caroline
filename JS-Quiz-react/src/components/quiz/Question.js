@@ -73,7 +73,7 @@ export default function Questions() {
 
   return (
     <div>
-      <p id="question" className="question">
+      <p id="question" data-testid="question" className="question">
         {questions.quiz[index].question}
       </p>
       <div className="answer-container">

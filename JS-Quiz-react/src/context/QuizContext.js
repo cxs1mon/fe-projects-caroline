@@ -45,20 +45,4 @@ const questions = {
   ],
 };
 
-export function QuizContextProvider({ children }) {
-  const [index, setIndex] = useState(0);
-  const [counter, setCounter] = useState(0);
-  const [type, setType] = useState("t/f");
 
-  return (
-    <QuestionContext.Provider value={questions}>
-      <IndexContext.Provider value={[index, setIndex]}>
-        <CounterContext.Provider value={[counter, setCounter]}>
-          <TypeContext.Provider value={{ type, setType }}>
-            {children}
-          </TypeContext.Provider>
-        </CounterContext.Provider>
-      </IndexContext.Provider>
-    </QuestionContext.Provider>
-  );
-}
