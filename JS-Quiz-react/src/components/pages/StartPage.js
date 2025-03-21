@@ -46,6 +46,7 @@ export default function StartPage() {
           <option value="both">Both</option>
         </select>
         <button
+          data-testid="startButton"
           type="submit"
           className="game-settings-form__submit"
           id="startButton"

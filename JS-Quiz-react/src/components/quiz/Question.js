@@ -30,12 +30,10 @@ export default function Questions() {
   } else {
   }
 
-  function checkAnswer(answer) {
-    console.log(answer);
-    return answer === questions.quiz[index].correct_answer;
-  }
-
   const handleClick = (e) => {
+
+    console.log("Button was clicked");
+
     const answers = Array.from(
       document.getElementsByClassName("answer-container__item")
     );
@@ -44,17 +42,16 @@ export default function Questions() {
       if (element.innerText === questions.quiz[index].correct_answer) {
         element.style.backgroundColor = "#ADC4AB";
       }
-
       element.disabled = true;
-
-      let answerState = checkAnswer(element.innerText);
-
-      if (answerState) {
+      
+      if (e.target.innerText === questions.quiz[index].correct_answer) {
+        console.log("Correct");
         e.target.classList.remove("animate__bounceInRight");
         e.target.classList.add("animate__heartBeat");
         e.target.style.backgroundColor = "#55A051";
         setCounter(counter + 1);
       } else {
+        console.log("False");
         e.target.style.backgroundColor = "#D11F2E";
         e.target.classList.remove("animate__bounceInRight");
         e.target.classList.add("animate__shakeX");
@@ -66,7 +63,6 @@ export default function Questions() {
         endQuiz();
       } else {
         setIndex(index + 1);
-        console.log(combinedanswers);
       }
     }, 1500);
   };
@@ -81,7 +77,7 @@ export default function Questions() {
           combinedanswers[index].map((answer) => (
             <button
               key={answer}
-              className="answer-container__item animate__animated animate__bounceInRight"
+              className="answer-container__item animate__animated animate__bounceInRight" data-testid="answer-button"
               onClick={handleClick}
             >
               {answer}

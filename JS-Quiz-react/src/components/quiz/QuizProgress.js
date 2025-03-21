@@ -9,12 +9,13 @@ export default function QuizProgress() {
 
   const totalQuestions = questions.quiz.length;
 
-  const progressWidth = (100 / totalQuestions) * (index +1 );
+  const progressWidth = (100 / totalQuestions) * (index + 1);
   return (
     <>
       <div id="progress--outer" className="progress--outer">
         <div
           id="progress--inner"
+          data-testid="progressbar--inner"
           className="progress--inner"
           style={{ width: `${progressWidth}%` }}
         />

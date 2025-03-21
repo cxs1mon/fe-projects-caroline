@@ -23,7 +23,7 @@ export default function EndPage() {
   < Header/>
   <h3>Quiz Complete!</h3>
   <CounterProgress/>
-  <button onClick={restartQuiz}>Restart Quiz</button>
+  <button onClick={restartQuiz} data-testid="restart">Restart Quiz</button>
   </>
   );
 }

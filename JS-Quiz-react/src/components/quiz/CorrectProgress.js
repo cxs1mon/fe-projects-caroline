@@ -14,7 +14,7 @@ export default function CounterProgress() {
 
   return (
     <>
-      <p style={{ width: `50%` }}>Correct: {percentage}%</p>
+      <p style={{ width: `50%` }} data-testid="correct">Correct: {percentage}%</p>
     </>
   );
 }
