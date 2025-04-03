@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+      "target": "es5",              // Ziel-JavaScript-Version, um breite Browser-Kompatibilität zu gewährleisten
+      "jsx": "react-jsx",           // JSX wird ohne den expliziten React-Import verwendet (ab React 17)
+      "moduleResolution": "node",   // Modulauflösung nach Node.js-Art
+      "esModuleInterop": true,
+      "lib": ["dom", "esnext"],
+      "resolveJsonModule": true,
+      "strict": true,
+      "noImplicitAny": true,
+      "noImplicitReturns": true
+      },
+    "include": [
+      "src/**/*"  // Stelle sicher, dass alle Dateien im src-Verzeichnis eingebunden sind
+    ],
+    "exclude": [
+      "node_modules",
+      "*.test.tsx" 
+    ]
+  }
+  

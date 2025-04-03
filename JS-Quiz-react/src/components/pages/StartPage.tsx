@@ -1,8 +1,9 @@
-import { React, useContext } from "react";
+import { useContext } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./StartPage.css";
 import { TypeContext } from "../../context/QuizContext";
-import Header from "../layout/Header.js";
+import Header from "../layout/Header";
 
 export default function StartPage() {
   const navigate = useNavigate();
@@ -10,13 +11,13 @@ export default function StartPage() {
     navigate("/quiz");
   };
 
-  const { type, setType } = useContext(TypeContext);
+  const [ type, setType ]= useContext(TypeContext);
 
-  const handleChange = (e) => {
+  const handleChange = (e:any) => {
     setType(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e:any) => {
     e.preventDefault();
     console.log("Form submitted with:", type);
     startQuiz();

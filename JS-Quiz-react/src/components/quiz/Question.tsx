@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   CounterContext,
@@ -30,7 +30,7 @@ export default function Questions() {
   } else {
   }
 
-  const handleClick = (e) => {
+  const handleClick = (e:any) => {
 
     console.log("Button was clicked");
 
@@ -39,10 +39,11 @@ export default function Questions() {
     );
 
     answers.map((element) => {
-      if (element.innerText === questions.quiz[index].correct_answer) {
-        element.style.backgroundColor = "#ADC4AB";
+      if ((element as HTMLElement).innerText === questions.quiz[index].correct_answer) {
+        (element as HTMLElement).style.backgroundColor = "#ADC4AB";
       }
-      element.disabled = true;
+      
+      (element as HTMLButtonElement).disabled = true;
       
       if (e.target.innerText === questions.quiz[index].correct_answer) {
         console.log("Correct");

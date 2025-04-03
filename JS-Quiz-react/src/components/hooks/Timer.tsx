@@ -16,10 +16,14 @@ export default function Timer() {
 
     const timer = setTimeout(() => {
       if (seconds <= 6) {
-        timerElement.classList.add("low-time")
-        timerElement.classList.remove("animate__pulse");
-        void timerElement.offsetWidth;
-        timerElement.classList.add("animate__pulse");
+        if (timerElement) {
+          timerElement.classList.add("low-time");
+          timerElement.classList.remove("animate__pulse");
+          void (timerElement as HTMLElement).offsetWidth;
+          timerElement.classList.add("animate__pulse");
+        }
+        throw new Error("timerElement was not found");
+        
       }
 
       if (seconds <= 0) {

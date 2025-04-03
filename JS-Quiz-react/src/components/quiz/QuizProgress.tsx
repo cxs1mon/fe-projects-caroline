@@ -5,11 +5,12 @@ import Timer from "../hooks/Timer";
 
 export default function QuizProgress() {
   const questions = useContext(QuestionContext);
-  const [index, setIndex] = useContext(IndexContext);
+  const indexContextValue = useContext(IndexContext);
+  const [index, setIndex] = indexContextValue;
 
-  const totalQuestions = questions.quiz.length;
+  const totalQuestions: number = questions.quiz.length;
 
-  const progressWidth = (100 / totalQuestions) * (index + 1);
+  const progressWidth:number = (100 / totalQuestions) * (index + 1);
   return (
     <>
       <div id="progress--outer" className="progress--outer">
@@ -21,8 +22,8 @@ export default function QuizProgress() {
         />
       </div>
       <div style={{ display: `flex` }}>
-        <PercentageProgress index={index} />
-        <Timer />
+        <PercentageProgress/>
+        <Timer/>
       </div>
     </>
   );

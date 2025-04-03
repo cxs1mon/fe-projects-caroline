@@ -1,6 +1,6 @@
-import { React, useState } from "react";
+import React, {useState } from "react";
 import { useNavigate } from "react-router-dom";
-import  Header from "./Header.js";
+import  Header from "../layout/Header";
 
 export default function StartPage() {
   const navigate = useNavigate();
@@ -14,7 +14,7 @@ export default function StartPage() {
     difficulty: "easy",
   });
 
-  const handleChange = (e) => {
+  const handleChange = (e:any) => {
     const { name, value } = e.target;
 
     // Update only the changed field in our state object
@@ -24,7 +24,7 @@ export default function StartPage() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e:any) => {
     e.preventDefault();
     console.log("Form submitted with:", formData);
     startQuiz();
