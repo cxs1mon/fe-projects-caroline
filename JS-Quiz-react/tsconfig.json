@@ -11,11 +11,12 @@
       "noImplicitReturns": true
       },
     "include": [
-      "src/**/*"  // Stelle sicher, dass alle Dateien im src-Verzeichnis eingebunden sind
+      "src/**/*",  // Stelle sicher, dass alle Dateien im src-Verzeichnis eingebunden sind
+      "src/setupTests.tsx"
     ],
     "exclude": [
-      "node_modules",
-      "*.test.tsx" 
-    ]
+      "node_modules"
+    ],
+    "module": "commonjs"
   }
   

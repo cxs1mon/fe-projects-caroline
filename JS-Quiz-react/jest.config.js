@@ -1,7 +1,8 @@
 module.exports = {
+  preset: "ts-jest",
   testEnvironment: "jsdom",
   transform: {
-    "^.+\\.(js|jsx)$": "babel-jest"
+    "^.+\\.(ts|tsx|js|jsx)$": "ts-jest"
   },
   moduleNameMapper: {
     "\\.(css|less|scss|sass)$": "identity-obj-proxy"
@@ -10,6 +11,6 @@ module.exports = {
     "/node_modules/(?!(@testing-library|animate.css)/)"
   ],
   setupFilesAfterEnv: [
-    "<rootDir>/src/setupTests.js"
+    "<rootDir>/src/setupTests.tsx"
   ]
-}; 
+};
